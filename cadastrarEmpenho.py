@@ -287,7 +287,7 @@ def enviar_emails_com_planilhas(destino):
     
     
 def main():
-    liquidacao = r'W:\B - TED\7 - AUTOMAÇÃO\Liquidação\COPIA TED Liquidação Geral - EXERCÍCIO 2025.xlsx'
+    liquidacao = r'W:\B - TED\7 - AUTOMAÇÃO\Liquidação\COPIA TED Liquidação Geral - EXERCÍCIO 2026.xlsx'
     despesas_liquidadas = r'W:\B - TED\7 - AUTOMAÇÃO\Cadastrar Empenho\Despesas liquidadas.xlsx'
     destino = r'W:\B - TED\7 - AUTOMAÇÃO\Cadastrar Empenho'
     copia_despesas_liquidadas = r'W:\B - TED\7 - AUTOMAÇÃO\Cadastrar Empenho\COPIA Despesas liquidadas.xlsx'
