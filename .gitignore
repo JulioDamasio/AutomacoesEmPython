@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Ambientes
+.venv/
+venv/
+
+# Arquivos locais / temporários
+*.lnk
+*.bat
+*.db
+*.7z
+*.pdf
+
+# Dados sensíveis
+usuarios.json
+usuarios.txt
+
+# Outros
+extensions/
