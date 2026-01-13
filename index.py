@@ -27,7 +27,7 @@ def generate_MacroFinalizarTed(): subprocess.Popen(["python", "macroBaixaSaldo.p
 def generate_auditoria(): subprocess.Popen(["python", "auditoria.py"])
 def generate_residencia(): subprocess.Popen(["python", "residencia.py"])
 def generate_QDD(): subprocess.Popen(["python", "qdd.py"])
-def generate_ministro(): subprocess.Popen(["python", "ministro.py"])
+def generate_RP(): subprocess.Popen(["python", "integrar_RP_TED.py"])
 
 # Configuração da interface
 root = tk.Tk()
@@ -85,7 +85,7 @@ botoes = [
     ("Auditoria", generate_auditoria),
     ("Residência", generate_residencia),
     ("QDD", generate_QDD),
-    ("Dados do Ministro", generate_ministro)
+    ("Integrar RP", generate_RP)
 ]
 
 # Criar os botões na grade e centralizar a tabela
