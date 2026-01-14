@@ -4,13 +4,16 @@ from datetime import datetime
 import os
 from openpyxl import load_workbook
 import os  # Importar o módulo 'os' para manipular caminhos de arquivos
+import re
 
 def extract_ted_number(observation):
-    if observation.startswith("TED"):
-        ted_number = observation.split("TED")[1].split()[0]
-        return ted_number
-    else:
+    if not isinstance(observation, str):
         return None
+
+    match = re.search(r'\bTED\s*:?\s*(\d+)', observation)
+    if match:
+        return match.group(1)
+    return None
 
 def process_nc_report(selected_dates, output_path):
     input_file_path = r"W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx"
@@ -20,7 +23,8 @@ def process_nc_report(selected_dates, output_path):
         print("Arquivo de NC Funcionando ou Teds da Administração Direta não encontrado na pasta.")
         return  # Retorna se o arquivo não for encontrado
     
-    df = pd.read_excel(input_file_path)
+    df = pd.read_excel(input_file_path, header=5)
+    
     df['Emissão - Dia'] = pd.to_datetime(df['Emissão - Dia'], format='%d/%m/%Y')
     
     df_selecionado = df[df['Emissão - Dia'].dt.date.isin(selected_dates)]
@@ -32,7 +36,6 @@ def process_nc_report(selected_dates, output_path):
     if not df_sem_ted.empty:
         teds_df = pd.read_excel(teds_file_path, header=None, engine='openpyxl')
         teds_df.columns = teds_df.iloc[0]  # Define a primeira linha como cabeçalho
-        teds_df = teds_df.iloc[1:]  # Exclui a primeira linha após definir o cabeçalho
 
         def fill_ted(row):
             siafi_value = str(row['NC - Transferência'])
@@ -54,7 +57,7 @@ def process_nc_report(selected_dates, output_path):
     )
     
     colunas_selecionadas = [
-        'Emissão - Dia', 'Emitente - UG', 'Favorecido Doc.', 'NC - Evento',
+        'Emissão - Dia', 'Emitente - UG', 'Favorecido Doc.', 'RO - Evento',
         'NC - PTRES', 'NC', 'NC - Plano Interno', 'NC - Natureza Despesa',
         'NC - Transferência', 'NC - Valor Linha', 'TED'
     ]
@@ -62,10 +65,15 @@ def process_nc_report(selected_dates, output_path):
     
     df_dia_anterior_selecionado['Emissão - Dia'] = df_dia_anterior_selecionado['Emissão - Dia'].dt.strftime('%d/%m/%Y')
     
-    # Realiza a formatação da coluna NC - Valor Linha
     df_dia_anterior_selecionado['NC - Valor Linha'] = df_dia_anterior_selecionado['NC - Valor Linha'].apply(
-        lambda value: "{:,.2f}".format(float(value)).replace(",", "_").replace(".", ",").replace("_", ".")
-        if pd.notnull(value)
+        lambda value: "{:,.2f}".format(
+            float(
+                str(value)
+                .replace('.', '')   # remove milhar
+                .replace(',', '.')  # troca decimal
+            )
+        ).replace(",", "_").replace(".", ",").replace("_", ".")
+        if pd.notnull(value) and str(value).strip() != ''
         else None
     )
     
