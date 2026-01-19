@@ -363,7 +363,7 @@ def preencher_colunas_siafi_vigencia_estado_atual(arquivo_principal, data_atual)
 
     # Salvar
     wb_principal.save(arquivo_principal)
-    print('Alterações salvas no arquivo principal.')
+    print('Alterações salvas no arquivo principal...')
 
 
 def preencher_coluna_vinculacao_pagamento(planilha_principal):
@@ -542,9 +542,6 @@ def processar_limite_saque(caminho_arquivo_original):
     # Carregar o arquivo Excel de cópia
     df = pd.read_excel(caminho_arquivo_copia)
 
-    # Remover a mesclagem de células
-    df = df.fillna(method='ffill')
-    
     # Excluir a última linha
     df = df.drop(df.index[-1])
 
