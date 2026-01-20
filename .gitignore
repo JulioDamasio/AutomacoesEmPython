@@ -15,6 +15,7 @@ venv/
 *.db
 *.7z
 *.pdf
+*.pem
 
 # Dados sensíveis
 usuarios.json
