@@ -21,5 +21,9 @@ venv/
 usuarios.json
 usuarios.txt
 
+# banco de dados
+*.duckdb
+*.duckdb.wal
+
 # Outros
 extensions/
