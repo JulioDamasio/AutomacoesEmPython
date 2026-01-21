@@ -19,7 +19,7 @@ def integrar_rp_ted():
 
     # Caminhos originais e modelo
     caminho_teds = os.path.join(pasta_base, "TEDs na UG intermediaria.xlsx")
-    caminho_relatorio = os.path.join(pasta_base, "RELATORIO ANALITICO-2025.xlsx")
+    caminho_relatorio = os.path.join(pasta_base, "RELATORIO ANALITICO.xlsx")
     caminho_modelo = os.path.join(pasta_base, "Modelo TEDs.xlsx")
 
     # Cria cópias para não alterar os originais
@@ -38,7 +38,7 @@ def integrar_rp_ted():
     # Diagnóstico de colunas (útil para conferir nomes)
     print("\n🧭 Colunas na planilha TEDs na UG intermediaria:")
     print(teds.columns.tolist())
-    print("\n🧭 Colunas na planilha RELATORIO ANALITICO-2025:")
+    print("\n🧭 Colunas na planilha RELATORIO ANALITICO:")
     print(relatorio.columns.tolist())
 
     # Ajuste de nomes (confirme se esses são os nomes exatos)

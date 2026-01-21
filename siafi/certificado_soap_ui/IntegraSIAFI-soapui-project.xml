@@ -1,0 +1,1235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="06e154c4-7986-42d4-b004-982156b7fa7e" activeEnvironment="Default" name="IntegraSIAFI" resourceRoot="" soapui-version="5.9.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5d9f84da-bbaa-4e6e-8c49-4789fcaee3d0" wsaVersion="NONE" name="ConsultarTabelasAdministrativasServiceSoapBinding" type="wsdl" bindingName="{http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas}ConsultarTabelasAdministrativasServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas?wsdl"><con:part><con:url>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ConsultarTabelasAdministrativasService" targetNamespace="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas" xmlns:tip="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador" xmlns:td="http://www.tesouro.gov.br/siafi/xsd/tabelas/tipodados" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/wsdl/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.tesouro.gov.br/siafi/xsd/tabelas/tipodados" schemaLocation="https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas?xsd=../comuns/NovoSIAFI-TAB-TiposDados.xsd"/>
+      <xsd:import namespace="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador" schemaLocation="https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas?xsd=../../bilhetador/NovoSIAFI-Bilhetador.xsd"/>
+      <!--Início Elementos do WSDL-->
+      <xsd:element name="cabecalhoSIAFI" type="tip:CabecalhoSIAFI"/>
+      <!--Início Elementos do Tabelas-->
+      <xsd:element name="tabConsultarUnidadeGestora" type="tns:TabConsultarUnidadeGestora"/>
+      <xsd:element name="tabConsultarUnidadeGestoraResponse" type="tns:TabConsultarUnidadeGestoraResponse"/>
+      <xsd:element name="tabConsultarSaldoContabil" type="tns:TabConsultarSaldoContabil"/>
+      <xsd:element name="tabConsultarSaldoContabilResponse" type="tns:TabConsultarSaldoContabilResponse"/>
+      <xsd:element name="tabIncluirRIP" type="tns:TabIncluirRIP"/>
+      <xsd:element name="tabAlterarRIP" type="tns:TabAlterarRIP"/>
+      <xsd:element name="paramManterRIPResponse" type="td:ParamManterRIPResponse"/>
+      <xsd:element name="tabEstabLimPlurianuais" type="tns:TabEstabLimPlurianuais"/>
+      <xsd:element name="tabEstabLimPlurianuaisResponse" type="tns:TabEstabLimPlurianuaisResponse"/>
+      <xsd:element name="tabAlterarChavesPix" type="tns:TabAlterarChavesPix"/>
+      <xsd:element name="tabAlterarChavesPixResponse" type="tns:TabAlterarChavesPixResponse"/>
+      <xsd:element name="tabConsultarChavesPix" type="tns:TabConsultarChavesPix"/>
+      <xsd:element name="tabConsultarChavesPixResponse" type="tns:TabConsultarChavesPixResponse"/>
+      <!--Fim Tabelas-->
+      <!--Fim Elementos do WSDL-->
+      <xsd:complexType name="TabConsultarUnidadeGestora">
+        <xsd:sequence>
+          <xsd:element name="tabConsultarUG" type="tns:TabConsultarUG"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xs:complexType name="TabConsultarUG">
+        <xs:sequence>
+          <xs:element name="ug" type="td:UG"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xsd:complexType name="TabConsultarUnidadeGestoraResponse">
+        <xsd:sequence>
+          <xsd:element name="ugInfo" type="td:UGInfo"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabConsultarSaldoContabil">
+        <xsd:sequence>
+          <xsd:element name="tabConsultarSaldo" type="td:TabConsultarSaldo"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabConsultarSaldoContabilResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="saldoContabilInfo" type="td:saldoContabilInfo"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabIncluirRIP">
+        <xsd:sequence>
+          <xsd:element name="paramManterRIP" type="td:ParamManterRIP"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabAlterarRIP">
+        <xsd:sequence>
+          <xsd:element name="paramManterRIP" type="td:ParamManterRIP"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabEstabLimPlurianuais">
+        <xsd:sequence>
+          <xsd:element name="paramEstabLimPlurianuais" type="td:ParamEstabLimPlurianuais"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabEstabLimPlurianuaisResponse">
+        <xsd:sequence>
+          <xsd:element name="paramEstabLimPlurianuaisResponse" type="td:ParamEstabLimPlurianuaisResponse"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabAlterarChavesPix">
+        <xsd:sequence>
+          <xsd:element name="paramAlterarChavesPix" type="td:ParamAlterarChavesPix"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabAlterarChavesPixResponse">
+        <xsd:sequence>
+          <xsd:element name="paramAlterarChavesPixResponse" type="td:ParamAlterarChavesPixResponse"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabConsultarChavesPix">
+        <xsd:sequence>
+          <xsd:element name="paramConsultarChavesPix" type="td:ParamConsultarChavesPix"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TabConsultarChavesPixResponse">
+        <xsd:sequence>
+          <xsd:element name="paramConsultarChavesPixResponse" type="td:ParamConsultarChavesPixResponse"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="tabConsultarSaldoContabilResponse">
+    <wsdl:part element="tns:tabConsultarSaldoContabilResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabAlterarRIP">
+    <wsdl:part element="tns:tabAlterarRIP" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabConsultarChavesPixResponse">
+    <wsdl:part element="tns:tabConsultarChavesPixResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabEstabLimPlurianuais">
+    <wsdl:part element="tns:tabEstabLimPlurianuais" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabConsultarUnidadeGestora">
+    <wsdl:part element="tns:tabConsultarUnidadeGestora" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabIncluirRIP">
+    <wsdl:part element="tns:tabIncluirRIP" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabEstabLimPlurianuaisResponse">
+    <wsdl:part element="tns:tabEstabLimPlurianuaisResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabAlterarChavesPixResponse">
+    <wsdl:part element="tns:tabAlterarChavesPixResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabConsultarUnidadeGestoraResponse">
+    <wsdl:part element="tns:tabConsultarUnidadeGestoraResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabAlterarChavesPix">
+    <wsdl:part element="tns:tabAlterarChavesPix" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabConsultarChavesPix">
+    <wsdl:part element="tns:tabConsultarChavesPix" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="paramManterRIPResponse">
+    <wsdl:part element="tns:paramManterRIPResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tabConsultarSaldoContabil">
+    <wsdl:part element="tns:tabConsultarSaldoContabil" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IConsultarTabelasAdministrativasService">
+    <wsdl:operation name="tabConsultarUnidadeGestora">
+      <wsdl:input message="tns:tabConsultarUnidadeGestora" name="tabConsultarUnidadeGestora"></wsdl:input>
+      <wsdl:output message="tns:tabConsultarUnidadeGestoraResponse" name="tabConsultarUnidadeGestoraResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabConsultarSaldoContabil">
+      <wsdl:input message="tns:tabConsultarSaldoContabil" name="tabConsultarSaldoContabil"></wsdl:input>
+      <wsdl:output message="tns:tabConsultarSaldoContabilResponse" name="tabConsultarSaldoContabilResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabIncluirRIP">
+      <wsdl:input message="tns:tabIncluirRIP" name="tabIncluirRIP"></wsdl:input>
+      <wsdl:output message="tns:paramManterRIPResponse" name="paramManterRIPResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabAlterarRIP">
+      <wsdl:input message="tns:tabAlterarRIP" name="tabAlterarRIP"></wsdl:input>
+      <wsdl:output message="tns:paramManterRIPResponse" name="paramManterRIPResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabEstabelecerLimitesPlurianuais">
+      <wsdl:input message="tns:tabEstabLimPlurianuais" name="tabEstabLimPlurianuais"></wsdl:input>
+      <wsdl:output message="tns:tabEstabLimPlurianuaisResponse" name="tabEstabLimPlurianuaisResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabAlterarChavesPix">
+      <wsdl:input message="tns:tabAlterarChavesPix" name="tabAlterarChavesPix"></wsdl:input>
+      <wsdl:output message="tns:tabAlterarChavesPixResponse" name="tabAlterarChavesPixResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabConsultarChavesPix">
+      <wsdl:input message="tns:tabConsultarChavesPix" name="tabConsultarChavesPix"></wsdl:input>
+      <wsdl:output message="tns:tabConsultarChavesPixResponse" name="tabConsultarChavesPixResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultarTabelasAdministrativasServiceSoapBinding" type="tns:IConsultarTabelasAdministrativasService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="tabConsultarUnidadeGestora">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="tabConsultarUnidadeGestora">
+        <soap:header message="tns:tabConsultarUnidadeGestora" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tabConsultarUnidadeGestoraResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabConsultarSaldoContabil">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="tabConsultarSaldoContabil">
+        <soap:header message="tns:tabConsultarSaldoContabil" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tabConsultarSaldoContabilResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabIncluirRIP">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="tabIncluirRIP">
+        <soap:header message="tns:tabIncluirRIP" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="paramManterRIPResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabAlterarRIP">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="tabAlterarRIP">
+        <soap:header message="tns:tabAlterarRIP" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="paramManterRIPResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabEstabelecerLimitesPlurianuais">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="tabEstabLimPlurianuais">
+        <soap:header message="tns:tabEstabLimPlurianuais" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tabEstabLimPlurianuaisResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabAlterarChavesPix">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="tabAlterarChavesPix">
+        <soap:header message="tns:tabAlterarChavesPix" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tabAlterarChavesPixResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tabConsultarChavesPix">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="tabConsultarChavesPix">
+        <soap:header message="tns:tabConsultarChavesPix" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tabConsultarChavesPixResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultarTabelasAdministrativasService">
+    <wsdl:port binding="tns:ConsultarTabelasAdministrativasServiceSoapBinding" name="ConsultarTabelasAdministrativasServicePort">
+      <soap:address location="https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas?xsd=../comuns/NovoSIAFI-TAB-TiposDados.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/tabelas/tipodados" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:td="http://www.tesouro.gov.br/siafi/xsd/tabelas/tipodados">
+  <!--Tipos Comuns-->
+  <xs:complexType name="Mensagem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codMsg" nillable="true" type="td:CodMsg"/>
+      <xs:element name="txtMsg" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Tabelas DTO-->
+  <xs:complexType name="UGInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cpfOrdenadorDespesas" nillable="true" type="td:CPF"/>
+      <xs:element minOccurs="0" name="cpfOrdenadorSub" nillable="true" type="td:CPF"/>
+      <xs:element minOccurs="0" name="cpfGestorFinanceiro" nillable="true" type="td:CPF"/>
+      <xs:element minOccurs="0" name="cpfGestorSub" nillable="true" type="td:CPF"/>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="td:UG"/>
+      <xs:element minOccurs="0" name="titulo" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="cnpj" nillable="true" type="td:CNPJ"/>
+      <xs:element minOccurs="0" name="txtIndrUGAtiva" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="codigoOrgao" nillable="true" type="td:Orgao"/>
+      <xs:element minOccurs="0" name="tituloOrgao" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="txtEsferaAdm" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="txtFuncao" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="codSIORG" nillable="true" type="td:SIORG"/>
+      <xs:element minOccurs="0" name="txtPais" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="siglaUF" nillable="true" type="td:SiglaUF"/>
+      <xs:element minOccurs="0" name="txtMunicpio" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="txtEndereco" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="cep" nillable="true" type="td:CEP"/>
+      <xs:element minOccurs="0" name="txtTelefone" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="txtEmail" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="codMoeda" nillable="true" type="td:CodigoMoeda"/>
+      <xs:element minOccurs="0" name="txtMoeda" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="tipoAtoCriacao" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="numAtoCriacao" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="td:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saldoContabilInfo">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="codUG" type="td:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="contaContabil" type="td:ContaContabil"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="contaCorrente" type="td:ContaCorrente"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrSaldo" type="td:Valor"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="tipoSaldo" type="td:TipoSaldo"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" type="td:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamManterRIP">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="codRIP" type="td:RIP"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="tituloRIP" type="td:Titulo"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codTipoRIP" type="td:TipologiaRIP"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtMotivo" type="td:Motivo"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="indrAtivo" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamManterRIPResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" type="td:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TabConsultarSaldo">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="codUG" type="td:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codUO" type="td:UO"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="contaContabil" type="td:ContaContabil"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="contaCorrente" type="td:ContaCorrente"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="mesRefSaldo" type="td:MesReferenciaSaldo"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="outrosParamSaldoContabil" type="td:OutrosParamSaldoContabil"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OutrosParamSaldoContabil">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="indrISF" type="td:ISF"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="esfera" type="td:Esfera"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codUOPT" type="td:UO"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codPT" type="td:ProgramaTrabalho"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="indrResultLeiPT" type="td:ResultadoLei"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="indrTipoCreditoPT" type="td:TipoCredito"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codPlanoOrcPT" type="td:PlanoOrcamentario"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codAutorEmendaPT" type="td:AutorEmenda"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codIdusoPT" type="td:Iduso"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codFonteRec" type="td:FonteRecurso"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codNatDesp" type="td:NaturezaDespesa"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codPtres" type="td:CodigoPTRES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamEstabLimPlurianuais">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoRequisicao" type="xs:integer"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="orgaoSOF" type="td:OrgaoOrcamentarioSOF"/>
+      <xs:element maxOccurs="12" minOccurs="1" name="itemMovLimite" type="td:ItemMovLimite"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="observacao" type="td:Observacao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemMovLimite">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoMovLim" type="xs:integer"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="inscricao1" type="td:Inscricao1"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrLimite" type="td:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamEstabLimPlurianuaisResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="numNSGerada" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" type="td:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamAlterarChavesPix">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="credor" type="td:CredorChavePix"/>
+      <xs:element maxOccurs="20" minOccurs="0" name="chavePix" type="td:ChavePix"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamAlterarChavesPixResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" type="td:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TabAlterarChavesPix">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="paramAlterarChavesPix" type="td:ParamAlterarChavesPix"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamConsultarChavesPix">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="credor" type="td:CredorChavePix"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamConsultarChavesPixResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="credor" type="td:CredorChavePix"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="chavePix" type="td:ChavePix"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" type="td:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChavePix">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoChave" type="td:TipoChavePix"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="chave" type="td:CodigoChavePix"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Tipos Simples-->
+  <xs:simpleType name="AutorEmenda">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="12"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodMsg">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ContaContabil">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{9}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ContaCorrente">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CPF">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{11}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EfetivacaoOp">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCESSO"/>
+      <xs:enumeration value="FALHA"/>
+      <xs:enumeration value="INDEFINIDO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Esfera">
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FonteRecurso">
+    <xs:restriction base="xs:string">
+      <xs:length value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Iduso">
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Inscricao1">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="N"/>
+      <xs:enumeration value="F"/>
+      <xs:enumeration value="P"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MesReferenciaSaldo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="000"/>
+      <xs:enumeration value="JAN"/>
+      <xs:enumeration value="FEV"/>
+      <xs:enumeration value="MAR"/>
+      <xs:enumeration value="ABR"/>
+      <xs:enumeration value="MAI"/>
+      <xs:enumeration value="JUN"/>
+      <xs:enumeration value="JUL"/>
+      <xs:enumeration value="AGO"/>
+      <xs:enumeration value="SET"/>
+      <xs:enumeration value="OUT"/>
+      <xs:enumeration value="NOV"/>
+      <xs:enumeration value="DEZ"/>
+      <xs:enumeration value="013"/>
+      <xs:enumeration value="014"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Motivo">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NaturezaDespesa">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="6"/>
+      <xs:maxLength value="8"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Observacao">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OrgaoOrcamentarioSOF">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,5}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PlanoOrcamentario">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProgramaTrabalho">
+    <xs:restriction base="xs:string">
+      <xs:length value="17"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResultadoLei">
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RIP">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{13}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoCredito">
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoSaldo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="C"/>
+      <xs:enumeration value="D"/>
+      <xs:enumeration value=" "/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipologiaRIP">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="0?[1-3]{1}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Titulo">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UG">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UO">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,5}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Valor">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="17"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Orgao">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,5}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CNPJ">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="14"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SIORG">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodigoMoeda">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CEP">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="8"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SiglaUF">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoChavePix">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CPF"/>
+      <xs:enumeration value="CNPJ"/>
+      <xs:enumeration value="EMAIL"/>
+      <xs:enumeration value="PHONE"/>
+      <xs:enumeration value="EVP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodigoChavePix">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="77"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodigoPTRES">
+    <xs:restriction base="xs:int">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CredorChavePix">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="11"/>
+      <xs:maxLength value="14"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas?xsd=../../bilhetador/NovoSIAFI-Bilhetador.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tdsbil="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples" xmlns:bil="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador">
+  <xs:import namespace="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples" schemaLocation="https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas?xsd=../../bilhetador/NovoSIAFI-Restrictions.xsd"/>
+  <!--Tipos Complexos-->
+  <xs:complexType name="EfetivacaoOperacao">
+    <xs:sequence>
+      <xs:element name="resultado" type="tdsbil:CodTipoEfetivacaoOperacao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RequisicaoRepetidaResposta">
+    <xs:sequence>
+      <xs:element name="nonceOriginal" type="xs:string"/>
+      <xs:element name="mensagem" type="xs:string"/>
+      <xs:element name="dataProcessamento" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Bilhetador">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="nonce" type="tdsbil:NONCE"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CabecalhoSIAFI">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="nomeSistemaSIAFI" nillable="false" type="tdsbil:NomeSistemaExec"/>
+      <xs:element minOccurs="0" name="ug" nillable="true" type="tdsbil:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="bilhetador" type="bil:Bilhetador"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas?xsd=../../bilhetador/NovoSIAFI-Restrictions.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tdsbil="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples">
+  <xs:simpleType name="NONCE">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UG">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NomeSistemaExec">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodTipoEfetivacaoOperacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCESSO"/>
+      <xs:enumeration value="INDEFINIDO"/>
+      <xs:enumeration value="FALHA"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://w115322:8088/mockConsultarTabelasAdministrativasServiceSoapBinding</con:endpoint><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint></con:endpoints><con:operation id="6484badb-971d-44c7-b3df-7168cde2e05d" isOneWay="false" action="" name="tabAlterarChavesPix" bindingOperationName="tabAlterarChavesPix" type="Request-Response" outputName="tabAlterarChavesPixResponse" inputName="tabAlterarChavesPix" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5ff74586-0297-4fc2-bae1-278f0c536a65" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabAlterarChavesPix>\r
+         <paramAlterarChavesPix>\r
+            <credor>?</credor>\r
+            <!--0 to 20 repetitions:-->\r
+            <chavePix>\r
+               <tipoChave>?</tipoChave>\r
+               <chave>?</chave>\r
+            </chavePix>\r
+         </paramAlterarChavesPix>\r
+      </con:tabAlterarChavesPix>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabAlterarChavesPix"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4d349fd8-bbed-460c-84ba-98501df8c465" isOneWay="false" action="" name="tabAlterarRIP" bindingOperationName="tabAlterarRIP" type="Request-Response" outputName="paramManterRIPResponse" inputName="tabAlterarRIP" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4482a724-40bc-4dd6-883d-435b2a7c4bd2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabAlterarRIP>\r
+         <paramManterRIP>\r
+            <codRIP>?</codRIP>\r
+            <tituloRIP>?</tituloRIP>\r
+            <codTipoRIP>?</codTipoRIP>\r
+            <txtMotivo>?</txtMotivo>\r
+            <indrAtivo>?</indrAtivo>\r
+         </paramManterRIP>\r
+      </con:tabAlterarRIP>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabAlterarRIP"/></con:call></con:operation><con:operation id="8e49cea2-ccfb-4fe6-a613-cc79b462bdc7" isOneWay="false" action="" name="tabConsultarChavesPix" bindingOperationName="tabConsultarChavesPix" type="Request-Response" outputName="tabConsultarChavesPixResponse" inputName="tabConsultarChavesPix" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="caa01fc9-5158-4093-89be-e95bb2e1c317" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabConsultarChavesPix>\r
+         <paramConsultarChavesPix>\r
+            <credor>?</credor>\r
+         </paramConsultarChavesPix>\r
+      </con:tabConsultarChavesPix>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabConsultarChavesPix"/></con:call></con:operation><con:operation id="80c627d7-9282-47bf-b4d4-17fd42c9fe64" isOneWay="false" action="" name="tabConsultarSaldoContabil" bindingOperationName="tabConsultarSaldoContabil" type="Request-Response" outputName="tabConsultarSaldoContabilResponse" inputName="tabConsultarSaldoContabil" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="11eff732-fc83-417c-b38c-9116f0f6724b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabConsultarSaldoContabil>\r
+         <tabConsultarSaldo>\r
+            <!--Optional:-->\r
+            <codUG>?</codUG>\r
+            <!--Optional:-->\r
+            <codUO>?</codUO>\r
+            <contaContabil>?</contaContabil>\r
+            <!--Optional:-->\r
+            <contaCorrente>?</contaCorrente>\r
+            <!--Optional:-->\r
+            <mesRefSaldo>?</mesRefSaldo>\r
+            <!--Optional:-->\r
+            <outrosParamSaldoContabil>\r
+               <!--Optional:-->\r
+               <indrISF>?</indrISF>\r
+               <!--Optional:-->\r
+               <esfera>?</esfera>\r
+               <!--Optional:-->\r
+               <codUOPT>?</codUOPT>\r
+               <!--Optional:-->\r
+               <codPT>?</codPT>\r
+               <!--Optional:-->\r
+               <indrResultLeiPT>?</indrResultLeiPT>\r
+               <!--Optional:-->\r
+               <indrTipoCreditoPT>?</indrTipoCreditoPT>\r
+               <!--Optional:-->\r
+               <codPlanoOrcPT>?</codPlanoOrcPT>\r
+               <!--Optional:-->\r
+               <codAutorEmendaPT>?</codAutorEmendaPT>\r
+               <!--Optional:-->\r
+               <codIdusoPT>?</codIdusoPT>\r
+               <!--Optional:-->\r
+               <codFonteRec>?</codFonteRec>\r
+               <!--Optional:-->\r
+               <codNatDesp>?</codNatDesp>\r
+               <!--Optional:-->\r
+               <codPtres>?</codPtres>\r
+            </outrosParamSaldoContabil>\r
+         </tabConsultarSaldo>\r
+      </con:tabConsultarSaldoContabil>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabConsultarSaldoContabil"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="de5c8104-ea49-4999-acc8-1d548d34f8b7" isOneWay="false" action="" name="tabConsultarUnidadeGestora" bindingOperationName="tabConsultarUnidadeGestora" type="Request-Response" outputName="tabConsultarUnidadeGestoraResponse" inputName="tabConsultarUnidadeGestora" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9d3f172c-b699-42db-b555-bfa35f7c9ac8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabConsultarUnidadeGestora>\r
+         <tabConsultarUG>\r
+            <ug>?</ug>\r
+         </tabConsultarUG>\r
+      </con:tabConsultarUnidadeGestora>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabConsultarUnidadeGestora"/></con:call></con:operation><con:operation id="ab65d1a3-97ab-4849-8022-71907d40060a" isOneWay="false" action="" name="tabEstabelecerLimitesPlurianuais" bindingOperationName="tabEstabelecerLimitesPlurianuais" type="Request-Response" outputName="tabEstabLimPlurianuaisResponse" inputName="tabEstabLimPlurianuais" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f9b7aba6-7630-4ddd-9a69-3af5cc22d8f0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabEstabLimPlurianuais>\r
+         <paramEstabLimPlurianuais>\r
+            <tipoRequisicao>?</tipoRequisicao>\r
+            <orgaoSOF>?</orgaoSOF>\r
+            <!--1 to 12 repetitions:-->\r
+            <itemMovLimite>\r
+               <tipoMovLim>?</tipoMovLim>\r
+               <inscricao1>?</inscricao1>\r
+               <vlrLimite>?</vlrLimite>\r
+            </itemMovLimite>\r
+            <observacao>?</observacao>\r
+         </paramEstabLimPlurianuais>\r
+      </con:tabEstabLimPlurianuais>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabEstabLimPlurianuais"/></con:call></con:operation><con:operation id="796b5875-efe9-498b-ab1e-9cd9e3e93ab6" isOneWay="false" action="" name="tabIncluirRIP" bindingOperationName="tabIncluirRIP" type="Request-Response" outputName="paramManterRIPResponse" inputName="tabIncluirRIP" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fbdda801-311d-4efb-a67d-1d4a13a8d698" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabIncluirRIP>\r
+         <paramManterRIP>\r
+            <codRIP>?</codRIP>\r
+            <tituloRIP>?</tituloRIP>\r
+            <codTipoRIP>?</codTipoRIP>\r
+            <txtMotivo>?</txtMotivo>\r
+            <indrAtivo>?</indrAtivo>\r
+         </paramManterRIP>\r
+      </con:tabIncluirRIP>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabIncluirRIP"/></con:call></con:operation></con:interface><con:testSuite id="f07c3370-1f1f-409e-98de-fa61ee741dac" name="ConsultarTabelasAdministrativasServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="5d6b2321-38b5-48e0-ad1c-98dc7de7bf0a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tabAlterarChavesPix TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="7d71b5c4-d684-4368-9c3a-8177f72248a9" name="tabAlterarChavesPix"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConsultarTabelasAdministrativasServiceSoapBinding</con:interface><con:operation>tabAlterarChavesPix</con:operation><con:request name="tabAlterarChavesPix" id="1341c62f-01d5-4ea6-9f4a-95ea83972a65"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabAlterarChavesPix>\r
+         <paramAlterarChavesPix>\r
+            <credor>?</credor>\r
+            <!--0 to 20 repetitions:-->\r
+            <chavePix>\r
+               <tipoChave>?</tipoChave>\r
+               <chave>?</chave>\r
+            </chavePix>\r
+         </paramAlterarChavesPix>\r
+      </con:tabAlterarChavesPix>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabAlterarChavesPix"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="c666c24e-2d5f-40ba-bb30-b32788a3775b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tabAlterarRIP TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="159eaff9-170e-4e72-9973-200fc1e12082" name="tabAlterarRIP"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConsultarTabelasAdministrativasServiceSoapBinding</con:interface><con:operation>tabAlterarRIP</con:operation><con:request name="tabAlterarRIP" id="ca77fe23-71b1-4b62-aee9-6666be37c041"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabAlterarRIP>\r
+         <paramManterRIP>\r
+            <codRIP>?</codRIP>\r
+            <tituloRIP>?</tituloRIP>\r
+            <codTipoRIP>?</codTipoRIP>\r
+            <txtMotivo>?</txtMotivo>\r
+            <indrAtivo>?</indrAtivo>\r
+         </paramManterRIP>\r
+      </con:tabAlterarRIP>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabAlterarRIP"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a92f9af4-47ce-4938-84a9-12631a0b5713" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tabConsultarChavesPix TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="7906879e-d6f5-41af-b940-d33bdb07f77f" name="tabConsultarChavesPix"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConsultarTabelasAdministrativasServiceSoapBinding</con:interface><con:operation>tabConsultarChavesPix</con:operation><con:request name="tabConsultarChavesPix" id="5066026a-0aa4-42b0-9f53-48c8de65a9d3"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabConsultarChavesPix>\r
+         <paramConsultarChavesPix>\r
+            <credor>?</credor>\r
+         </paramConsultarChavesPix>\r
+      </con:tabConsultarChavesPix>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabConsultarChavesPix"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ca9ee6b0-4569-4f70-8875-cb3ebc65fd12" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tabConsultarSaldoContabil TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="af336134-158a-461d-b93b-55bd6fceec2f" name="tabConsultarSaldoContabil"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConsultarTabelasAdministrativasServiceSoapBinding</con:interface><con:operation>tabConsultarSaldoContabil</con:operation><con:request name="tabConsultarSaldoContabil" id="1a22b657-f096-46f3-b9ed-0783490933c1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabConsultarSaldoContabil>\r
+         <tabConsultarSaldo>\r
+            <!--Optional:-->\r
+            <codUG>?</codUG>\r
+            <!--Optional:-->\r
+            <codUO>?</codUO>\r
+            <contaContabil>?</contaContabil>\r
+            <!--Optional:-->\r
+            <contaCorrente>?</contaCorrente>\r
+            <!--Optional:-->\r
+            <mesRefSaldo>?</mesRefSaldo>\r
+            <!--Optional:-->\r
+            <outrosParamSaldoContabil>\r
+               <!--Optional:-->\r
+               <indrISF>?</indrISF>\r
+               <!--Optional:-->\r
+               <esfera>?</esfera>\r
+               <!--Optional:-->\r
+               <codUOPT>?</codUOPT>\r
+               <!--Optional:-->\r
+               <codPT>?</codPT>\r
+               <!--Optional:-->\r
+               <indrResultLeiPT>?</indrResultLeiPT>\r
+               <!--Optional:-->\r
+               <indrTipoCreditoPT>?</indrTipoCreditoPT>\r
+               <!--Optional:-->\r
+               <codPlanoOrcPT>?</codPlanoOrcPT>\r
+               <!--Optional:-->\r
+               <codAutorEmendaPT>?</codAutorEmendaPT>\r
+               <!--Optional:-->\r
+               <codIdusoPT>?</codIdusoPT>\r
+               <!--Optional:-->\r
+               <codFonteRec>?</codFonteRec>\r
+               <!--Optional:-->\r
+               <codNatDesp>?</codNatDesp>\r
+               <!--Optional:-->\r
+               <codPtres>?</codPtres>\r
+            </outrosParamSaldoContabil>\r
+         </tabConsultarSaldo>\r
+      </con:tabConsultarSaldoContabil>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabConsultarSaldoContabil"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="8ba24a2e-ec6f-417a-9cd5-a9b021d9c2d9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tabConsultarUnidadeGestora TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c3f1ce4a-6434-4500-9393-5b0403251452" name="tabConsultarUnidadeGestora"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConsultarTabelasAdministrativasServiceSoapBinding</con:interface><con:operation>tabConsultarUnidadeGestora</con:operation><con:request name="tabConsultarUnidadeGestora" id="e0ee4e26-376d-4dbb-9bfe-25bc62ea12b0"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabConsultarUnidadeGestora>\r
+         <tabConsultarUG>\r
+            <ug>?</ug>\r
+         </tabConsultarUG>\r
+      </con:tabConsultarUnidadeGestora>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabConsultarUnidadeGestora"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="82b50584-6fd7-4a55-95fe-ef38b95566be" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tabEstabelecerLimitesPlurianuais TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="105724dd-367e-4f3e-be22-237d0b7ea84f" name="tabEstabelecerLimitesPlurianuais"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConsultarTabelasAdministrativasServiceSoapBinding</con:interface><con:operation>tabEstabelecerLimitesPlurianuais</con:operation><con:request name="tabEstabelecerLimitesPlurianuais" id="9c75749e-9912-4fd8-aeb8-aeaf3f6e2913"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabEstabLimPlurianuais>\r
+         <paramEstabLimPlurianuais>\r
+            <tipoRequisicao>?</tipoRequisicao>\r
+            <orgaoSOF>?</orgaoSOF>\r
+            <!--1 to 12 repetitions:-->\r
+            <itemMovLimite>\r
+               <tipoMovLim>?</tipoMovLim>\r
+               <inscricao1>?</inscricao1>\r
+               <vlrLimite>?</vlrLimite>\r
+            </itemMovLimite>\r
+            <observacao>?</observacao>\r
+         </paramEstabLimPlurianuais>\r
+      </con:tabEstabLimPlurianuais>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabEstabLimPlurianuais"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b5cc90d1-f56b-4d8c-bc51-c7d5cdb00e34" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tabIncluirRIP TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="1008ba82-7214-4dfc-ba9f-677771a2a2b4" name="tabIncluirRIP"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConsultarTabelasAdministrativasServiceSoapBinding</con:interface><con:operation>tabIncluirRIP</con:operation><con:request name="tabIncluirRIP" id="c8191e07-3452-4644-b8d8-30c148103869"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/tabelas/consultarTabelasAdministrativas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">\r
+   <soapenv:Header>\r
+      <con:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </con:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <con:tabIncluirRIP>\r
+         <paramManterRIP>\r
+            <codRIP>?</codRIP>\r
+            <tituloRIP>?</tituloRIP>\r
+            <codTipoRIP>?</codTipoRIP>\r
+            <txtMotivo>?</txtMotivo>\r
+            <indrAtivo>?</indrAtivo>\r
+         </paramManterRIP>\r
+      </con:tabIncluirRIP>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabIncluirRIP"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="18cc2392-bb10-4908-95cc-de1968650d7f" port="8088" path="/mockConsultarTabelasAdministrativasServiceSoapBinding" host="w115322" name="ConsultarTabelasAdministrativasServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="tabAlterarChavesPix" id="c91bcf5f-027d-49d2-968e-b994e3169e67" interface="ConsultarTabelasAdministrativasServiceSoapBinding" operation="tabAlterarChavesPix"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="3b441f82-511b-4777-a358-9bba3862de8f" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:tabAlterarChavesPixResponse>
+         <paramAlterarChavesPixResponse>
+            <!--Zero or more repetitions:-->
+            <mensagem>
+               <!--Optional:-->
+               <codMsg>?</codMsg>
+               <txtMsg>?</txtMsg>
+            </mensagem>
+         </paramAlterarChavesPixResponse>
+      </con:tabAlterarChavesPixResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabAlterarChavesPixResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="tabAlterarRIP" id="b25b350e-9c73-4d80-a996-c48f0a1129d2" interface="ConsultarTabelasAdministrativasServiceSoapBinding" operation="tabAlterarRIP"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="84901042-589e-46e1-8b7a-69185b556e36" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:paramManterRIPResponse>
+         <!--Zero or more repetitions:-->
+         <mensagem>
+            <!--Optional:-->
+            <codMsg>?</codMsg>
+            <txtMsg>?</txtMsg>
+         </mensagem>
+      </con:paramManterRIPResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/paramManterRIPResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="tabConsultarChavesPix" id="b7cc86f9-5b68-4295-ad89-b6886773c790" interface="ConsultarTabelasAdministrativasServiceSoapBinding" operation="tabConsultarChavesPix"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="cee2a9df-8db3-4c2e-ae0c-ff57188328aa" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:tabConsultarChavesPixResponse>
+         <paramConsultarChavesPixResponse>
+            <!--Optional:-->
+            <credor>?</credor>
+            <!--Zero or more repetitions:-->
+            <chavePix>
+               <tipoChave>?</tipoChave>
+               <chave>?</chave>
+            </chavePix>
+            <!--Zero or more repetitions:-->
+            <mensagem>
+               <!--Optional:-->
+               <codMsg>?</codMsg>
+               <txtMsg>?</txtMsg>
+            </mensagem>
+         </paramConsultarChavesPixResponse>
+      </con:tabConsultarChavesPixResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabConsultarChavesPixResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="tabConsultarSaldoContabil" id="9b712b91-e6fe-4633-80bc-8dfc2d8fc38a" interface="ConsultarTabelasAdministrativasServiceSoapBinding" operation="tabConsultarSaldoContabil"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="7d94e003-f8b4-4c0d-8cf0-393a869622d5" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:tabConsultarSaldoContabilResponse>
+         <!--1 or more repetitions:-->
+         <saldoContabilInfo>
+            <!--Optional:-->
+            <codUG>?</codUG>
+            <!--Optional:-->
+            <contaContabil>?</contaContabil>
+            <!--Optional:-->
+            <contaCorrente>?</contaCorrente>
+            <!--Optional:-->
+            <vlrSaldo>?</vlrSaldo>
+            <!--Optional:-->
+            <tipoSaldo>?</tipoSaldo>
+            <!--Zero or more repetitions:-->
+            <mensagem>
+               <!--Optional:-->
+               <codMsg>?</codMsg>
+               <txtMsg>?</txtMsg>
+            </mensagem>
+         </saldoContabilInfo>
+      </con:tabConsultarSaldoContabilResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabConsultarSaldoContabilResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="tabConsultarUnidadeGestora" id="858022c9-af0e-487f-9c0f-6bb6d752eb12" interface="ConsultarTabelasAdministrativasServiceSoapBinding" operation="tabConsultarUnidadeGestora"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="55772d2e-89cf-4c47-96aa-0aa4db5cf9be" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:tabConsultarUnidadeGestoraResponse>
+         <ugInfo>
+            <!--Optional:-->
+            <cpfOrdenadorDespesas>?</cpfOrdenadorDespesas>
+            <!--Optional:-->
+            <cpfOrdenadorSub>?</cpfOrdenadorSub>
+            <!--Optional:-->
+            <cpfGestorFinanceiro>?</cpfGestorFinanceiro>
+            <!--Optional:-->
+            <cpfGestorSub>?</cpfGestorSub>
+            <!--Optional:-->
+            <codigo>?</codigo>
+            <!--Optional:-->
+            <titulo>?</titulo>
+            <!--Optional:-->
+            <cnpj>?</cnpj>
+            <!--Optional:-->
+            <txtIndrUGAtiva>?</txtIndrUGAtiva>
+            <!--Optional:-->
+            <codigoOrgao>?</codigoOrgao>
+            <!--Optional:-->
+            <tituloOrgao>?</tituloOrgao>
+            <!--Optional:-->
+            <txtEsferaAdm>?</txtEsferaAdm>
+            <!--Optional:-->
+            <txtFuncao>?</txtFuncao>
+            <!--Optional:-->
+            <codSIORG>?</codSIORG>
+            <!--Optional:-->
+            <txtPais>?</txtPais>
+            <!--Optional:-->
+            <siglaUF>?</siglaUF>
+            <!--Optional:-->
+            <txtMunicpio>?</txtMunicpio>
+            <!--Optional:-->
+            <txtEndereco>?</txtEndereco>
+            <!--Optional:-->
+            <cep>?</cep>
+            <!--Optional:-->
+            <txtTelefone>?</txtTelefone>
+            <!--Optional:-->
+            <txtEmail>?</txtEmail>
+            <!--Optional:-->
+            <codMoeda>?</codMoeda>
+            <!--Optional:-->
+            <txtMoeda>?</txtMoeda>
+            <!--Optional:-->
+            <tipoAtoCriacao>?</tipoAtoCriacao>
+            <!--Optional:-->
+            <numAtoCriacao>?</numAtoCriacao>
+            <!--Zero or more repetitions:-->
+            <mensagem>
+               <!--Optional:-->
+               <codMsg>?</codMsg>
+               <txtMsg>?</txtMsg>
+            </mensagem>
+         </ugInfo>
+      </con:tabConsultarUnidadeGestoraResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabConsultarUnidadeGestoraResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="tabEstabelecerLimitesPlurianuais" id="0f1321be-31dd-422a-9883-c804fbbca64c" interface="ConsultarTabelasAdministrativasServiceSoapBinding" operation="tabEstabelecerLimitesPlurianuais"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="51bbd666-ca22-44a2-be5e-e2e191ef1efb" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:tabEstabLimPlurianuaisResponse>
+         <paramEstabLimPlurianuaisResponse>
+            <!--Optional:-->
+            <numNSGerada>?</numNSGerada>
+            <!--Zero or more repetitions:-->
+            <mensagem>
+               <!--Optional:-->
+               <codMsg>?</codMsg>
+               <txtMsg>?</txtMsg>
+            </mensagem>
+         </paramEstabLimPlurianuaisResponse>
+      </con:tabEstabLimPlurianuaisResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/tabEstabLimPlurianuaisResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="tabIncluirRIP" id="cf10c5ad-9362-422c-a6ab-403fa104d1a8" interface="ConsultarTabelasAdministrativasServiceSoapBinding" operation="tabIncluirRIP"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="9b31a333-2e0a-43c6-80b4-f17bdb53b9c5" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:paramManterRIPResponse>
+         <!--Zero or more repetitions:-->
+         <mensagem>
+            <!--Optional:-->
+            <codMsg>?</codMsg>
+            <txtMsg>?</txtMsg>
+         </mensagem>
+      </con:paramManterRIPResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/tabelas/consultarTabelasAdministrativas/IConsultarTabelasAdministrativasService/paramManterRIPResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
