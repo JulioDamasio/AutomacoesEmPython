@@ -1,0 +1,1290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9e332e02-a165-457f-a254-762b48cdacca" activeEnvironment="Default" name="Programação Financeira" resourceRoot="" soapui-version="5.9.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="94db82bf-eb50-4162-9283-7d3fcde0526d" wsaVersion="NONE" name="ManterProgramacaoFinanceiraServiceSoapBinding" type="wsdl" bindingName="{http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira}ManterProgramacaoFinanceiraServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?wsdl"><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ManterProgramacaoFinanceiraService" targetNamespace="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:pf="http://www.tesouro.gov.br/siafi/xsd/pf" xmlns:ns1="http://schemas.xmlsoap.org/wsdl/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bil="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador">
+      <xsd:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../programacaoFinanceira/NovoSIAFI-PF-ProgramacaoFinanceira.xsd"/>
+      <!--<xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodados"
+				schemaLocation="../comuns/NovoSIAFI-PF-TiposDados-Comum.xsd" />-->
+      <xs:import namespace="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../../bilhetador/NovoSIAFI-Bilhetador.xsd"/>
+      <!--Elementos-->
+      <xsd:element name="cabecalhoSIAFI" type="bil:CabecalhoSIAFI"/>
+      <xs:element name="pfTransferirRecursoFinanceiro" nillable="true" type="pf:PFTransferirRecursoFinanceiro"/>
+      <xs:element name="pfCancelarLiberacaoTransferenciaRecursoFinanceiro" nillable="true" type="pf:PFCancelarLiberacaoTransferenciaRecursoFinanceiro"/>
+      <xs:element name="pfDevolverRecursoFinanceiro" nillable="true" type="pf:PFDevolverRecursoFinanceiro"/>
+      <xs:element name="pfCadastrarProgramacaoFinanceiraResponse" nillable="true" type="pf:PFCadastrarProgramacaoFinanceiraResponse"/>
+      <xs:element name="pfDetalharProgramacaoFinanceira" nillable="true" type="pf:PFDetalharProgramacaoFinanceira"/>
+      <xs:element name="pfDetalharProgramacaoFinanceiraResponse" nillable="true" type="pf:PFDetalharProgramacaoFinanceiraResponse"/>
+      <xs:element name="pfConsultarProgramacaoFinanceira" nillable="true" type="pf:PFConsultarProgramacaoFinanceira"/>
+      <xs:element name="pfConsultarProgramacaoFinanceiraResponse" nillable="true" type="pf:PFConsultarProgramacaoFinanceiraResponse"/>
+      <!--@Deprecated-->
+      <xs:element name="pFCadastrarPF" nillable="true" type="pf:PFCadastrarPF"/>
+      <!--@Deprecated-->
+      <xs:element name="pFCadastrarPFResponse" nillable="true" type="pf:PFCadastrarPFResponse"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="pfCadastrarProgramacaoFinanceiraResponse">
+    <wsdl:part element="tns:pfCadastrarProgramacaoFinanceiraResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pfDetalharProgramacaoFinanceiraResponse">
+    <wsdl:part element="tns:pfDetalharProgramacaoFinanceiraResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pfConsultarProgramacaoFinanceira">
+    <wsdl:part element="tns:pfConsultarProgramacaoFinanceira" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pfDetalharProgramacaoFinanceira">
+    <wsdl:part element="tns:pfDetalharProgramacaoFinanceira" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pfTransferirRecursoFinanceiro">
+    <wsdl:part element="tns:pfTransferirRecursoFinanceiro" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pfCadastrarPFResponse">
+    <wsdl:part element="tns:pFCadastrarPFResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pfCancelarLiberacaoTransferenciaRecursoFinanceiro">
+    <wsdl:part element="tns:pfCancelarLiberacaoTransferenciaRecursoFinanceiro" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pfConsultarProgramacaoFinanceiraResponse">
+    <wsdl:part element="tns:pfConsultarProgramacaoFinanceiraResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pfCadastrarPF">
+    <wsdl:part element="tns:pFCadastrarPF" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pfDevolverRecursoFinanceiro">
+    <wsdl:part element="tns:pfDevolverRecursoFinanceiro" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IManterProgramacaoFinanceiraService">
+    <wsdl:operation name="pfCadastrarPF">
+      <wsdl:input message="tns:pfCadastrarPF" name="pfCadastrarPF"></wsdl:input>
+      <wsdl:output message="tns:pfCadastrarPFResponse" name="pfCadastrarPFResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfTransferirRecursoFinanceiro">
+      <wsdl:input message="tns:pfTransferirRecursoFinanceiro" name="pfTRF"></wsdl:input>
+      <wsdl:output message="tns:pfCadastrarProgramacaoFinanceiraResponse" name="pfTRFResposta"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfCancelarLiberacaoTransferenciaRecursoFinanceiro">
+      <wsdl:input message="tns:pfCancelarLiberacaoTransferenciaRecursoFinanceiro" name="pfCLT"></wsdl:input>
+      <wsdl:output message="tns:pfCadastrarProgramacaoFinanceiraResponse" name="pfCLTResposta"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfDevolverRecursoFinanceiro">
+      <wsdl:input message="tns:pfDevolverRecursoFinanceiro" name="pfDRF"></wsdl:input>
+      <wsdl:output message="tns:pfCadastrarProgramacaoFinanceiraResponse" name="pfDRFResposta"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfDetalharProgramacaoFinanceira">
+      <wsdl:input message="tns:pfDetalharProgramacaoFinanceira" name="pfDetalharPF"></wsdl:input>
+      <wsdl:output message="tns:pfDetalharProgramacaoFinanceiraResponse" name="pfDetalharPFResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfConsultarProgramacaoFinanceira">
+      <wsdl:input message="tns:pfConsultarProgramacaoFinanceira" name="pfConsultarPF"></wsdl:input>
+      <wsdl:output message="tns:pfConsultarProgramacaoFinanceiraResponse" name="pfConsultarPFResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ManterProgramacaoFinanceiraServiceSoapBinding" type="tns:IManterProgramacaoFinanceiraService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="pfCadastrarPF">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pfCadastrarPF">
+        <soap:header message="tns:pfCadastrarPF" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pfCadastrarPFResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfTransferirRecursoFinanceiro">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pfTRF">
+        <soap:header message="tns:pfTransferirRecursoFinanceiro" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pfTRFResposta">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfCancelarLiberacaoTransferenciaRecursoFinanceiro">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pfCLT">
+        <soap:header message="tns:pfCancelarLiberacaoTransferenciaRecursoFinanceiro" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pfCLTResposta">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfDevolverRecursoFinanceiro">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pfDRF">
+        <soap:header message="tns:pfDevolverRecursoFinanceiro" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pfDRFResposta">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfDetalharProgramacaoFinanceira">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pfDetalharPF">
+        <soap:header message="tns:pfDetalharProgramacaoFinanceira" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pfDetalharPFResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pfConsultarProgramacaoFinanceira">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pfConsultarPF">
+        <soap:header message="tns:pfConsultarProgramacaoFinanceira" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pfConsultarPFResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManterProgramacaoFinanceiraService">
+    <wsdl:port binding="tns:ManterProgramacaoFinanceiraServiceSoapBinding" name="ManterProgramacaoFinanceiraServicePort">
+      <soap:address location="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../programacaoFinanceira/NovoSIAFI-PF-ProgramacaoFinanceira.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/pf" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples" xmlns:tdcon="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosconsulta" xmlns:td="http://www.tesouro.gov.br/siafi/xsd/pf/tipodados">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodados" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-TiposDados-Comum.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosconsulta" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-TiposDados-Consulta.xsd"/>
+  <!--@Deprecated-->
+  <xs:complexType name="PFCadastrarPF">
+    <xs:sequence>
+      <xs:element name="pfDTO" type="td:PFDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--@Deprecated-->
+  <xs:complexType name="PFCadastrarPFResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pfRespostaDTO" type="td:PFRespostaDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Operação: Cadastrar Programação Financeira Genérica-->
+  <xs:complexType name="PFCadastrarProgramacaoFinanceira">
+    <xs:complexContent>
+      <xs:extension base="td:PFCadastrarProgramacaoFinanceira">
+        <xs:sequence>
+          <xs:element name="programacaoFinanceira" type="td:PFGenerica"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Operação: Transferir de Recurso Financeiro-->
+  <xs:complexType name="PFTransferirRecursoFinanceiro">
+    <xs:complexContent>
+      <xs:extension base="td:PFCadastrarProgramacaoFinanceira">
+        <xs:sequence>
+          <xs:element name="programacaoFinanceira" type="td:PFTransferencia"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Operação: Cancelar Liberação ou Transferência de Recurso Financeiro-->
+  <xs:complexType name="PFCancelarLiberacaoTransferenciaRecursoFinanceiro">
+    <xs:complexContent>
+      <xs:extension base="td:PFCadastrarProgramacaoFinanceira">
+        <xs:sequence>
+          <xs:element name="programacaoFinanceira" type="td:PFCancelamentoLibTran"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Operação: Devolução de Recurso Financeiro-->
+  <xs:complexType name="PFDevolverRecursoFinanceiro">
+    <xs:complexContent>
+      <xs:extension base="td:PFCadastrarProgramacaoFinanceira">
+        <xs:sequence>
+          <xs:element name="programacaoFinanceira" type="td:PFDevolucao"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PFCadastrarProgramacaoFinanceiraResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="documentoGerado" type="td:DocumentoSiafi"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" type="td:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Operação: Detalhar Programação Financeira-->
+  <xs:complexType name="PFDetalharProgramacaoFinanceira">
+    <xs:complexContent>
+      <xs:extension base="td:PFDetalharProgramacaoFinanceiraEntrada"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PFDetalharProgramacaoFinanceiraResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="programacaoFinanceira" type="tdcon:PFDetalharProgramacaoFinanceiraResposta"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" type="td:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Operação: Consultar Programação Financeira-->
+  <xs:complexType name="PFConsultarProgramacaoFinanceira">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="pfConsultarProgramacaoFinanceiraEntrada" type="tdcon:PFConsultarProgramacaoFinanceiraEntrada"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PFConsultarProgramacaoFinanceiraResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pfConsultarProgramacaoFinanceiraResposta" type="tdcon:PFConsultarProgramacaoFinanceiraResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-Restrictions.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples">
+  <!--Tipos Simples-->
+  <xs:simpleType name="Ano">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Classificacao">
+    <xs:restriction base="xs:int">
+      <xs:pattern value="[0-9]{1,9}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodCtgoGasto">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9]{1}"/>
+      <xs:whiteSpace value="collapse"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodFontRecur">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9]{10,10}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodRecurso">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{1}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodMsg">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodSit">
+    <xs:restriction base="xs:string">
+      <xs:length value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodVinc">
+    <xs:restriction base="xs:int">
+      <xs:pattern value="[0-9]{1,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Descricao">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="234"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Inscricao">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="28"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NomeSistSIAFI">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NONCE">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumDocSIAFI">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoPF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TRF"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UG">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Valor">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="17"/>
+      <xs:fractionDigits value="2"/>
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValorIncZero">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="17"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Memorando">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="4000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodMes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="JAN"/>
+      <xs:enumeration value="FEV"/>
+      <xs:enumeration value="MAR"/>
+      <xs:enumeration value="ABR"/>
+      <xs:enumeration value="MAI"/>
+      <xs:enumeration value="JUN"/>
+      <xs:enumeration value="JUL"/>
+      <xs:enumeration value="AGO"/>
+      <xs:enumeration value="SET"/>
+      <xs:enumeration value="OUT"/>
+      <xs:enumeration value="NOV"/>
+      <xs:enumeration value="DEZ"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodItemPF">
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:simpleType name="Acao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="APROVACAO_DIRETA"/>
+      <xs:enumeration value="APROVACAO"/>
+      <xs:enumeration value="APROVACAO_REMANEJAMENTO"/>
+      <xs:enumeration value="CANCELAMENTO_APROVACAO_DIRETA"/>
+      <xs:enumeration value="CANCELAMENTO_APROVACAO"/>
+      <xs:enumeration value="CANCELAMENTO_LIBERACAO_E_TRANSFERENCIA"/>
+      <xs:enumeration value="CANCELAMENTO_SOLICITACAO"/>
+      <xs:enumeration value="CANCELAMENTO_REMANEJAMENTO"/>
+      <xs:enumeration value="DEVOLVER_RECURSO_FINANCEIRO"/>
+      <xs:enumeration value="LIBERACAO_RECURSO_FINANCEIRO"/>
+      <xs:enumeration value="REMANEJAMENTO_DIRETO"/>
+      <xs:enumeration value="SOLICITACAO"/>
+      <xs:enumeration value="SOLICITACAO_REMANEJAMENTO"/>
+      <xs:enumeration value="TRANSFERENCIA"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Date">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LimiteSaque">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-TiposDados-Comum.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodados" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples" xmlns:tdabs="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosabstratos" xmlns:td="http://www.tesouro.gov.br/siafi/xsd/pf/tipodados">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosabstratos" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-TiposDados-Abstract.xsd"/>
+  <xs:complexType name="Mensagem">
+    <xs:complexContent>
+      <xs:extension base="tdabs:Mensagem"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DocumentoSiafi">
+    <xs:complexContent>
+      <xs:extension base="tdabs:DocumentoSiafi"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="PFCadastrarProgramacaoFinanceira">
+    <xs:complexContent>
+      <xs:extension base="tdabs:PFCadastrarProgramacaoFinanceira"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Programação Financeira Genérica-->
+  <xs:complexType name="PFGenerica">
+    <xs:complexContent>
+      <xs:extension base="tdabs:ProgramacaoFinanceira">
+        <xs:choice>
+          <xs:element name="CLT" type="td:CLT"/>
+          <xs:element name="TRF" type="td:TRF"/>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Programação Financeira do tipo TRANRECFIN-->
+  <xs:complexType name="PFTransferencia">
+    <xs:complexContent>
+      <xs:extension base="tdabs:ProgramacaoFinanceira">
+        <xs:sequence>
+          <xs:element name="TRF" type="td:TRF"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Programação Financeira do tipo CANLIBTRAN-->
+  <xs:complexType name="PFCancelamentoLibTran">
+    <xs:complexContent>
+      <xs:extension base="tdabs:ProgramacaoFinanceira">
+        <xs:sequence>
+          <xs:element name="CLT" type="td:CLT"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Programação Financeira do tipo DEVRECFIN-->
+  <xs:complexType name="PFDevolucao">
+    <xs:complexContent>
+      <xs:extension base="tdabs:ProgramacaoFinanceira">
+        <xs:sequence>
+          <xs:element name="DRF" type="td:DRF"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--DETALHAR PF ENTRADA-->
+  <xs:complexType name="PFDetalharProgramacaoFinanceiraEntrada">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="codUgEmit" type="tds:UG"/>
+      <xs:element minOccurs="1" name="ano" type="tds:Ano"/>
+      <xs:element minOccurs="1" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--TRANRECFIN-->
+  <xs:complexType name="TRF">
+    <xs:complexContent>
+      <xs:extension base="tdabs:AbstractPF">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemTRF" type="td:ItemTRF"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--CANLIBTRAN-->
+  <xs:complexType name="CLT">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+      <xs:element minOccurs="1" name="numeroDocumentoCancelado" type="tds:NumDocSIAFI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--DEVRECFIN-->
+  <xs:complexType name="DRF">
+    <xs:complexContent>
+      <xs:extension base="tdabs:AbstractPFDocOrigem">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemDRF" type="td:ItemDRF"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Definição de Item DEVRECFIN-->
+  <xs:complexType name="ItemDRF">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="vlr" type="tds:Valor"/>
+      <xs:element minOccurs="1" name="codigoItemPFOrigem" type="tds:CodItemPF"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Definição de Item TRANRECFIN-->
+  <xs:complexType name="ItemTRF">
+    <xs:complexContent>
+      <xs:extension base="tdabs:AbstractItemPF">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtInscrA" type="tds:Inscricao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtInscrB" type="tds:Inscricao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtInscrC" type="tds:Inscricao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtInscrD" type="tds:Inscricao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtClassA" type="tds:Classificacao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtClassB" type="tds:Classificacao"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Os seguintes elementos estão com status 'Deprecated' e serão removidos 
+		na próxima release-->
+  <xs:complexType name="PFDTO">
+    <xs:complexContent>
+      <xs:extension base="tdabs:PFDTO"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PFRespostaDTO">
+    <xs:complexContent>
+      <xs:extension base="tdabs:PFRespostaDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" type="td:Mensagem"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-TiposDados-Abstract.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosabstratos" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples" xmlns:td="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosabstratos">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-Restrictions.xsd"/>
+  <!--Mensagem de retorno-->
+  <xs:complexType abstract="true" name="Mensagem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codMsg" nillable="true" type="tds:CodMsg"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtMsg" type="tds:Memorando"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Documento Siafi-->
+  <xs:complexType abstract="true" name="DocumentoSiafi">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="ano" type="tds:Ano"/>
+      <xs:element minOccurs="1" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+      <xs:element minOccurs="1" name="codUgEmit" type="tds:UG"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Definição abstrata de Programação Financeira-->
+  <xs:complexType abstract="true" name="ProgramacaoFinanceira">
+    <xs:sequence>
+      <xs:element name="codUgEmit" type="tds:UG"/>
+      <xs:element name="observacao" type="tds:Descricao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Definição abstrata da Operação Cadastrar Programação Financeira-->
+  <xs:complexType abstract="true" name="PFCadastrarProgramacaoFinanceira">
+    <!--Empty-->
+  </xs:complexType>
+  <!--Definição abstrata de PF-->
+  <xs:complexType abstract="true" name="AbstractPF">
+    <xs:sequence>
+      <xs:element name="codUgFavorecida" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Definição abstrata de Item PF-->
+  <xs:complexType abstract="true" name="AbstractItemPF">
+    <xs:sequence>
+      <xs:element name="vlr" type="tds:Valor"/>
+      <xs:element name="codVinc" type="tds:CodVinc"/>
+      <xs:element name="codFontRecur" type="tds:CodFontRecur"/>
+      <xs:element name="codCtgoGasto" type="tds:CodCtgoGasto"/>
+      <xs:element name="codSit" type="tds:CodSit"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--DEVRECFIN-->
+  <xs:complexType abstract="true" name="AbstractPFDocOrigem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+      <xs:element minOccurs="1" name="documentoOrigem" type="td:DocumentoOrigem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--DOCUMENTO ORIGEM-->
+  <xs:complexType name="DocumentoOrigem">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="codUgDocumento" type="tds:UG"/>
+      <xs:element minOccurs="1" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Definição de Célula Financeira-->
+  <xs:complexType name="CelulaFinanceira">
+    <xs:sequence>
+      <xs:element name="codVinc" type="tds:CodVinc"/>
+      <xs:element name="codFontRecur" type="tds:CodFontRecur"/>
+      <xs:element name="codCtgoGasto" type="tds:CodCtgoGasto"/>
+      <xs:element name="codRecurso" type="tds:CodRecurso"/>
+      <xs:element name="codSit" type="tds:CodSit"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Os seguintes elementos estão com status 'Deprecated' e serão removidos 
+		na próxima release-->
+  <!--Programacao Financeira DTO-->
+  <xs:complexType name="PFDTO">
+    <xs:sequence>
+      <xs:element name="tipoPF" type="tds:TipoPF"/>
+      <xs:element name="observacao" type="tds:Descricao"/>
+      <xs:element name="codUgEmit" type="tds:UG"/>
+      <xs:element name="codUgFavorecida" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="limiteDeSaque" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="listaItemPFDTO" type="td:ItemPFDTO"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Item Programacao Financeira DTO-->
+  <xs:complexType name="ItemPFDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataProcessamento" type="xs:date"/>
+      <xs:element name="vlr" type="tds:Valor"/>
+      <xs:element name="codVinc" type="tds:CodVinc"/>
+      <xs:element name="codFontRecur" type="tds:CodFontRecur"/>
+      <xs:element name="codCtgoGasto" type="tds:CodCtgoGasto"/>
+      <xs:element name="codSit" type="tds:CodSit"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtInscrA" type="tds:Inscricao"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtInscrB" type="tds:Inscricao"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtInscrC" type="tds:Inscricao"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtInscrD" type="tds:Inscricao"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtClassA" type="tds:Classificacao"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtClassB" type="tds:Classificacao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--DTO de Resposta PF-->
+  <xs:complexType name="PFRespostaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ano" type="tds:Ano"/>
+      <xs:element minOccurs="0" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+      <xs:element minOccurs="0" name="codUgEmit" type="tds:UG"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-TiposDados-Consulta.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosconsulta" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples" xmlns:tdcon="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosconsulta" xmlns:tdabs="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosabstratos">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf/tipodadosabstratos" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../comuns/NovoSIAFI-PF-TiposDados-Abstract.xsd"/>
+  <!--DETALHAR PF RESPOSTA-->
+  <xs:complexType name="PFDetalharProgramacaoFinanceiraResposta">
+    <xs:complexContent>
+      <xs:extension base="tdabs:ProgramacaoFinanceira">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="dataEmissao" type="xs:date"/>
+          <xs:choice>
+            <xs:element name="PSL" type="tdcon:PSL"/>
+            <xs:element name="PAP" type="tdcon:PAP"/>
+            <xs:element name="PAD" type="tdcon:PAD"/>
+            <xs:element name="PLB" type="tdcon:PLB"/>
+            <xs:element name="PCS" type="tdcon:PCS"/>
+            <xs:element name="PCA" type="tdcon:PCA"/>
+            <xs:element name="PCD" type="tdcon:PCD"/>
+            <xs:element name="CLT" type="tdcon:CLT"/>
+            <xs:element name="TRF" type="tdcon:TRF"/>
+            <xs:element name="DRF" type="tdcon:DRF"/>
+            <xs:element name="PSR" type="tdcon:PSR"/>
+            <xs:element name="PCR" type="tdcon:PCR"/>
+            <xs:element name="PAR" type="tdcon:PAR"/>
+            <xs:element name="PRD" type="tdcon:PRD"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--TRANRECFIN-->
+  <xs:complexType name="TRF">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemTRF" type="tdcon:ItemTRF"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--CANLIBTRAN-->
+  <xs:complexType name="CLT">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemCLT" type="tdcon:ItemCLT"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--SOLRECFIN-->
+  <xs:complexType name="PSL">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPSL" type="tdcon:ItemPSL"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--APRSOL-->
+  <xs:complexType name="PAP">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPAP" type="tdcon:ItemPAP"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--APRDIR-->
+  <xs:complexType name="PAD">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPAD" type="tdcon:ItemPAD"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--LIBRECFIN-->
+  <xs:complexType name="PLB">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPLB" type="tdcon:ItemPLB"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--CANSOL-->
+  <xs:complexType name="PCS">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPCS" type="tdcon:ItemPCS"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--CANAPRSOL-->
+  <xs:complexType name="PCA">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPCA" type="tdcon:ItemPCA"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--CANAPRDIR-->
+  <xs:complexType name="PCD">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPCD" type="tdcon:ItemPCD"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--DEVRECFIN-->
+  <xs:complexType name="DRF">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemDRF" type="tdcon:ItemDRF"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--SOLREM-->
+  <xs:complexType name="PSR">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPSR" type="tdcon:ItemPSR"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--CANSOLREM-->
+  <xs:complexType name="PCR">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPCR" type="tdcon:ItemPCR"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--APRSOLREM-->
+  <xs:complexType name="PAR">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPAR" type="tdcon:ItemPAR"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--REMDIR-->
+  <xs:complexType name="PRD">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="itemPRD" type="tdcon:ItemPRD"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="AbstractItemPFConsulta">
+    <xs:complexContent>
+      <xs:extension base="tdabs:AbstractItemPF">
+        <xs:sequence>
+          <xs:element name="codRecurso" type="tds:CodRecurso"/>
+          <xs:element name="codigoItemPF" type="tds:CodItemPF"/>
+          <xs:element name="saldoItemPF" type="tds:ValorIncZero"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="AbstractItemComCamposVariaveisPFConsulta">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemPFConsulta">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtInscrA" type="tds:Inscricao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtInscrB" type="tds:Inscricao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtInscrC" type="tds:Inscricao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtInscrD" type="tds:Inscricao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtClassA" type="tds:Classificacao"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="txtClassB" type="tds:Classificacao"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item TRANRECFIN-->
+  <xs:complexType name="ItemTRF">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemComCamposVariaveisPFConsulta"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item CANLIBTRAN-->
+  <xs:complexType name="ItemCLT">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemComCamposVariaveisPFConsulta">
+        <xs:sequence>
+          <xs:element name="mesProgramacao" type="tds:CodMes"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item SOLRECFIN-->
+  <xs:complexType name="ItemPSL">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemPFConsulta">
+        <xs:sequence>
+          <xs:element name="dataPrevista" type="xs:date"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item APRSOL-->
+  <xs:complexType name="ItemPAP">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemPFConsulta">
+        <xs:sequence>
+          <xs:element name="dataLiberacao" type="xs:date"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item LIBRECFIN-->
+  <xs:complexType name="ItemPLB">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemPFConsulta">
+        <xs:sequence>
+          <xs:element name="dataLiberacao" type="xs:date"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item APRDIR-->
+  <xs:complexType name="ItemPAD">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemPFConsulta">
+        <xs:sequence>
+          <xs:element name="dataPrevista" type="xs:date"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item CANSOL-->
+  <xs:complexType name="ItemPCS">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemPFConsulta">
+        <xs:sequence>
+          <xs:element name="dataLiberacao" type="xs:date"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item CANAPRSOL-->
+  <xs:complexType name="ItemPCA">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemPFConsulta">
+        <xs:sequence>
+          <xs:element name="dataLiberacao" type="xs:date"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item CANAPRDIR-->
+  <xs:complexType name="ItemPCD">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemPFConsulta">
+        <xs:sequence>
+          <xs:element name="dataLiberacao" type="xs:date"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item DEVRECFIN-->
+  <xs:complexType name="ItemDRF">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemComCamposVariaveisPFConsulta">
+        <xs:sequence>
+          <xs:element name="mesProgramacao" type="tds:CodMes"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item Remanejamento Abstrato-->
+  <xs:complexType abstract="true" name="AbstractItemRemanejamentoPF">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemPFConsulta">
+        <xs:sequence>
+          <xs:element name="indrLimiteSaque" type="xs:boolean"/>
+          <xs:element name="mesLibTran" type="tds:CodMes"/>
+          <xs:element name="celulaDe" type="tdabs:CelulaFinanceira"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Definição abstrata de PF-->
+  <xs:complexType abstract="true" name="AbstractPFConsulta">
+    <xs:sequence>
+      <xs:element name="codUgFavorecida" type="tds:UG"/>
+      <xs:element minOccurs="0" name="ano" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Item SOLREM-->
+  <xs:complexType name="ItemPSR">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemRemanejamentoPF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item CANSOLREM-->
+  <xs:complexType name="ItemPCR">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemRemanejamentoPF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item APRSOLREM-->
+  <xs:complexType name="ItemPAR">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemRemanejamentoPF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--Item REMDIR-->
+  <xs:complexType name="ItemPRD">
+    <xs:complexContent>
+      <xs:extension base="tdcon:AbstractItemRemanejamentoPF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Mensagem">
+    <xs:complexContent>
+      <xs:extension base="tdabs:Mensagem"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--CONPROFIN - Consultar Programação Financeira-->
+  <xs:complexType name="PFConsultarProgramacaoFinanceiraEntrada">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="acao" type="tds:Acao"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dataEmissaoDe" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dataEmissaoAte" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="mesProgramacao" type="tds:CodMes"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="codUgEmit" type="tds:UG"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="codUgFavorecida" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="indrLimiteSaque" type="tds:LimiteSaque"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codSit" type="tds:CodSit"/>
+      <xs:element maxOccurs="3" minOccurs="0" name="codCtgoGasto" type="tds:CodCtgoGasto"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codFontRecur" type="tds:CodFontRecur"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codVinc" type="tds:CodVinc"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PFConsultarProgramacaoFinanceiraResposta">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="programacaoFinanceira" type="tdcon:PFDadosProgramacaoFinanceira"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="tdcon:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PFDadosProgramacaoFinanceira">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="acao" type="tds:Acao"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codUgEmit" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codUgFavorecida" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="mesProgramacao" type="tds:CodMes"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoProgramacao" type="tds:Ano"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="dadosItensProgFinan" type="tdcon:PFDadosItensProgramacaoFinanceira"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="dadosItensRemanejamento" type="tdcon:PFDadosItensRemanejamento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PFDadosItensProgramacaoFinanceira">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="celula" type="tdabs:CelulaFinanceira"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="valor" type="tds:Valor"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="saldo" type="tds:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PFDadosItensRemanejamento">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="indrLimiteSaque" type="tds:LimiteSaque"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numeroDocumento" type="tds:NumDocSIAFI"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="celulaDe" type="tdabs:CelulaFinanceira"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="celulaPara" type="tdabs:CelulaFinanceira"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="valor" type="tds:Valor"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="saldo" type="tds:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../../bilhetador/NovoSIAFI-Bilhetador.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tdsbil="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples" xmlns:bil="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador">
+  <xs:import namespace="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../../bilhetador/NovoSIAFI-Restrictions.xsd"/>
+  <!--Tipos Complexos-->
+  <xs:complexType name="EfetivacaoOperacao">
+    <xs:sequence>
+      <xs:element name="resultado" type="tdsbil:CodTipoEfetivacaoOperacao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RequisicaoRepetidaResposta">
+    <xs:sequence>
+      <xs:element name="nonceOriginal" type="xs:string"/>
+      <xs:element name="mensagem" type="xs:string"/>
+      <xs:element name="dataProcessamento" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Bilhetador">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="nonce" type="tdsbil:NONCE"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CabecalhoSIAFI">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="nomeSistemaSIAFI" nillable="false" type="tdsbil:NomeSistemaExec"/>
+      <xs:element minOccurs="0" name="ug" nillable="true" type="tdsbil:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="bilhetador" type="bil:Bilhetador"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../../bilhetador/NovoSIAFI-Restrictions.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tdsbil="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples">
+  <xs:simpleType name="NONCE">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UG">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NomeSistemaExec">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodTipoEfetivacaoOperacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCESSO"/>
+      <xs:enumeration value="INDEFINIDO"/>
+      <xs:enumeration value="FALHA"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint></con:endpoints><con:operation id="f879efcf-3693-45fd-b84c-8df7a9c50b97" isOneWay="false" action="" name="pfCadastrarPF" bindingOperationName="pfCadastrarPF" type="Request-Response" outputName="pfCadastrarPFResponse" inputName="pfCadastrarPF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7b7e224d-a69b-4e0e-a308-be44f449f06b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:pFCadastrarPF>\r
+         <pfDTO>\r
+            <tipoPF>?</tipoPF>\r
+            <observacao>?</observacao>\r
+            <codUgEmit>?</codUgEmit>\r
+            <codUgFavorecida>?</codUgFavorecida>\r
+            <!--Optional:-->\r
+            <limiteDeSaque>?</limiteDeSaque>\r
+            <!--1 or more repetitions:-->\r
+            <listaItemPFDTO>\r
+               <!--Optional:-->\r
+               <dataProcessamento>?</dataProcessamento>\r
+               <vlr>?</vlr>\r
+               <codVinc>?</codVinc>\r
+               <codFontRecur>?</codFontRecur>\r
+               <codCtgoGasto>?</codCtgoGasto>\r
+               <codSit>?</codSit>\r
+               <!--Optional:-->\r
+               <txtInscrA>?</txtInscrA>\r
+               <!--Optional:-->\r
+               <txtInscrB>?</txtInscrB>\r
+               <!--Optional:-->\r
+               <txtInscrC>?</txtInscrC>\r
+               <!--Optional:-->\r
+               <txtInscrD>?</txtInscrD>\r
+               <!--Optional:-->\r
+               <txtClassA>?</txtClassA>\r
+               <!--Optional:-->\r
+               <txtClassB>?</txtClassB>\r
+            </listaItemPFDTO>\r
+            <!--Optional:-->\r
+            <numeroDocumento>?</numeroDocumento>\r
+         </pfDTO>\r
+      </man:pFCadastrarPF>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfCadastrarPF"/></con:call></con:operation><con:operation id="276fcb7e-5fef-46a7-b7a2-cd3216d6f1b9" isOneWay="false" action="" name="pfCancelarLiberacaoTransferenciaRecursoFinanceiro" bindingOperationName="pfCancelarLiberacaoTransferenciaRecursoFinanceiro" type="Request-Response" outputName="pfCLTResposta" inputName="pfCLT" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e65eede1-81f8-496a-be14-5e4bf0f2cab7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:pfCancelarLiberacaoTransferenciaRecursoFinanceiro>\r
+         <programacaoFinanceira>\r
+            <codUgEmit>?</codUgEmit>\r
+            <observacao>?</observacao>\r
+            <CLT>\r
+               <!--Optional:-->\r
+               <numeroDocumento>?</numeroDocumento>\r
+               <numeroDocumentoCancelado>?</numeroDocumentoCancelado>\r
+            </CLT>\r
+         </programacaoFinanceira>\r
+      </man:pfCancelarLiberacaoTransferenciaRecursoFinanceiro>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfCLT"/></con:call></con:operation><con:operation id="04b5435d-2e99-47e0-abb0-dd3d544af2bc" isOneWay="false" action="" name="pfConsultarProgramacaoFinanceira" bindingOperationName="pfConsultarProgramacaoFinanceira" type="Request-Response" outputName="pfConsultarPFResponse" inputName="pfConsultarPF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="78a2bf5b-865a-40fa-bd27-c0e93eaef192" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:pfConsultarProgramacaoFinanceira>\r
+         <pfConsultarProgramacaoFinanceiraEntrada>\r
+            <acao>?</acao>\r
+            <dataEmissaoDe>?</dataEmissaoDe>\r
+            <dataEmissaoAte>?</dataEmissaoAte>\r
+            <!--Optional:-->\r
+            <mesProgramacao>?</mesProgramacao>\r
+            <!--Zero or more repetitions:-->\r
+            <codUgEmit>?</codUgEmit>\r
+            <!--Zero or more repetitions:-->\r
+            <codUgFavorecida>?</codUgFavorecida>\r
+            <!--Optional:-->\r
+            <indrLimiteSaque>?</indrLimiteSaque>\r
+            <!--Optional:-->\r
+            <codSit>?</codSit>\r
+            <!--0 to 3 repetitions:-->\r
+            <codCtgoGasto>?</codCtgoGasto>\r
+            <!--Optional:-->\r
+            <codFontRecur>?</codFontRecur>\r
+            <!--Optional:-->\r
+            <codVinc>?</codVinc>\r
+         </pfConsultarProgramacaoFinanceiraEntrada>\r
+      </man:pfConsultarProgramacaoFinanceira>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfConsultarPF"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f8b67f15-825e-4497-9460-c963c6bd6b90" isOneWay="false" action="" name="pfDetalharProgramacaoFinanceira" bindingOperationName="pfDetalharProgramacaoFinanceira" type="Request-Response" outputName="pfDetalharPFResponse" inputName="pfDetalharPF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="23549b2a-7010-419d-9f35-e2ffc9fe6eea" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:pfDetalharProgramacaoFinanceira>\r
+         <codUgEmit>?</codUgEmit>\r
+         <ano>?</ano>\r
+         <numeroDocumento>?</numeroDocumento>\r
+      </man:pfDetalharProgramacaoFinanceira>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfDetalharPF"/></con:call></con:operation><con:operation id="9ecc6c95-c987-45d7-8e4d-1dd4ab05b8f3" isOneWay="false" action="" name="pfDevolverRecursoFinanceiro" bindingOperationName="pfDevolverRecursoFinanceiro" type="Request-Response" outputName="pfDRFResposta" inputName="pfDRF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c7226971-49a7-4970-958a-96d71df6d499" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:pfDevolverRecursoFinanceiro>\r
+         <programacaoFinanceira>\r
+            <codUgEmit>?</codUgEmit>\r
+            <observacao>?</observacao>\r
+            <DRF>\r
+               <!--Optional:-->\r
+               <numeroDocumento>?</numeroDocumento>\r
+               <documentoOrigem>\r
+                  <codUgDocumento>?</codUgDocumento>\r
+                  <numeroDocumento>?</numeroDocumento>\r
+               </documentoOrigem>\r
+               <!--1 or more repetitions:-->\r
+               <itemDRF>\r
+                  <vlr>?</vlr>\r
+                  <codigoItemPFOrigem>?</codigoItemPFOrigem>\r
+               </itemDRF>\r
+            </DRF>\r
+         </programacaoFinanceira>\r
+      </man:pfDevolverRecursoFinanceiro>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfDRF"/></con:call></con:operation><con:operation id="7e4b7a8e-4a7a-4a14-a79f-ca40805ade93" isOneWay="false" action="" name="pfTransferirRecursoFinanceiro" bindingOperationName="pfTransferirRecursoFinanceiro" type="Request-Response" outputName="pfTRFResposta" inputName="pfTRF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6e42d233-e0e9-4e4a-a47c-40fbe2cd850c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:pfTransferirRecursoFinanceiro>\r
+         <programacaoFinanceira>\r
+            <codUgEmit>?</codUgEmit>\r
+            <observacao>?</observacao>\r
+            <TRF>\r
+               <codUgFavorecida>?</codUgFavorecida>\r
+               <!--Optional:-->\r
+               <numeroDocumento>?</numeroDocumento>\r
+               <!--1 or more repetitions:-->\r
+               <itemTRF>\r
+                  <vlr>?</vlr>\r
+                  <codVinc>?</codVinc>\r
+                  <codFontRecur>?</codFontRecur>\r
+                  <codCtgoGasto>?</codCtgoGasto>\r
+                  <codSit>?</codSit>\r
+                  <!--Optional:-->\r
+                  <txtInscrA>?</txtInscrA>\r
+                  <!--Optional:-->\r
+                  <txtInscrB>?</txtInscrB>\r
+                  <!--Optional:-->\r
+                  <txtInscrC>?</txtInscrC>\r
+                  <!--Optional:-->\r
+                  <txtInscrD>?</txtInscrD>\r
+                  <!--Optional:-->\r
+                  <txtClassA>?</txtClassA>\r
+                  <!--Optional:-->\r
+                  <txtClassB>?</txtClassB>\r
+               </itemTRF>\r
+            </TRF>\r
+         </programacaoFinanceira>\r
+      </man:pfTransferirRecursoFinanceiro>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfTRF"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

@@ -1,0 +1,2577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="65912d01-8fa9-43cc-8c46-c511aa55d07b" activeEnvironment="Default" name="Módulo Orçamentário" resourceRoot="" soapui-version="5.9.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e2371d3d-e3c3-4108-9d10-b1fb6f6317fc" wsaVersion="NONE" name="ManterOrcamentarioServiceSoapBinding" type="wsdl" bindingName="{http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario}ManterOrcamentarioServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?wsdl"><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ManterOrcamentarioService" targetNamespace="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:pe="http://www.tesouro.gov.br/siafi/xsd/orcamentario/preempenho" xmlns:ns1="http://schemas.xmlsoap.org/wsdl/soap/http" xmlns:nc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/notacredito" xmlns:emp="http://www.tesouro.gov.br/siafi/xsd/orcamentario/empenho" xmlns:bil="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador" xmlns:amp="http://www.tesouro.gov.br/siafi/xsd/orcamentario/amparolegal">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/empenho" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../empenho/NovoSIAFI-ORC-Empenho.xsd"/>
+      <xsd:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/amparolegal" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../amparolegal/NovoSIAFI-ORC-AmparoLegal.xsd"/>
+      <xsd:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/preempenho" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../preempenho/NovoSIAFI-ORC-PreEmpenho.xsd"/>
+      <xs:import namespace="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../../bilhetador/NovoSIAFI-Bilhetador.xsd"/>
+      <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/notacredito" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../notacredito/NovoSIAFI-ORC-NotaCredito.xsd"/>
+      <xsd:element name="SOAPException" type="tns:SOAPException"/>
+      <xsd:complexType name="SOAPException">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="message" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <!--Elementos-->
+      <xsd:element name="cabecalhoSIAFI" type="bil:CabecalhoSIAFI"/>
+      <xs:element name="orcIncluirEmpenho" nillable="true" type="emp:OrcIncluirEmpenho"/>
+      <xs:element name="orcIncluirEmpenhoResponse" nillable="true" type="emp:OrcIncluirEmpenhoResponse"/>
+      <xs:element name="orcAlterarEmpenho" nillable="true" type="emp:OrcAlterarEmpenho"/>
+      <xs:element name="orcAlterarEmpenhoResponse" nillable="true" type="emp:OrcAlterarEmpenhoResponse"/>
+      <xs:element name="orcDetalharEmpenho" nillable="true" type="emp:OrcDetalharEmpenho"/>
+      <xs:element name="orcDetalharEmpenhoResponse" nillable="true" type="emp:OrcDetalharEmpenhoResponse"/>
+      <xs:element name="orcConsultarRelatorioEmpenho" nillable="true" type="emp:OrcConsultarRelatorioEmpenho"/>
+      <xs:element name="orcConsultarRelatorioEmpenhoResponse" nillable="true" type="emp:OrcConsultarRelatorioEmpenhoResponse"/>
+      <xs:element name="orcAmparoLegalResponse" nillable="true" type="amp:OrcAmparoLegalResponse"/>
+      <xs:element name="orcIncluirAmparoLegal" nillable="true" type="amp:OrcIncluirAmparoLegal"/>
+      <xs:element name="orcExcluirAmparoLegal" nillable="true" type="amp:OrcExcluirAmparoLegal"/>
+      <xs:element name="orcAlterarAmparoLegal" nillable="true" type="amp:OrcAlterarAmparoLegal"/>
+      <xs:element name="orcReincluirAmparoLegal" nillable="true" type="amp:OrcAlterarAmparoLegal"/>
+      <xs:element name="orcPreEmpenhoResponse" nillable="true" type="pe:OrcPreEmpenhoResponse"/>
+      <xs:element name="orcIncluirPreEmpenho" nillable="true" type="pe:OrcIncluirPreEmpenho"/>
+      <xs:element name="orcAlterarPreEmpenho" nillable="true" type="pe:OrcAlterarPreEmpenho"/>
+      <xs:element name="orcDetalharPreEmpenho" nillable="true" type="pe:OrcDetalharPreEmpenho"/>
+      <xs:element name="orcDetalharPreEmpenhoResponse" nillable="true" type="pe:OrcDetalharPreEmpenhoResponse"/>
+      <xs:element name="orcConsultarBaixaSaldoEmpenhoExercAnterior" nillable="true" type="emp:OrcConsultarBaixaSaldoEmpenhoExercAnterior"/>
+      <xs:element name="orcConsultaBaixaSaldoEmpenhoExercAnteriorResponse" nillable="true" type="emp:OrcConsultaBaixaSaldoEmpenhoExercAnteriorResponse"/>
+      <xs:element name="orcIncluirNCDetalhamento" nillable="true" type="nc:OrcIncluirNCDetalhamento"/>
+      <xs:element name="orcIncluirNotaCreditoResponse" nillable="true" type="nc:OrcIncluirNotaCreditoResponse"/>
+      <xs:element name="orcIncluirNCDescentralizacao" nillable="true" type="nc:OrcIncluirNCDescentralizacao"/>
+      <xs:element name="orcIncluirNCDevolucaoDescentralizacao" nillable="true" type="nc:OrcIncluirNCDevolucaoDescentralizacao"/>
+      <xs:element name="orcIncluirNCAnulacaoDescentralizacao" nillable="true" type="nc:OrcIncluirNCAnulacaoDescentralizacao"/>
+      <xs:element name="orcDetalharNC" nillable="true" type="nc:OrcDetalharNC"/>
+      <xs:element name="orcDetalharNCResponse" nillable="true" type="nc:OrcDetalharNCResponse"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="orcDetalharEmpenho">
+    <wsdl:part element="tns:orcDetalharEmpenho" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcIncluirEmpenhoResponse">
+    <wsdl:part element="tns:orcIncluirEmpenhoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcReincluirAmparoLegal">
+    <wsdl:part element="tns:orcReincluirAmparoLegal" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SOAPFaultException">
+    <wsdl:part element="tns:SOAPException" name="SOAPFaultException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcAlterarAmparoLegal">
+    <wsdl:part element="tns:orcAlterarAmparoLegal" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcConsultaBaixaSaldoEmpenhoExercAnteriorResponse">
+    <wsdl:part element="tns:orcConsultaBaixaSaldoEmpenhoExercAnteriorResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcAmparoLegalResponse">
+    <wsdl:part element="tns:orcAmparoLegalResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcAlterarEmpenho">
+    <wsdl:part element="tns:orcAlterarEmpenho" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcIncluirNCDetalhamento">
+    <wsdl:part element="tns:orcIncluirNCDetalhamento" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcDetalharNCResponse">
+    <wsdl:part element="tns:orcDetalharNCResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcAlterarEmpenhoResponse">
+    <wsdl:part element="tns:orcAlterarEmpenhoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcConsultarRelatorioEmpenho">
+    <wsdl:part element="tns:orcConsultarRelatorioEmpenho" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcIncluirNCDevolucaoDescentralizacao">
+    <wsdl:part element="tns:orcIncluirNCDevolucaoDescentralizacao" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcConsultarBaixaSaldoEmpenhoExercAnterior">
+    <wsdl:part element="tns:orcConsultarBaixaSaldoEmpenhoExercAnterior" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcIncluirNCAnulacaoDescentralizacao">
+    <wsdl:part element="tns:orcIncluirNCAnulacaoDescentralizacao" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcIncluirNotaCreditoResponse">
+    <wsdl:part element="tns:orcIncluirNotaCreditoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcIncluirAmparoLegal">
+    <wsdl:part element="tns:orcIncluirAmparoLegal" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcDetalharPreEmpenho">
+    <wsdl:part element="tns:orcDetalharPreEmpenho" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcExcluirAmparoLegal">
+    <wsdl:part element="tns:orcExcluirAmparoLegal" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcDetalharEmpenhoResponse">
+    <wsdl:part element="tns:orcDetalharEmpenhoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcIncluirEmpenho">
+    <wsdl:part element="tns:orcIncluirEmpenho" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcDetalharPreEmpenhoResponse">
+    <wsdl:part element="tns:orcDetalharPreEmpenhoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcIncluirPreEmpenho">
+    <wsdl:part element="tns:orcIncluirPreEmpenho" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcAlterarPreEmpenho">
+    <wsdl:part element="tns:orcAlterarPreEmpenho" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcDetalharNC">
+    <wsdl:part element="tns:orcDetalharNC" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcIncluirNCDescentralizacao">
+    <wsdl:part element="tns:orcIncluirNCDescentralizacao" name="parameters"></wsdl:part>
+    <wsdl:part element="tns:cabecalhoSIAFI" name="cabecalhoSIAFI"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcConsultarRelatorioEmpenhoResponse">
+    <wsdl:part element="tns:orcConsultarRelatorioEmpenhoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orcPreEmpenhoResponse">
+    <wsdl:part element="tns:orcPreEmpenhoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IManterOrcamentarioService">
+    <wsdl:operation name="orcIncluirEmpenho">
+      <wsdl:input message="tns:orcIncluirEmpenho" name="orcIncluirEmpenho"></wsdl:input>
+      <wsdl:output message="tns:orcIncluirEmpenhoResponse" name="orcIncluirEmpenhoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcAlterarEmpenho">
+      <wsdl:input message="tns:orcAlterarEmpenho" name="orcAlterarEmpenho"></wsdl:input>
+      <wsdl:output message="tns:orcAlterarEmpenhoResponse" name="orcAlterarEmpenhoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcDetalharEmpenho">
+      <wsdl:input message="tns:orcDetalharEmpenho" name="orcDetalharEmpenho"></wsdl:input>
+      <wsdl:output message="tns:orcDetalharEmpenhoResponse" name="orcDetalharEmpenhoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcConsultarRelatorioEmpenho">
+      <wsdl:input message="tns:orcConsultarRelatorioEmpenho" name="orcConsultarRelatorioEmpenho"></wsdl:input>
+      <wsdl:output message="tns:orcConsultarRelatorioEmpenhoResponse" name="orcConsultarRelatorioEmpenhoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirAmparoLegal">
+      <wsdl:input message="tns:orcIncluirAmparoLegal" name="orcIncluirAmparoLegal"></wsdl:input>
+      <wsdl:output message="tns:orcAmparoLegalResponse" name="orcAmparoLegalResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcExcluirAmparoLegal">
+      <wsdl:input message="tns:orcExcluirAmparoLegal" name="orcExcluirAmparoLegal"></wsdl:input>
+      <wsdl:output message="tns:orcAmparoLegalResponse" name="orcAmparoLegalResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcAlterarAmparoLegal">
+      <wsdl:input message="tns:orcAlterarAmparoLegal" name="orcAlterarAmparoLegal"></wsdl:input>
+      <wsdl:output message="tns:orcAmparoLegalResponse" name="orcAmparoLegalResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcReincluirAmparoLegal">
+      <wsdl:input message="tns:orcReincluirAmparoLegal" name="orcReincluirAmparoLegal"></wsdl:input>
+      <wsdl:output message="tns:orcAmparoLegalResponse" name="orcAmparoLegalResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirPreEmpenho">
+      <wsdl:input message="tns:orcIncluirPreEmpenho" name="orcIncluirPreEmpenho"></wsdl:input>
+      <wsdl:output message="tns:orcPreEmpenhoResponse" name="orcPreEmpenhoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcAlterarPreEmpenho">
+      <wsdl:input message="tns:orcAlterarPreEmpenho" name="orcAlterarPreEmpenho"></wsdl:input>
+      <wsdl:output message="tns:orcPreEmpenhoResponse" name="orcPreEmpenhoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcDetalharPreEmpenho">
+      <wsdl:input message="tns:orcDetalharPreEmpenho" name="orcDetalharPreEmpenho"></wsdl:input>
+      <wsdl:output message="tns:orcDetalharPreEmpenhoResponse" name="orcDetalharPreEmpenhoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcConsultarBaixaSaldoEmpenhoExercAnterior">
+      <wsdl:input message="tns:orcConsultarBaixaSaldoEmpenhoExercAnterior" name="orcConsultarBaixaSaldoEmpenhoExercAnterior"></wsdl:input>
+      <wsdl:output message="tns:orcConsultaBaixaSaldoEmpenhoExercAnteriorResponse" name="orcConsultaBaixaSaldoEmpenhoExercAnteriorResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirNCDetalhamento">
+      <wsdl:input message="tns:orcIncluirNCDetalhamento" name="orcIncluirNCDetalhamento"></wsdl:input>
+      <wsdl:output message="tns:orcIncluirNotaCreditoResponse" name="orcIncluirNotaCreditoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirNCDescentralizacao">
+      <wsdl:input message="tns:orcIncluirNCDescentralizacao" name="orcIncluirNCDescentralizacao"></wsdl:input>
+      <wsdl:output message="tns:orcIncluirNotaCreditoResponse" name="orcIncluirNotaCreditoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirNCDevolucaoDescentralizacao">
+      <wsdl:input message="tns:orcIncluirNCDevolucaoDescentralizacao" name="orcIncluirNCDevolucaoDescentralizacao"></wsdl:input>
+      <wsdl:output message="tns:orcIncluirNotaCreditoResponse" name="orcIncluirNotaCreditoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirNCAnulacaoDescentralizacao">
+      <wsdl:input message="tns:orcIncluirNCAnulacaoDescentralizacao" name="orcIncluirNCAnulacaoDescentralizacao"></wsdl:input>
+      <wsdl:output message="tns:orcIncluirNotaCreditoResponse" name="orcIncluirNotaCreditoResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcDetalharNC">
+      <wsdl:input message="tns:orcDetalharNC" name="orcDetalharNC"></wsdl:input>
+      <wsdl:output message="tns:orcDetalharNCResponse" name="orcDetalharNCResponse"></wsdl:output>
+      <wsdl:fault message="tns:SOAPFaultException" name="SOAPFaultException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ManterOrcamentarioServiceSoapBinding" type="tns:IManterOrcamentarioService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="orcIncluirEmpenho">
+      <wsdl:input name="orcIncluirEmpenho">
+        <soap:header message="tns:orcIncluirEmpenho" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcIncluirEmpenhoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcAlterarEmpenho">
+      <wsdl:input name="orcAlterarEmpenho">
+        <soap:header message="tns:orcAlterarEmpenho" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcAlterarEmpenhoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcDetalharEmpenho">
+      <wsdl:input name="orcDetalharEmpenho">
+        <soap:header message="tns:orcDetalharEmpenho" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcDetalharEmpenhoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcConsultarRelatorioEmpenho">
+      <wsdl:input name="orcConsultarRelatorioEmpenho">
+        <soap:header message="tns:orcConsultarRelatorioEmpenho" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcConsultarRelatorioEmpenhoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirAmparoLegal">
+      <wsdl:input name="orcIncluirAmparoLegal">
+        <soap:header message="tns:orcIncluirAmparoLegal" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcAmparoLegalResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcExcluirAmparoLegal">
+      <wsdl:input name="orcExcluirAmparoLegal">
+        <soap:header message="tns:orcExcluirAmparoLegal" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcAmparoLegalResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcAlterarAmparoLegal">
+      <wsdl:input name="orcAlterarAmparoLegal">
+        <soap:header message="tns:orcAlterarAmparoLegal" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcAmparoLegalResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcReincluirAmparoLegal">
+      <wsdl:input name="orcReincluirAmparoLegal">
+        <soap:header message="tns:orcReincluirAmparoLegal" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcAmparoLegalResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirPreEmpenho">
+      <wsdl:input name="orcIncluirPreEmpenho">
+        <soap:header message="tns:orcIncluirPreEmpenho" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcPreEmpenhoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcAlterarPreEmpenho">
+      <wsdl:input name="orcAlterarPreEmpenho">
+        <soap:header message="tns:orcAlterarPreEmpenho" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcPreEmpenhoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcDetalharPreEmpenho">
+      <wsdl:input name="orcDetalharPreEmpenho">
+        <soap:header message="tns:orcDetalharPreEmpenho" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcDetalharPreEmpenhoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcConsultarBaixaSaldoEmpenhoExercAnterior">
+      <wsdl:input name="orcConsultarBaixaSaldoEmpenhoExercAnterior">
+        <soap:header message="tns:orcConsultarBaixaSaldoEmpenhoExercAnterior" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcConsultaBaixaSaldoEmpenhoExercAnteriorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirNCDetalhamento">
+      <wsdl:input name="orcIncluirNCDetalhamento">
+        <soap:header message="tns:orcIncluirNCDetalhamento" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcIncluirNotaCreditoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirNCDescentralizacao">
+      <wsdl:input name="orcIncluirNCDescentralizacao">
+        <soap:header message="tns:orcIncluirNCDescentralizacao" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcIncluirNotaCreditoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirNCDevolucaoDescentralizacao">
+      <wsdl:input name="orcIncluirNCDevolucaoDescentralizacao">
+        <soap:header message="tns:orcIncluirNCDevolucaoDescentralizacao" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcIncluirNotaCreditoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcIncluirNCAnulacaoDescentralizacao">
+      <wsdl:input name="orcIncluirNCAnulacaoDescentralizacao">
+        <soap:header message="tns:orcIncluirNCAnulacaoDescentralizacao" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcIncluirNotaCreditoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="orcDetalharNC">
+      <wsdl:input name="orcDetalharNC">
+        <soap:header message="tns:orcDetalharNC" part="cabecalhoSIAFI" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="orcDetalharNCResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SOAPFaultException">
+        <soap:fault name="SOAPFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManterOrcamentarioService">
+    <wsdl:port binding="tns:ManterOrcamentarioServiceSoapBinding" name="ManterOrcamentarioServicePort">
+      <soap:address location="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../empenho/NovoSIAFI-ORC-Empenho.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/empenho" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tde="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosempenho" xmlns:tdcon="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosconsulta">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosempenho" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../empenho/NovoSIAFI-ORC-TiposDados-Empenho.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosconsulta" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../empenho/NovoSIAFI-ORC-TiposDados-Empenho-Consulta.xsd"/>
+  <xs:complexType name="OrcIncluirEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcEmpenhoDados" type="tde:OrcEmpenhoDados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcIncluirEmpenhoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orcEmpenhoResposta" type="tde:OrcEmpenhoResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcAlterarEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcEmpenhoDadosAlt" type="tde:OrcEmpenhoDadosAlt">
+        <xs:key name="orcEmpenhoDadosAlt-ItemEmpenho-numSeqItem">
+          <xs:selector xpath=".//itemEmpenho"/>
+          <xs:field xpath="numSeqItem"/>
+        </xs:key>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcAlterarEmpenhoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orcEmpenhoResposta" type="tde:OrcEmpenhoResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcDetalharEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcDetalharEmpenhoEntrada" type="tdcon:OrcDetalharEmpenhoEntrada"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcDetalharEmpenhoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orcDetalharEmpenhoResposta" type="tdcon:OrcDetalharEmpenhoResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcConsultarRelatorioEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcConsultarRelatorioEmpenhoEntrada" type="tdcon:OrcConsultarRelatorioEmpenhoEntrada"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcConsultarRelatorioEmpenhoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orcConsultarRelatorioEmpenhoResposta" type="tdcon:OrcConsultarRelatorioEmpenhoResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcConsultarBaixaSaldoEmpenhoExercAnterior">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcConsultarBaixaSaldoEmpenhoExercAnteriorEntrada" type="tdcon:OrcConsultarBaixaSaldoEmpenhoExercAnteriorEntrada"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcConsultaBaixaSaldoEmpenhoExercAnteriorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orcConsultarBaixaSaldoEmpenhoExercAnteriorResposta" type="tdcon:OrcConsultarBaixaSaldoEmpenhoExercAnteriorResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../empenho/NovoSIAFI-ORC-TiposDados-Empenho.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosempenho" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" xmlns:tde="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosempenho" xmlns:tdc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-TiposDados-Comum.xsd"/>
+  <xs:complexType name="OrcEmpenhoDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numEmpenho" type="tds:NumNE"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="preEmpenho" type="tds:PE"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoEmpenho" type="tds:TipoEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="celulaOrcamentaria" type="tdc:CelulaOrcamentaria"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtProcesso" type="tds:Processo"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrTaxaCambio" type="tds:TaxaCambio"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrEmpenho" type="tds:Valor"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codFavorecido" type="tds:Favorecido"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codAmparoLegal" type="tds:AmparoLegal"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtInfoCompl" type="tds:InformacaoComplementar"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codTipoTransf" type="tds:TipoTransferencia"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtLocalEntrega" type="tds:LocalEntrega"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtDescricao" type="tds:DescricaoEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="passivoAnterior" type="tdc:PassivoAnterior"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="itemEmpenho" type="tdc:ItemEmpenho"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcEmpenhoDadosAlt">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numEmpenho" type="tds:NumNE"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtLocalEntrega" type="tds:LocalEntrega"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtDescricao" type="tds:DescricaoEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="passivoAnterior" type="tdc:PassivoAnterior"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemEmpenho" type="tdc:ItemEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="registroAlteracao" type="tdc:RegistroAlteracao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcEmpenhoDadosBaixa">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numEmpenho" type="tds:NumNE"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="itemEmpenho" type="tdc:ItemEmpenhoBaixa"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="registroAlteracao" type="tdc:RegistroAlteracao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcEmpenhoResposta">
+    <xs:complexContent>
+      <xs:extension base="tdc:OrcEmpenhoResposta"/>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-Restrictions.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples">
+  <!--Tipos Simples-->
+  <xs:simpleType name="UG">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ano">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoEmpenho">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="QtdItemEmp">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="15"/>
+      <xs:fractionDigits value="5"/>
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SubElemento">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DescricaoItemEmpenho">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1248"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumSeq">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoOperacaoItemEmpenho">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INCLUSAO"/>
+      <xs:enumeration value="REFORCO"/>
+      <xs:enumeration value="ANULACAO"/>
+      <xs:enumeration value="CANCELAMENTO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoOperacaoItemEmpenhoBaixa">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ANULACAO_BAIXA_STN"/>
+      <xs:enumeration value="ANULACAO_BAIXA_EM_LIQUIDACAO_STN"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA_STN"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA_EM_LIQUIDACAO_STN"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA_BLOQUEADO_STN"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA_EM_LIQUIDACAO_BLOQUEADO_STN"/>
+      <xs:enumeration value="ANULACAO_BAIXA"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA"/>
+      <xs:enumeration value="ESTORNO_ANULACAO_BAIXA_STN"/>
+      <xs:enumeration value="ESTORNO_ANULACAO_BAIXA_EM_LIQUIDACAO_STN"/>
+      <xs:enumeration value="ESTORNO_CANCELAMENTO_BAIXA_STN"/>
+      <xs:enumeration value="ESTORNO_CANCELAMENTO_BAIXA_EM_LIQUIDACAO_STN"/>
+      <xs:enumeration value="ESTORNO_CANCELAMENTO_BAIXA_BLOQUEADO_STN"/>
+      <xs:enumeration value="ESTORNO_CANCELAMENTO_BAIXA_EM_LIQUIDACAO_BLOQUEADO_STN"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoOperacaoNotaCredito">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DETALHAMENTO"/>
+      <xs:enumeration value="DESCENTRALIZACAO"/>
+      <xs:enumeration value="DEVOLUCAO_DESCENTRALIZACAO"/>
+      <xs:enumeration value="ANULACAO_DESCENTRALIZACAO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InformacaoComplementar">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoTransferencia">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LocalEntrega">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="250"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DescricaoDocumento">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="3"/>
+      <xs:maxLength value="468"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DescricaoEmpenho">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="468"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DescricaoPreEmpenho">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="468"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SiglaSistemaOrigem">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AmparoLegal">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EsferaOrcamentaria">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UO">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,5}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodigoProgramaTrabalho">
+    <xs:restriction base="xs:string">
+      <xs:length value="17"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProgramaTrabalhoResumido">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PlanoInterno">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResultadoLei">
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoCredito">
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Iduso">
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PlanoOrcamentario">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AutorEmenda">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="12"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FonteRecurso">
+    <xs:restriction base="xs:string">
+      <xs:length value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NaturezaDespesa">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Processo">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="20"/>
+      <xs:whiteSpace value="collapse"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TaxaCambio">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="10"/>
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Valor">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="17"/>
+      <xs:fractionDigits value="2"/>
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValorUnitarioItemEmp">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="19"/>
+      <xs:fractionDigits value="4"/>
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValorIncZero">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="17"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Favorecido">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="6"/>
+      <xs:maxLength value="14"/>
+      <xs:whiteSpace value="collapse"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodMsg">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodTransf">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="6"/>
+      <xs:maxLength value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Memorando">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="4000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumDoc">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumNE">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumPE">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RO">
+    <xs:restriction base="xs:string">
+      <xs:length value="12"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC">
+    <xs:restriction base="xs:string">
+      <xs:length value="12"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NE">
+    <xs:restriction base="xs:string">
+      <xs:length value="12"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PE">
+    <xs:restriction base="xs:string">
+      <xs:length value="12"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ContaContabil">
+    <xs:restriction base="xs:string">
+      <xs:length value="9"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ContaCorrenteContabil">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="78"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Observacao">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="468"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Motivo">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Date">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoDescentralizacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PROVISAO"/>
+      <xs:enumeration value="DESTAQUE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoOperacaoTransferencia">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ESTORNO"/>
+      <xs:enumeration value="TRANSFERENCIA"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodAmparoLegal">
+    <xs:restriction base="xs:int">
+      <xs:pattern value="[0-9]{1,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodModalidadeLicitacao">
+    <xs:restriction base="xs:int">
+      <xs:pattern value="[0-9]{1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AtoNormativo">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Artigo">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Paragrafo">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Inciso">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Alinea">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoAmparoLegalRestricao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TIPO_ADMINISTRACAO_EMITENTE"/>
+      <xs:enumeration value="ORGAO_UG_EMITENTE"/>
+      <xs:enumeration value="ORGAO_UG_FAVORECIDA"/>
+      <xs:enumeration value="AGENCIA_EXECUTIVA"/>
+      <xs:enumeration value="NATUREZA_DESPESA"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoAmparoLegalRegraRestricao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SOMENTE"/>
+      <xs:enumeration value="EXCETO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValorRestricaoAmparoLegal">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoStatusAssinaturaEmpenho">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ASSINADA"/>
+      <xs:enumeration value="PENDENTE_ASSINATURA"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoStatusAssinaturaCargo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ASSINADA"/>
+      <xs:enumeration value="PENDENTE_RATIFICACAO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoCargoAssinatura">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ORDENADOR_DESPESA"/>
+      <xs:enumeration value="GESTOR_FINANCEIRO"/>
+      <xs:enumeration value="RESPONSAVEL_EMPENHO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CPF">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{11}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NomeUsuario">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoOperacaoPreEmpenhoAlterar">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REFORCO"/>
+      <xs:enumeration value="ANULACAO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TipoOperacaoPreEmpenho">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INCLUSAO"/>
+      <xs:enumeration value="REFORCO"/>
+      <xs:enumeration value="ANULACAO"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-TiposDados-Comum.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" xmlns:tdc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-Restrictions.xsd"/>
+  <xs:complexType name="OrcEmpenhoResposta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ugEmitente" nillable="true" type="tds:UG"/>
+      <xs:element minOccurs="0" name="empenho" nillable="true" type="tds:NE"/>
+      <xs:element minOccurs="0" name="documentoRO" nillable="true" type="tds:RO"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="tdc:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CelulaOrcamentaria">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="esfera" type="tds:EsferaOrcamentaria"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codPTRES" type="tds:ProgramaTrabalhoResumido"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="ptresDecodificado" type="tdc:PTRESDecodificado"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codFonteRec" type="tds:FonteRecurso"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codNatDesp" type="tds:NaturezaDespesa"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="ugResponsavel" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codPlanoInterno" type="tds:PlanoInterno"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistroAlteracao">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="xs:date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtMotivo" type="tds:Observacao"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="indrIndispCaixa" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PassivoAnterior">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="codContaContabil" type="tds:ContaContabil"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="passivoPermanente" type="tdc:PassivoPermanente"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PassivoPermanente">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="contaCorrente" type="tds:ContaCorrenteContabil"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrRelacionado" type="tds:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Transferencia">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtOperacao" type="xs:date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="operacao" type="tds:TipoOperacaoTransferencia"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="origem" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="destino" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="numSeqItem" type="tds:NumSeq"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codSubElemento" type="tds:SubElemento"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="descricao" type="tds:DescricaoItemEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="operacaoItemEmpenho" type="tdc:OperacaoItemEmpenho"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OperacaoItemEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoOperacaoItemEmpenho" type="tds:TipoOperacaoItemEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="quantidade" type="tds:QtdItemEmp"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrUnitario" type="tds:ValorUnitarioItemEmp"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrOperacao" type="tds:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemEmpenhoBaixa">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="codSubElemento" type="tds:SubElemento"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="descricao" type="tds:DescricaoItemEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="operacaoItemEmpenho" type="tdc:OperacaoItemEmpenhoBaixa"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OperacaoItemEmpenhoBaixa">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoOperacaoItemEmpenho" type="tds:TipoOperacaoItemEmpenhoBaixa"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="quantidade" type="tds:QtdItemEmp"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrUnitario" type="tds:ValorUnitarioItemEmp"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrOperacao" type="tds:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PTRESDecodificado">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="codUO" type="tds:UO"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codPT" type="tds:CodigoProgramaTrabalho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="indrResultLei" type="tds:ResultadoLei"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="indrTipoCredito" type="tds:TipoCredito"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codPlanoOrc" type="tds:PlanoOrcamentario"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codAutorEmenda" type="tds:AutorEmenda"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codIduso" type="tds:Iduso"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Mensagem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codMsg" type="tds:CodMsg"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtMsg" type="tds:Memorando"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../empenho/NovoSIAFI-ORC-TiposDados-Empenho-Consulta.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosconsulta" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" xmlns:tdcon="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosconsulta" xmlns:tdc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-TiposDados-Comum.xsd"/>
+  <xs:complexType name="OrcDetalharEmpenhoEntrada">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numEmpenho" type="tds:NumNE"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcDetalharEmpenhoResposta">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="empenho" type="tdcon:OrcEmpenhoDados"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="tdc:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcConsultarRelatorioEmpenhoEntrada">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numEmpenho" type="tds:NumNE"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcConsultarRelatorioEmpenhoResposta">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="dadosRelatorio" type="tdcon:DadosRelatorioEmpenho"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="tdc:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DadosRelatorioEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numEmpenho" type="tds:NumNE"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="relatorioBase64" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcEmpenhoConsultar">
+    <xs:complexContent>
+      <xs:extension base="tdcon:OrcEmpenhoDados"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OrcEmpenhoDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numEmpenho" type="tds:NumNE"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="preEmpenho" type="tds:PE"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="transferencia" type="tdc:Transferencia"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="celulaOrcamentaria" type="tdcon:CelulaOrcamentaria"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoEmpenho" type="tds:TipoEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtProcesso" type="tds:Processo"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrTaxaCambio" type="tds:TaxaCambio"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrEmpenho" type="tds:ValorIncZero"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codFavorecido" type="tds:Favorecido"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codAmparoLegal" type="tds:AmparoLegal"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtInfoCompl" type="tds:InformacaoComplementar"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codTipoTransf" type="tds:TipoTransferencia"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtLocalEntrega" type="tds:LocalEntrega"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtDescricao" type="tds:DescricaoEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sistemaOrigem" type="tds:SiglaSistemaOrigem"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="passivoAnterior" type="tdcon:PassivoAnterior"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="itemEmpenho" type="tdcon:ItemEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="assinaturas" type="tdcon:DadosAssinaturas"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="registroAlteracao" type="tdcon:RegistroAlteracao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="numSeqItem" type="tds:NumSeq"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codSubElemento" type="tds:SubElemento"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="descricao" type="tds:DescricaoItemEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrItemEmpenho" type="tds:ValorIncZero"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="operacaoItemEmpenho" type="tdcon:OperacaoItemEmpenho"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OperacaoItemEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dataOperacao" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoOperacaoItemEmpenho" type="tdcon:TipoOperacaoItemEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="quantidade" type="tdcon:QtdItemEmpIncZero"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrUnitario" type="tdcon:ValorUnitarioItemEmpIncZero"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrOperacao" type="tdcon:ValorIncZero"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="QtdItemEmpIncZero">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="15"/>
+      <xs:fractionDigits value="5"/>
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValorUnitarioItemEmpIncZero">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="19"/>
+      <xs:fractionDigits value="4"/>
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValorIncZero">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="17"/>
+      <xs:fractionDigits value="2"/>
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="CelulaOrcamentaria">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="esfera" type="tds:EsferaOrcamentaria"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codPTRES" type="tds:ProgramaTrabalhoResumido"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codFonteRec" type="tds:FonteRecurso"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codNatDesp" type="tds:NaturezaDespesa"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="ugResponsavel" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codPlanoInterno" type="tds:PlanoInterno"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcConsultarBaixaSaldoEmpenhoExercAnteriorEntrada">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numEmpenho" type="tds:NumNE"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcConsultarBaixaSaldoEmpenhoExercAnteriorResposta">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="baixaSaldo" type="tdcon:OrcBaixaSaldoEmpenhoExercAnteriorDados"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="tdc:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcBaixaSaldoEmpenhoExercAnteriorDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numEmpenho" type="tds:NumNE"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtInfoCompl" type="tds:InformacaoComplementar"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sistemaOrigem" type="tds:SiglaSistemaOrigem"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="operacaoBaixaSaldo" type="tdcon:OperacaoBaixaSaldo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OperacaoBaixaSaldo">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dataOperacao" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoOperacaoItemEmpenho" type="tdcon:TipoOperacaoItemEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrTotal" type="tdcon:ValorIncZero"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TipoOperacaoItemEmpenho">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INCLUSAO"/>
+      <xs:enumeration value="REFORCO"/>
+      <xs:enumeration value="ANULACAO"/>
+      <xs:enumeration value="CANCELAMENTO"/>
+      <xs:enumeration value="TRANSFERENCIA_CONCEDIDA"/>
+      <xs:enumeration value="ESTORNO_TRANSFERENCIA_CONCEDIDA"/>
+      <xs:enumeration value="TRANSFERENCIA_RECEBIDA"/>
+      <xs:enumeration value="ESTORNO_TRANSFERENCIA_RECEBIDA"/>
+      <xs:enumeration value="INSCRICAO_RP"/>
+      <xs:enumeration value="REINSCRICAO_RP"/>
+      <xs:enumeration value="ANULACAO_BAIXA_STN"/>
+      <xs:enumeration value="ANULACAO_BAIXA_EM_LIQUIDACAO_STN"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA_STN"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA_EM_LIQUIDACAO_STN"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA_BLOQUEADO_STN"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA_EM_LIQUIDACAO_BLOQUEADO_STN"/>
+      <xs:enumeration value="ANULACAO_BAIXA"/>
+      <xs:enumeration value="CANCELAMENTO_BAIXA"/>
+      <xs:enumeration value="ESTORNO_ANULACAO_BAIXA_STN"/>
+      <xs:enumeration value="ESTORNO_ANULACAO_BAIXA_EM_LIQUIDACAO_STN"/>
+      <xs:enumeration value="ESTORNO_CANCELAMENTO_BAIXA_STN"/>
+      <xs:enumeration value="ESTORNO_CANCELAMENTO_BAIXA_EM_LIQUIDACAO_STN"/>
+      <xs:enumeration value="ESTORNO_CANCELAMENTO_BAIXA_BLOQUEADO_STN"/>
+      <xs:enumeration value="ESTORNO_CANCELAMENTO_BAIXA_EM_LIQUIDACAO_BLOQUEADO_STN"/>
+      <xs:enumeration value="REVALIDACAO_LC215_25"/>
+      <xs:enumeration value="REINSCRICAO_RPNP_REVALIDACAO_LC215_25"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RegistroAlteracao">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="xs:date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtMotivo" type="tds:Observacao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PassivoAnterior">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="codContaContabil" type="tds:ContaContabil"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="passivoRelacionamento" type="tdcon:PassivoRelacionamento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PassivoRelacionamento">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="contaCorrenteF" type="tds:ContaCorrenteContabil"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="contaCorrenteP" type="tds:ContaCorrenteContabil"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrRelacionado" type="tds:ValorIncZero"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DadosAssinaturas">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="statusAssinaturaEmpenho" type="tds:TipoStatusAssinaturaEmpenho"/>
+      <xs:element maxOccurs="3" minOccurs="0" name="assinatura" type="tdcon:Assinatura"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Assinatura">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoCargoAssinatura" type="tds:TipoCargoAssinatura"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="cpf" type="tds:CPF"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="nome" type="tds:NomeUsuario"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="data" type="xs:dateTime"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="statusAssinatura" type="tds:TipoStatusAssinaturaCargo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../amparolegal/NovoSIAFI-ORC-AmparoLegal.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/amparolegal" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tdal="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosamparolegal">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosamparolegal" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../amparolegal/NovoSIAFI-ORC-TiposDados-AmparoLegal.xsd"/>
+  <xs:complexType name="OrcAmparoLegalResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orcAmparoLegalResposta" type="tdal:OrcAmparoLegalResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcIncluirAmparoLegal">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcAmparoLegalDadosIncluir" type="tdal:OrcAmparoLegalDadosIncluir">
+        <xs:key name="orcAmparoLegalDadosIncluir-orcAmparoLegalDados-restricao-tipoRestricao">
+          <xs:selector xpath=".//restricao"/>
+          <xs:field xpath="tipoRestricao"/>
+        </xs:key>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcExcluirAmparoLegal">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcAmparoLegalDadosExcluir" type="tdal:OrcAmparoLegalDadosExcluir"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcAlterarAmparoLegal">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcAmparoLegalDadosAlterar" type="tdal:OrcAmparoLegalDadosAlterar">
+        <xs:key name="orcAmparoLegalDadosAlterar-orcAmparoLegalDados-restricao-tipoRestricao">
+          <xs:selector xpath=".//restricao"/>
+          <xs:field xpath="tipoRestricao"/>
+        </xs:key>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcReincluirAmparoLegal">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcAmparoLegalDadosReincluir" type="tdal:OrcAmparoLegalDadosAlterar">
+        <xs:key name="orcAmparoLegalDadosReincluir-orcAmparoLegalDados-restricao-tipoRestricao">
+          <xs:selector xpath=".//restricao"/>
+          <xs:field xpath="tipoRestricao"/>
+        </xs:key>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../amparolegal/NovoSIAFI-ORC-TiposDados-AmparoLegal.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosamparolegal" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" xmlns:tdc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum" xmlns:tdal="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosamparolegal">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-TiposDados-Comum.xsd"/>
+  <xs:complexType name="OrcAmparoLegalResposta">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="codAmparoLegal" nillable="true"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="tdc:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcAmparoLegalDadosIncluir">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcAmparoLegalDados" type="tdal:OrcAmparoLegalDados"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="motivo" type="tds:Motivo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcAmparoLegalDadosAlterar">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="codAmparoLegal" type="tds:CodAmparoLegal"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcAmparoLegalDados" type="tdal:OrcAmparoLegalDados"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="motivo" type="tds:Motivo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcAmparoLegalDadosExcluir">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="codAmparoLegal" type="tds:CodAmparoLegal"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="motivo" type="tds:Motivo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcAmparoLegalDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="codModalidadeLicitacao" type="tds:CodModalidadeLicitacao"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="atoNormativo" type="tds:AtoNormativo"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="artigo" type="tds:Artigo"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="paragrafo" type="tds:Paragrafo"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="inciso" type="tds:Inciso"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="alinea" type="tds:Alinea"/>
+      <xs:element maxOccurs="5" minOccurs="0" name="restricao" type="tdal:RestricaoAmparoLegal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RestricaoAmparoLegal">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoRestricao" type="tds:TipoAmparoLegalRestricao"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="regra" type="tds:TipoAmparoLegalRegraRestricao"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="valor" type="tds:ValorRestricaoAmparoLegal"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../preempenho/NovoSIAFI-ORC-PreEmpenho.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/preempenho" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tdpec="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadospreempenhoconsulta" xmlns:tdpe="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadospreempenho">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadospreempenho" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../preempenho/NovoSIAFI-ORC-TiposDados-PreEmpenho.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadospreempenhoconsulta" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../preempenho/NovoSIAFI-ORC-TiposDados-PreEmpenho-Consulta.xsd"/>
+  <xs:complexType name="OrcPreEmpenhoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orcPreEmpenhoResposta" type="tdpe:OrcPreEmpenhoResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcIncluirPreEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcPreEmpenhoDados" type="tdpe:OrcPreEmpenhoDados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcAlterarPreEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcPreEmpenhoDadosAlt" type="tdpe:OrcPreEmpenhoDadosAlt"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcDetalharPreEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcDetalharPreEmpenhoEntrada" type="tdpec:OrcDetalharPreEmpenhoEntrada"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcDetalharPreEmpenhoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orcDetalharPreEmpenhoResposta" type="tdpec:OrcDetalharPreEmpenhoResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../preempenho/NovoSIAFI-ORC-TiposDados-PreEmpenho.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadospreempenho" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" xmlns:tdpe="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadospreempenho" xmlns:tdc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-TiposDados-Comum.xsd"/>
+  <xs:complexType name="OrcPreEmpenhoDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoPreEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numPreEmpenho" type="tds:NumPE"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="celulaOrcamentaria" type="tdc:CelulaOrcamentaria"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtProcesso" type="tds:Processo"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrTaxaCambio" type="tds:TaxaCambio"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrPreEmpenho" type="tds:Valor"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codFavorecido" type="tds:Favorecido"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtDescricao" type="tds:DescricaoPreEmpenho"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcPreEmpenhoDadosAlt">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoPreEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numPreEmpenho" type="tds:NumPE"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codFavorecido" type="tds:Favorecido"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="operacao" type="tdpe:OperacaoPreEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="registroAlteracao" type="tdpe:RegistroAlteracao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcPreEmpenhoResposta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ugEmitente" nillable="true" type="tds:UG"/>
+      <xs:element minOccurs="0" name="preEmpenho" nillable="true" type="tds:PE"/>
+      <xs:element minOccurs="0" name="documentoRO" nillable="true" type="tds:RO"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="tdc:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OperacaoPreEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoOperacao" type="tds:TipoOperacaoPreEmpenhoAlterar"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrOperacao" type="tds:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistroAlteracao">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="xs:date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtMotivo" type="tds:Observacao"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../preempenho/NovoSIAFI-ORC-TiposDados-PreEmpenho-Consulta.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadospreempenhoconsulta" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" xmlns:tdpec="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadospreempenhoconsulta" xmlns:tdc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-TiposDados-Comum.xsd"/>
+  <xs:complexType name="OrcDetalharPreEmpenhoEntrada">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoPreEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numPreEmpenho" type="tds:NumPE"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcDetalharPreEmpenhoResposta">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="preEmpenho" type="tdpec:OrcPreEmpenhoDados"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="tdc:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcPreEmpenhoConsultar">
+    <xs:complexContent>
+      <xs:extension base="tdpec:OrcPreEmpenhoDados"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OrcPreEmpenhoDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoPreEmpenho" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numPreEmpenho" type="tds:NumPE"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="empenhoRelacionado" type="tds:NE"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="celulaOrcamentaria" type="tdc:CelulaOrcamentaria"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="txtProcesso" type="tds:Processo"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrTaxaCambio" type="tds:TaxaCambio"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrPreEmpenho" type="tds:ValorIncZero"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codFavorecido" type="tds:Favorecido"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtDescricao" type="tds:DescricaoPreEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sistemaOrigem" type="tds:SiglaSistemaOrigem"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="operacao" type="tdpec:OperacaoPreEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="registroAlteracao" type="tdpec:RegistroAlteracao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OperacaoPreEmpenho">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtOperacao" type="xs:date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="tipoOperacao" type="tds:TipoOperacaoPreEmpenho"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrOperacao" type="tds:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistroAlteracao">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="xs:date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtMotivo" type="tds:Observacao"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../../bilhetador/NovoSIAFI-Bilhetador.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tdsbil="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples" xmlns:bil="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador">
+  <xs:import namespace="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../../bilhetador/NovoSIAFI-Restrictions.xsd"/>
+  <!--Tipos Complexos-->
+  <xs:complexType name="EfetivacaoOperacao">
+    <xs:sequence>
+      <xs:element name="resultado" type="tdsbil:CodTipoEfetivacaoOperacao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RequisicaoRepetidaResposta">
+    <xs:sequence>
+      <xs:element name="nonceOriginal" type="xs:string"/>
+      <xs:element name="mensagem" type="xs:string"/>
+      <xs:element name="dataProcessamento" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Bilhetador">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="nonce" type="tdsbil:NONCE"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CabecalhoSIAFI">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="nomeSistemaSIAFI" nillable="false" type="tdsbil:NomeSistemaExec"/>
+      <xs:element minOccurs="0" name="ug" nillable="true" type="tdsbil:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="bilhetador" type="bil:Bilhetador"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../../bilhetador/NovoSIAFI-Restrictions.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tdsbil="http://www.tesouro.gov.br/bilhetador/xsd/tipodadossimples">
+  <xs:simpleType name="NONCE">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UG">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NomeSistemaExec">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CodTipoEfetivacaoOperacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCESSO"/>
+      <xs:enumeration value="INDEFINIDO"/>
+      <xs:enumeration value="FALHA"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../notacredito/NovoSIAFI-ORC-NotaCredito.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/notacredito" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tdncc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosncconsulta" xmlns:tdnc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosnotacredito">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosnotacredito" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../notacredito/NovoSIAFI-ORC-TiposDados-NotaCredito.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosncconsulta" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../notacredito/NovoSIAFI-ORC-TiposDados-NotaCredito-Consulta.xsd"/>
+  <xs:complexType name="OrcIncluirNCDetalhamento">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcNCDetalhamentoDados" type="tdnc:OrcNCDetalhamentoDados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcIncluirNCDescentralizacao">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcNCDescentralizacaoDados" type="tdnc:OrcNCDescentralizacaoDados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcIncluirNCDevolucaoDescentralizacao">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcNCDevolucaoDescentralizacaoDados" type="tdnc:OrcNCDevolucaoDescentralizacaoDados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcIncluirNCAnulacaoDescentralizacao">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcNCAnulacaoDescentralizacaoDados" type="tdnc:OrcNCAnulacaoDescentralizacaoDados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcIncluirNotaCreditoResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcNotaCreditoResposta" type="tdnc:OrcNotaCreditoResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcDetalharNC">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="orcDetalharNCEntrada" type="tdncc:OrcDetalharNCEntrada"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcDetalharNCResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orcDetalharNCResposta" type="tdncc:OrcDetalharNCResposta"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../notacredito/NovoSIAFI-ORC-TiposDados-NotaCredito.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosnotacredito" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" xmlns:tdnc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosnotacredito" xmlns:tdc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-TiposDados-Comum.xsd"/>
+  <xs:complexType name="OrcNCDetalhamentoDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoNotaCredito" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numNotaCredito" type="tds:NumDoc"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrTaxaCambio" type="tds:TaxaCambio"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtDescricao" type="tds:DescricaoDocumento"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="itemDetalhamento" type="tdnc:ItemDetalhamento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcNCDescentralizacaoDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoNotaCredito" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numNotaCredito" type="tds:NumDoc"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrTaxaCambio" type="tds:TaxaCambio"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codTransf" type="tds:CodTransf"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtDescricao" type="tds:DescricaoDocumento"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="itemDescentralizacao" type="tdnc:ItemDescentralizacao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcNCAnulacaoDescentralizacaoDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoNotaCredito" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numNotaCredito" type="tds:NumDoc"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrTaxaCambio" type="tds:TaxaCambio"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codTransf" type="tds:CodTransf"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtDescricao" type="tds:DescricaoDocumento"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="itemDescentralizacao" type="tdnc:ItemDescentralizacao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcNCDevolucaoDescentralizacaoDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoNotaCredito" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numNotaCredito" type="tds:NumDoc"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrTaxaCambio" type="tds:TaxaCambio"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codTransf" type="tds:CodTransf"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtDescricao" type="tds:DescricaoDocumento"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="itemDescentralizacao" type="tdnc:ItemDescentralizacao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemDetalhamento">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="origemCredito" type="tdnc:Celula"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="destinoCredito" type="tdnc:Celula"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemDescentralizacao">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugFavorecida" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="comDetalhamento" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="origemCredito" type="tdnc:Celula"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="destinoCredito" type="tdnc:Celula"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Celula">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="celulaOrcamentaria" type="tdc:CelulaOrcamentaria"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrCredito" type="tds:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcNotaCreditoResposta">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="notaCredito" type="tds:NC"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="numRO" type="tds:RO"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" type="tdc:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../notacredito/NovoSIAFI-ORC-TiposDados-NotaCredito-Consulta.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosncconsulta" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tds="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" xmlns:tdncc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadosncconsulta" xmlns:tdc="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum">
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadossimples" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-Restrictions.xsd"/>
+  <xs:import namespace="http://www.tesouro.gov.br/siafi/xsd/orcamentario/tipodadoscomum" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario?xsd=../comuns/NovoSIAFI-ORC-TiposDados-Comum.xsd"/>
+  <xs:complexType name="OrcDetalharNCEntrada">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoNC" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numNC" type="tds:NumDoc"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcDetalharNCResposta">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="notaCredito" type="tdncc:OrcNCDados"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensagem" nillable="true" type="tdc:Mensagem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrcNCConsultar">
+    <xs:complexContent>
+      <xs:extension base="tdncc:OrcNCDados"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OrcNCDados">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="ugEmitente" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="anoNC" type="tds:Ano"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="numNC" type="tds:NumDoc"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="operacaoNC" type="tds:TipoOperacaoNotaCredito"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="tds:Date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vlrTaxaCambio" type="tds:TaxaCambio"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrNC" type="tds:Valor"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codTransf" type="tds:CodTransf"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtDescricao" type="tds:DescricaoDocumento"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sistemaOrigem" type="tds:SiglaSistemaOrigem"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="tipoDescentralizacao" type="tds:TipoDescentralizacao"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="itemNC" type="tdncc:ItemNC"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="registroAlteracao" type="tdncc:RegistroAlteracao"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemNC">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="ugFavorecida" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="comDetalhamento" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="origemCredito" type="tdncc:Celula"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="destinoCredito" type="tdncc:Celula"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Celula">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="celulaOrcamentaria" type="tdncc:CelulaOrcamentaria"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vlrCredito" type="tds:Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CelulaOrcamentaria">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="esfera" type="tds:EsferaOrcamentaria"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codPTRES" type="tds:ProgramaTrabalhoResumido"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codFonteRec" type="tds:FonteRecurso"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="codNatDesp" type="tds:NaturezaDespesa"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="ugResponsavel" type="tds:UG"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codPlanoInterno" type="tds:PlanoInterno"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistroAlteracao">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dtEmis" type="xs:date"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="txtMotivo" type="tds:Observacao"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint></con:endpoints><con:operation id="7562ab10-33d0-417e-8bea-58423f957479" isOneWay="false" action="" name="orcAlterarAmparoLegal" bindingOperationName="orcAlterarAmparoLegal" type="Request-Response" outputName="orcAmparoLegalResponse" inputName="orcAlterarAmparoLegal" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="469ea85a-4934-4d3d-b6b7-f2c083311eae" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcAlterarAmparoLegal>\r
+         <orcAmparoLegalDadosAlterar>\r
+            <codAmparoLegal>?</codAmparoLegal>\r
+            <orcAmparoLegalDados>\r
+               <codModalidadeLicitacao>?</codModalidadeLicitacao>\r
+               <!--Optional:-->\r
+               <atoNormativo>?</atoNormativo>\r
+               <!--Optional:-->\r
+               <artigo>?</artigo>\r
+               <!--Optional:-->\r
+               <paragrafo>?</paragrafo>\r
+               <!--Optional:-->\r
+               <inciso>?</inciso>\r
+               <!--Optional:-->\r
+               <alinea>?</alinea>\r
+               <!--0 to 5 repetitions:-->\r
+               <restricao>\r
+                  <tipoRestricao>?</tipoRestricao>\r
+                  <regra>?</regra>\r
+                  <!--Zero or more repetitions:-->\r
+                  <valor>?</valor>\r
+               </restricao>\r
+            </orcAmparoLegalDados>\r
+            <motivo>?</motivo>\r
+         </orcAmparoLegalDadosAlterar>\r
+      </man:orcAlterarAmparoLegal>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcAlterarAmparoLegal"/></con:call></con:operation><con:operation id="d45afef6-a770-40b8-b451-1a267912c282" isOneWay="false" action="" name="orcAlterarEmpenho" bindingOperationName="orcAlterarEmpenho" type="Request-Response" outputName="orcAlterarEmpenhoResponse" inputName="orcAlterarEmpenho" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f1ab4291-8f88-4098-872c-761f44457906" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcAlterarEmpenho>\r
+         <orcEmpenhoDadosAlt>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoEmpenho>?</anoEmpenho>\r
+            <numEmpenho>?</numEmpenho>\r
+            <!--Optional:-->\r
+            <txtLocalEntrega>?</txtLocalEntrega>\r
+            <!--Optional:-->\r
+            <txtDescricao>?</txtDescricao>\r
+            <!--Optional:-->\r
+            <passivoAnterior>\r
+               <!--Optional:-->\r
+               <codContaContabil>?</codContaContabil>\r
+               <!--Zero or more repetitions:-->\r
+               <passivoPermanente>\r
+                  <contaCorrente>?</contaCorrente>\r
+                  <vlrRelacionado>?</vlrRelacionado>\r
+               </passivoPermanente>\r
+            </passivoAnterior>\r
+            <!--Zero or more repetitions:-->\r
+            <itemEmpenho>\r
+               <numSeqItem>?</numSeqItem>\r
+               <!--Optional:-->\r
+               <codSubElemento>?</codSubElemento>\r
+               <!--Optional:-->\r
+               <descricao>?</descricao>\r
+               <!--Optional:-->\r
+               <operacaoItemEmpenho>\r
+                  <tipoOperacaoItemEmpenho>?</tipoOperacaoItemEmpenho>\r
+                  <quantidade>?</quantidade>\r
+                  <vlrUnitario>?</vlrUnitario>\r
+                  <!--Optional:-->\r
+                  <vlrOperacao>?</vlrOperacao>\r
+               </operacaoItemEmpenho>\r
+            </itemEmpenho>\r
+            <registroAlteracao>\r
+               <dtEmis>?</dtEmis>\r
+               <txtMotivo>?</txtMotivo>\r
+               <!--Optional:-->\r
+               <indrIndispCaixa>?</indrIndispCaixa>\r
+            </registroAlteracao>\r
+         </orcEmpenhoDadosAlt>\r
+      </man:orcAlterarEmpenho>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcAlterarEmpenho"/></con:call></con:operation><con:operation id="63f1cfb7-3aa5-4ae1-9590-e8c5436cf9ee" isOneWay="false" action="" name="orcAlterarPreEmpenho" bindingOperationName="orcAlterarPreEmpenho" type="Request-Response" outputName="orcPreEmpenhoResponse" inputName="orcAlterarPreEmpenho" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0c8dbf82-ed20-4a66-8913-7540d2ee687d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcAlterarPreEmpenho>\r
+         <orcPreEmpenhoDadosAlt>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoPreEmpenho>?</anoPreEmpenho>\r
+            <numPreEmpenho>?</numPreEmpenho>\r
+            <!--Optional:-->\r
+            <codFavorecido>?</codFavorecido>\r
+            <!--Optional:-->\r
+            <operacao>\r
+               <tipoOperacao>?</tipoOperacao>\r
+               <vlrOperacao>?</vlrOperacao>\r
+            </operacao>\r
+            <registroAlteracao>\r
+               <dtEmis>?</dtEmis>\r
+               <txtMotivo>?</txtMotivo>\r
+            </registroAlteracao>\r
+         </orcPreEmpenhoDadosAlt>\r
+      </man:orcAlterarPreEmpenho>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcAlterarPreEmpenho"/></con:call></con:operation><con:operation id="3e263ea4-06bf-4ae4-859b-ec64c5042699" isOneWay="false" action="" name="orcConsultarBaixaSaldoEmpenhoExercAnterior" bindingOperationName="orcConsultarBaixaSaldoEmpenhoExercAnterior" type="Request-Response" outputName="orcConsultaBaixaSaldoEmpenhoExercAnteriorResponse" inputName="orcConsultarBaixaSaldoEmpenhoExercAnterior" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="eccc53e1-dc5b-415c-bf3f-abd6947fbfe8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcConsultarBaixaSaldoEmpenhoExercAnterior>\r
+         <orcConsultarBaixaSaldoEmpenhoExercAnteriorEntrada>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoEmpenho>?</anoEmpenho>\r
+            <numEmpenho>?</numEmpenho>\r
+         </orcConsultarBaixaSaldoEmpenhoExercAnteriorEntrada>\r
+      </man:orcConsultarBaixaSaldoEmpenhoExercAnterior>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcConsultarBaixaSaldoEmpenhoExercAnterior"/></con:call></con:operation><con:operation id="4901b436-a9aa-436a-b119-2fe6b5ea8fee" isOneWay="false" action="" name="orcConsultarRelatorioEmpenho" bindingOperationName="orcConsultarRelatorioEmpenho" type="Request-Response" outputName="orcConsultarRelatorioEmpenhoResponse" inputName="orcConsultarRelatorioEmpenho" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b6dca2ae-6ea4-4b9b-936f-ee7b91776ac8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcConsultarRelatorioEmpenho>\r
+         <orcConsultarRelatorioEmpenhoEntrada>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoEmpenho>?</anoEmpenho>\r
+            <numEmpenho>?</numEmpenho>\r
+         </orcConsultarRelatorioEmpenhoEntrada>\r
+      </man:orcConsultarRelatorioEmpenho>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcConsultarRelatorioEmpenho"/></con:call></con:operation><con:operation id="7d7ca18a-b42e-4e9d-9897-7c5a444bf33f" isOneWay="false" action="" name="orcDetalharEmpenho" bindingOperationName="orcDetalharEmpenho" type="Request-Response" outputName="orcDetalharEmpenhoResponse" inputName="orcDetalharEmpenho" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e0dfc4fa-dff2-45a4-943a-396ccddb29d7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcDetalharEmpenho>\r
+         <orcDetalharEmpenhoEntrada>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoEmpenho>?</anoEmpenho>\r
+            <numEmpenho>?</numEmpenho>\r
+         </orcDetalharEmpenhoEntrada>\r
+      </man:orcDetalharEmpenho>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcDetalharEmpenho"/></con:call></con:operation><con:operation id="65934f1c-8b03-4f7f-869f-78f3bb0b46e4" isOneWay="false" action="" name="orcDetalharNC" bindingOperationName="orcDetalharNC" type="Request-Response" outputName="orcDetalharNCResponse" inputName="orcDetalharNC" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="66722048-b02a-469e-99e1-019e845045f8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcDetalharNC>\r
+         <orcDetalharNCEntrada>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoNC>?</anoNC>\r
+            <numNC>?</numNC>\r
+         </orcDetalharNCEntrada>\r
+      </man:orcDetalharNC>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcDetalharNC"/></con:call></con:operation><con:operation id="1a02ae46-0d4e-4f25-9ea2-6a47a8afc88c" isOneWay="false" action="" name="orcDetalharPreEmpenho" bindingOperationName="orcDetalharPreEmpenho" type="Request-Response" outputName="orcDetalharPreEmpenhoResponse" inputName="orcDetalharPreEmpenho" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c8b10aac-e870-45cc-bde8-eb32c59f62d1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcDetalharPreEmpenho>\r
+         <orcDetalharPreEmpenhoEntrada>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoPreEmpenho>?</anoPreEmpenho>\r
+            <numPreEmpenho>?</numPreEmpenho>\r
+         </orcDetalharPreEmpenhoEntrada>\r
+      </man:orcDetalharPreEmpenho>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcDetalharPreEmpenho"/></con:call></con:operation><con:operation id="5a4120db-1f1d-4f76-8bd0-ae2c222ab15c" isOneWay="false" action="" name="orcExcluirAmparoLegal" bindingOperationName="orcExcluirAmparoLegal" type="Request-Response" outputName="orcAmparoLegalResponse" inputName="orcExcluirAmparoLegal" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="79272ccd-2da0-4b0f-870c-2ffc658b55cb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcExcluirAmparoLegal>\r
+         <orcAmparoLegalDadosExcluir>\r
+            <codAmparoLegal>?</codAmparoLegal>\r
+            <motivo>?</motivo>\r
+         </orcAmparoLegalDadosExcluir>\r
+      </man:orcExcluirAmparoLegal>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcExcluirAmparoLegal"/></con:call></con:operation><con:operation id="abdd6df1-199a-444c-9de3-2d0cf6d42d8a" isOneWay="false" action="" name="orcIncluirAmparoLegal" bindingOperationName="orcIncluirAmparoLegal" type="Request-Response" outputName="orcAmparoLegalResponse" inputName="orcIncluirAmparoLegal" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3a74111f-611b-4cee-bf24-56a0bdd82f35" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcIncluirAmparoLegal>\r
+         <orcAmparoLegalDadosIncluir>\r
+            <orcAmparoLegalDados>\r
+               <codModalidadeLicitacao>?</codModalidadeLicitacao>\r
+               <!--Optional:-->\r
+               <atoNormativo>?</atoNormativo>\r
+               <!--Optional:-->\r
+               <artigo>?</artigo>\r
+               <!--Optional:-->\r
+               <paragrafo>?</paragrafo>\r
+               <!--Optional:-->\r
+               <inciso>?</inciso>\r
+               <!--Optional:-->\r
+               <alinea>?</alinea>\r
+               <!--0 to 5 repetitions:-->\r
+               <restricao>\r
+                  <tipoRestricao>?</tipoRestricao>\r
+                  <regra>?</regra>\r
+                  <!--Zero or more repetitions:-->\r
+                  <valor>?</valor>\r
+               </restricao>\r
+            </orcAmparoLegalDados>\r
+            <motivo>?</motivo>\r
+         </orcAmparoLegalDadosIncluir>\r
+      </man:orcIncluirAmparoLegal>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirAmparoLegal"/></con:call></con:operation><con:operation id="bc9d4a2a-e9c7-4873-9866-4f565203e5ac" isOneWay="false" action="" name="orcIncluirEmpenho" bindingOperationName="orcIncluirEmpenho" type="Request-Response" outputName="orcIncluirEmpenhoResponse" inputName="orcIncluirEmpenho" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="23b5f038-b9b6-479b-8f98-9e1ce32641d1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcIncluirEmpenho>\r
+         <orcEmpenhoDados>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoEmpenho>?</anoEmpenho>\r
+            <!--Optional:-->\r
+            <numEmpenho>?</numEmpenho>\r
+            <!--Optional:-->\r
+            <preEmpenho>?</preEmpenho>\r
+            <tipoEmpenho>?</tipoEmpenho>\r
+            <celulaOrcamentaria>\r
+               <esfera>?</esfera>\r
+               <!--Optional:-->\r
+               <codPTRES>?</codPTRES>\r
+               <!--Optional:-->\r
+               <ptresDecodificado>\r
+                  <codUO>?</codUO>\r
+                  <codPT>?</codPT>\r
+                  <indrResultLei>?</indrResultLei>\r
+                  <indrTipoCredito>?</indrTipoCredito>\r
+                  <codPlanoOrc>?</codPlanoOrc>\r
+                  <codAutorEmenda>?</codAutorEmenda>\r
+                  <codIduso>?</codIduso>\r
+               </ptresDecodificado>\r
+               <codFonteRec>?</codFonteRec>\r
+               <codNatDesp>?</codNatDesp>\r
+               <!--Optional:-->\r
+               <ugResponsavel>?</ugResponsavel>\r
+               <!--Optional:-->\r
+               <codPlanoInterno>?</codPlanoInterno>\r
+            </celulaOrcamentaria>\r
+            <dtEmis>?</dtEmis>\r
+            <!--Optional:-->\r
+            <txtProcesso>?</txtProcesso>\r
+            <!--Optional:-->\r
+            <vlrTaxaCambio>?</vlrTaxaCambio>\r
+            <!--Optional:-->\r
+            <vlrEmpenho>?</vlrEmpenho>\r
+            <codFavorecido>?</codFavorecido>\r
+            <codAmparoLegal>?</codAmparoLegal>\r
+            <!--Optional:-->\r
+            <txtInfoCompl>?</txtInfoCompl>\r
+            <!--Optional:-->\r
+            <codTipoTransf>?</codTipoTransf>\r
+            <!--Optional:-->\r
+            <txtLocalEntrega>?</txtLocalEntrega>\r
+            <txtDescricao>?</txtDescricao>\r
+            <!--Optional:-->\r
+            <passivoAnterior>\r
+               <!--Optional:-->\r
+               <codContaContabil>?</codContaContabil>\r
+               <!--Zero or more repetitions:-->\r
+               <passivoPermanente>\r
+                  <contaCorrente>?</contaCorrente>\r
+                  <vlrRelacionado>?</vlrRelacionado>\r
+               </passivoPermanente>\r
+            </passivoAnterior>\r
+            <!--1 or more repetitions:-->\r
+            <itemEmpenho>\r
+               <numSeqItem>?</numSeqItem>\r
+               <!--Optional:-->\r
+               <codSubElemento>?</codSubElemento>\r
+               <!--Optional:-->\r
+               <descricao>?</descricao>\r
+               <!--Optional:-->\r
+               <operacaoItemEmpenho>\r
+                  <tipoOperacaoItemEmpenho>?</tipoOperacaoItemEmpenho>\r
+                  <quantidade>?</quantidade>\r
+                  <vlrUnitario>?</vlrUnitario>\r
+                  <!--Optional:-->\r
+                  <vlrOperacao>?</vlrOperacao>\r
+               </operacaoItemEmpenho>\r
+            </itemEmpenho>\r
+         </orcEmpenhoDados>\r
+      </man:orcIncluirEmpenho>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirEmpenho"/></con:call></con:operation><con:operation id="2b076c85-5119-415e-b001-96bb66563e64" isOneWay="false" action="" name="orcIncluirNCAnulacaoDescentralizacao" bindingOperationName="orcIncluirNCAnulacaoDescentralizacao" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCAnulacaoDescentralizacao" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="488ab0fb-ab42-4611-a85b-8d345cb6b72c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcIncluirNCAnulacaoDescentralizacao>\r
+         <orcNCAnulacaoDescentralizacaoDados>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoNotaCredito>?</anoNotaCredito>\r
+            <!--Optional:-->\r
+            <numNotaCredito>?</numNotaCredito>\r
+            <dtEmis>?</dtEmis>\r
+            <!--Optional:-->\r
+            <vlrTaxaCambio>?</vlrTaxaCambio>\r
+            <!--Optional:-->\r
+            <codTransf>?</codTransf>\r
+            <txtDescricao>?</txtDescricao>\r
+            <!--1 or more repetitions:-->\r
+            <itemDescentralizacao>\r
+               <ugFavorecida>?</ugFavorecida>\r
+               <!--Optional:-->\r
+               <comDetalhamento>?</comDetalhamento>\r
+               <!--1 or more repetitions:-->\r
+               <origemCredito>\r
+                  <celulaOrcamentaria>\r
+                     <esfera>?</esfera>\r
+                     <!--Optional:-->\r
+                     <codPTRES>?</codPTRES>\r
+                     <!--Optional:-->\r
+                     <ptresDecodificado>\r
+                        <codUO>?</codUO>\r
+                        <codPT>?</codPT>\r
+                        <indrResultLei>?</indrResultLei>\r
+                        <indrTipoCredito>?</indrTipoCredito>\r
+                        <codPlanoOrc>?</codPlanoOrc>\r
+                        <codAutorEmenda>?</codAutorEmenda>\r
+                        <codIduso>?</codIduso>\r
+                     </ptresDecodificado>\r
+                     <codFonteRec>?</codFonteRec>\r
+                     <codNatDesp>?</codNatDesp>\r
+                     <!--Optional:-->\r
+                     <ugResponsavel>?</ugResponsavel>\r
+                     <!--Optional:-->\r
+                     <codPlanoInterno>?</codPlanoInterno>\r
+                  </celulaOrcamentaria>\r
+                  <vlrCredito>?</vlrCredito>\r
+               </origemCredito>\r
+               <!--Zero or more repetitions:-->\r
+               <destinoCredito>\r
+                  <celulaOrcamentaria>\r
+                     <esfera>?</esfera>\r
+                     <!--Optional:-->\r
+                     <codPTRES>?</codPTRES>\r
+                     <!--Optional:-->\r
+                     <ptresDecodificado>\r
+                        <codUO>?</codUO>\r
+                        <codPT>?</codPT>\r
+                        <indrResultLei>?</indrResultLei>\r
+                        <indrTipoCredito>?</indrTipoCredito>\r
+                        <codPlanoOrc>?</codPlanoOrc>\r
+                        <codAutorEmenda>?</codAutorEmenda>\r
+                        <codIduso>?</codIduso>\r
+                     </ptresDecodificado>\r
+                     <codFonteRec>?</codFonteRec>\r
+                     <codNatDesp>?</codNatDesp>\r
+                     <!--Optional:-->\r
+                     <ugResponsavel>?</ugResponsavel>\r
+                     <!--Optional:-->\r
+                     <codPlanoInterno>?</codPlanoInterno>\r
+                  </celulaOrcamentaria>\r
+                  <vlrCredito>?</vlrCredito>\r
+               </destinoCredito>\r
+            </itemDescentralizacao>\r
+         </orcNCAnulacaoDescentralizacaoDados>\r
+      </man:orcIncluirNCAnulacaoDescentralizacao>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCAnulacaoDescentralizacao"/></con:call></con:operation><con:operation id="9c400f47-a231-46c3-afaf-7bd479644fc1" isOneWay="false" action="" name="orcIncluirNCDescentralizacao" bindingOperationName="orcIncluirNCDescentralizacao" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCDescentralizacao" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="70538262-350e-43c4-9849-66c723ff47e6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcIncluirNCDescentralizacao>\r
+         <orcNCDescentralizacaoDados>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoNotaCredito>?</anoNotaCredito>\r
+            <!--Optional:-->\r
+            <numNotaCredito>?</numNotaCredito>\r
+            <dtEmis>?</dtEmis>\r
+            <!--Optional:-->\r
+            <vlrTaxaCambio>?</vlrTaxaCambio>\r
+            <!--Optional:-->\r
+            <codTransf>?</codTransf>\r
+            <txtDescricao>?</txtDescricao>\r
+            <!--1 or more repetitions:-->\r
+            <itemDescentralizacao>\r
+               <ugFavorecida>?</ugFavorecida>\r
+               <!--Optional:-->\r
+               <comDetalhamento>?</comDetalhamento>\r
+               <!--1 or more repetitions:-->\r
+               <origemCredito>\r
+                  <celulaOrcamentaria>\r
+                     <esfera>?</esfera>\r
+                     <!--Optional:-->\r
+                     <codPTRES>?</codPTRES>\r
+                     <!--Optional:-->\r
+                     <ptresDecodificado>\r
+                        <codUO>?</codUO>\r
+                        <codPT>?</codPT>\r
+                        <indrResultLei>?</indrResultLei>\r
+                        <indrTipoCredito>?</indrTipoCredito>\r
+                        <codPlanoOrc>?</codPlanoOrc>\r
+                        <codAutorEmenda>?</codAutorEmenda>\r
+                        <codIduso>?</codIduso>\r
+                     </ptresDecodificado>\r
+                     <codFonteRec>?</codFonteRec>\r
+                     <codNatDesp>?</codNatDesp>\r
+                     <!--Optional:-->\r
+                     <ugResponsavel>?</ugResponsavel>\r
+                     <!--Optional:-->\r
+                     <codPlanoInterno>?</codPlanoInterno>\r
+                  </celulaOrcamentaria>\r
+                  <vlrCredito>?</vlrCredito>\r
+               </origemCredito>\r
+               <!--Zero or more repetitions:-->\r
+               <destinoCredito>\r
+                  <celulaOrcamentaria>\r
+                     <esfera>?</esfera>\r
+                     <!--Optional:-->\r
+                     <codPTRES>?</codPTRES>\r
+                     <!--Optional:-->\r
+                     <ptresDecodificado>\r
+                        <codUO>?</codUO>\r
+                        <codPT>?</codPT>\r
+                        <indrResultLei>?</indrResultLei>\r
+                        <indrTipoCredito>?</indrTipoCredito>\r
+                        <codPlanoOrc>?</codPlanoOrc>\r
+                        <codAutorEmenda>?</codAutorEmenda>\r
+                        <codIduso>?</codIduso>\r
+                     </ptresDecodificado>\r
+                     <codFonteRec>?</codFonteRec>\r
+                     <codNatDesp>?</codNatDesp>\r
+                     <!--Optional:-->\r
+                     <ugResponsavel>?</ugResponsavel>\r
+                     <!--Optional:-->\r
+                     <codPlanoInterno>?</codPlanoInterno>\r
+                  </celulaOrcamentaria>\r
+                  <vlrCredito>?</vlrCredito>\r
+               </destinoCredito>\r
+            </itemDescentralizacao>\r
+         </orcNCDescentralizacaoDados>\r
+      </man:orcIncluirNCDescentralizacao>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCDescentralizacao"/></con:call></con:operation><con:operation id="1410f87d-c415-4d68-9a05-ba43ed611adc" isOneWay="false" action="" name="orcIncluirNCDetalhamento" bindingOperationName="orcIncluirNCDetalhamento" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCDetalhamento" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6c1c00f7-c819-4762-8f10-31ad5066a4fe" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcIncluirNCDetalhamento>\r
+         <orcNCDetalhamentoDados>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoNotaCredito>?</anoNotaCredito>\r
+            <!--Optional:-->\r
+            <numNotaCredito>?</numNotaCredito>\r
+            <dtEmis>?</dtEmis>\r
+            <!--Optional:-->\r
+            <vlrTaxaCambio>?</vlrTaxaCambio>\r
+            <txtDescricao>?</txtDescricao>\r
+            <!--1 or more repetitions:-->\r
+            <itemDetalhamento>\r
+               <!--1 or more repetitions:-->\r
+               <origemCredito>\r
+                  <celulaOrcamentaria>\r
+                     <esfera>?</esfera>\r
+                     <!--Optional:-->\r
+                     <codPTRES>?</codPTRES>\r
+                     <!--Optional:-->\r
+                     <ptresDecodificado>\r
+                        <codUO>?</codUO>\r
+                        <codPT>?</codPT>\r
+                        <indrResultLei>?</indrResultLei>\r
+                        <indrTipoCredito>?</indrTipoCredito>\r
+                        <codPlanoOrc>?</codPlanoOrc>\r
+                        <codAutorEmenda>?</codAutorEmenda>\r
+                        <codIduso>?</codIduso>\r
+                     </ptresDecodificado>\r
+                     <codFonteRec>?</codFonteRec>\r
+                     <codNatDesp>?</codNatDesp>\r
+                     <!--Optional:-->\r
+                     <ugResponsavel>?</ugResponsavel>\r
+                     <!--Optional:-->\r
+                     <codPlanoInterno>?</codPlanoInterno>\r
+                  </celulaOrcamentaria>\r
+                  <vlrCredito>?</vlrCredito>\r
+               </origemCredito>\r
+               <!--1 or more repetitions:-->\r
+               <destinoCredito>\r
+                  <celulaOrcamentaria>\r
+                     <esfera>?</esfera>\r
+                     <!--Optional:-->\r
+                     <codPTRES>?</codPTRES>\r
+                     <!--Optional:-->\r
+                     <ptresDecodificado>\r
+                        <codUO>?</codUO>\r
+                        <codPT>?</codPT>\r
+                        <indrResultLei>?</indrResultLei>\r
+                        <indrTipoCredito>?</indrTipoCredito>\r
+                        <codPlanoOrc>?</codPlanoOrc>\r
+                        <codAutorEmenda>?</codAutorEmenda>\r
+                        <codIduso>?</codIduso>\r
+                     </ptresDecodificado>\r
+                     <codFonteRec>?</codFonteRec>\r
+                     <codNatDesp>?</codNatDesp>\r
+                     <!--Optional:-->\r
+                     <ugResponsavel>?</ugResponsavel>\r
+                     <!--Optional:-->\r
+                     <codPlanoInterno>?</codPlanoInterno>\r
+                  </celulaOrcamentaria>\r
+                  <vlrCredito>?</vlrCredito>\r
+               </destinoCredito>\r
+            </itemDetalhamento>\r
+         </orcNCDetalhamentoDados>\r
+      </man:orcIncluirNCDetalhamento>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCDetalhamento"/></con:call></con:operation><con:operation id="fa22ca85-3c10-4a5a-9cc4-8409ccea4a26" isOneWay="false" action="" name="orcIncluirNCDevolucaoDescentralizacao" bindingOperationName="orcIncluirNCDevolucaoDescentralizacao" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCDevolucaoDescentralizacao" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="edf73a1a-3480-4577-83f4-2c97c5b193d3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcIncluirNCDevolucaoDescentralizacao>\r
+         <orcNCDevolucaoDescentralizacaoDados>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoNotaCredito>?</anoNotaCredito>\r
+            <!--Optional:-->\r
+            <numNotaCredito>?</numNotaCredito>\r
+            <dtEmis>?</dtEmis>\r
+            <!--Optional:-->\r
+            <vlrTaxaCambio>?</vlrTaxaCambio>\r
+            <!--Optional:-->\r
+            <codTransf>?</codTransf>\r
+            <txtDescricao>?</txtDescricao>\r
+            <!--1 or more repetitions:-->\r
+            <itemDescentralizacao>\r
+               <ugFavorecida>?</ugFavorecida>\r
+               <!--Optional:-->\r
+               <comDetalhamento>?</comDetalhamento>\r
+               <!--1 or more repetitions:-->\r
+               <origemCredito>\r
+                  <celulaOrcamentaria>\r
+                     <esfera>?</esfera>\r
+                     <!--Optional:-->\r
+                     <codPTRES>?</codPTRES>\r
+                     <!--Optional:-->\r
+                     <ptresDecodificado>\r
+                        <codUO>?</codUO>\r
+                        <codPT>?</codPT>\r
+                        <indrResultLei>?</indrResultLei>\r
+                        <indrTipoCredito>?</indrTipoCredito>\r
+                        <codPlanoOrc>?</codPlanoOrc>\r
+                        <codAutorEmenda>?</codAutorEmenda>\r
+                        <codIduso>?</codIduso>\r
+                     </ptresDecodificado>\r
+                     <codFonteRec>?</codFonteRec>\r
+                     <codNatDesp>?</codNatDesp>\r
+                     <!--Optional:-->\r
+                     <ugResponsavel>?</ugResponsavel>\r
+                     <!--Optional:-->\r
+                     <codPlanoInterno>?</codPlanoInterno>\r
+                  </celulaOrcamentaria>\r
+                  <vlrCredito>?</vlrCredito>\r
+               </origemCredito>\r
+               <!--Zero or more repetitions:-->\r
+               <destinoCredito>\r
+                  <celulaOrcamentaria>\r
+                     <esfera>?</esfera>\r
+                     <!--Optional:-->\r
+                     <codPTRES>?</codPTRES>\r
+                     <!--Optional:-->\r
+                     <ptresDecodificado>\r
+                        <codUO>?</codUO>\r
+                        <codPT>?</codPT>\r
+                        <indrResultLei>?</indrResultLei>\r
+                        <indrTipoCredito>?</indrTipoCredito>\r
+                        <codPlanoOrc>?</codPlanoOrc>\r
+                        <codAutorEmenda>?</codAutorEmenda>\r
+                        <codIduso>?</codIduso>\r
+                     </ptresDecodificado>\r
+                     <codFonteRec>?</codFonteRec>\r
+                     <codNatDesp>?</codNatDesp>\r
+                     <!--Optional:-->\r
+                     <ugResponsavel>?</ugResponsavel>\r
+                     <!--Optional:-->\r
+                     <codPlanoInterno>?</codPlanoInterno>\r
+                  </celulaOrcamentaria>\r
+                  <vlrCredito>?</vlrCredito>\r
+               </destinoCredito>\r
+            </itemDescentralizacao>\r
+         </orcNCDevolucaoDescentralizacaoDados>\r
+      </man:orcIncluirNCDevolucaoDescentralizacao>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCDevolucaoDescentralizacao"/></con:call></con:operation><con:operation id="e9fcbc66-779a-44bf-a960-8526c69cbd2c" isOneWay="false" action="" name="orcIncluirPreEmpenho" bindingOperationName="orcIncluirPreEmpenho" type="Request-Response" outputName="orcPreEmpenhoResponse" inputName="orcIncluirPreEmpenho" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="32b675c8-ca4c-4438-99ee-fd76aaf6b209" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcIncluirPreEmpenho>\r
+         <orcPreEmpenhoDados>\r
+            <ugEmitente>?</ugEmitente>\r
+            <anoPreEmpenho>?</anoPreEmpenho>\r
+            <!--Optional:-->\r
+            <numPreEmpenho>?</numPreEmpenho>\r
+            <celulaOrcamentaria>\r
+               <esfera>?</esfera>\r
+               <!--Optional:-->\r
+               <codPTRES>?</codPTRES>\r
+               <!--Optional:-->\r
+               <ptresDecodificado>\r
+                  <codUO>?</codUO>\r
+                  <codPT>?</codPT>\r
+                  <indrResultLei>?</indrResultLei>\r
+                  <indrTipoCredito>?</indrTipoCredito>\r
+                  <codPlanoOrc>?</codPlanoOrc>\r
+                  <codAutorEmenda>?</codAutorEmenda>\r
+                  <codIduso>?</codIduso>\r
+               </ptresDecodificado>\r
+               <codFonteRec>?</codFonteRec>\r
+               <codNatDesp>?</codNatDesp>\r
+               <!--Optional:-->\r
+               <ugResponsavel>?</ugResponsavel>\r
+               <!--Optional:-->\r
+               <codPlanoInterno>?</codPlanoInterno>\r
+            </celulaOrcamentaria>\r
+            <dtEmis>?</dtEmis>\r
+            <!--Optional:-->\r
+            <txtProcesso>?</txtProcesso>\r
+            <!--Optional:-->\r
+            <vlrTaxaCambio>?</vlrTaxaCambio>\r
+            <vlrPreEmpenho>?</vlrPreEmpenho>\r
+            <!--Optional:-->\r
+            <codFavorecido>?</codFavorecido>\r
+            <txtDescricao>?</txtDescricao>\r
+         </orcPreEmpenhoDados>\r
+      </man:orcIncluirPreEmpenho>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirPreEmpenho"/></con:call></con:operation><con:operation id="cfba4959-b3f4-48ba-8713-6bb728484b33" isOneWay="false" action="" name="orcReincluirAmparoLegal" bindingOperationName="orcReincluirAmparoLegal" type="Request-Response" outputName="orcAmparoLegalResponse" inputName="orcReincluirAmparoLegal" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c4add81-2ab9-45ad-b874-cc5de09d16e9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+   <soapenv:Header>\r
+      <man:cabecalhoSIAFI>\r
+         <!--Optional:-->\r
+         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <!--Optional:-->\r
+         <ug>?</ug>\r
+         <!--Optional:-->\r
+         <bilhetador>\r
+            <!--Optional:-->\r
+            <nonce>?</nonce>\r
+         </bilhetador>\r
+      </man:cabecalhoSIAFI>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <man:orcReincluirAmparoLegal>\r
+         <orcAmparoLegalDadosAlterar>\r
+            <codAmparoLegal>?</codAmparoLegal>\r
+            <orcAmparoLegalDados>\r
+               <codModalidadeLicitacao>?</codModalidadeLicitacao>\r
+               <!--Optional:-->\r
+               <atoNormativo>?</atoNormativo>\r
+               <!--Optional:-->\r
+               <artigo>?</artigo>\r
+               <!--Optional:-->\r
+               <paragrafo>?</paragrafo>\r
+               <!--Optional:-->\r
+               <inciso>?</inciso>\r
+               <!--Optional:-->\r
+               <alinea>?</alinea>\r
+               <!--0 to 5 repetitions:-->\r
+               <restricao>\r
+                  <tipoRestricao>?</tipoRestricao>\r
+                  <regra>?</regra>\r
+                  <!--Zero or more repetitions:-->\r
+                  <valor>?</valor>\r
+               </restricao>\r
+            </orcAmparoLegalDados>\r
+            <motivo>?</motivo>\r
+         </orcAmparoLegalDadosAlterar>\r
+      </man:orcReincluirAmparoLegal>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcReincluirAmparoLegal"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

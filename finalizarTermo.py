@@ -133,7 +133,7 @@ def preencher_colunas_SIMEC(copia_ted_para_finalizar, copia_arquivo_valores, col
     except Exception as e:
         print(f"Ocorreu um erro ao preencher a coluna {coluna_destino}: {e}")
 
-def copiar_linhas_ano(arquivo_origem, arquivo_destino, coluna_data_origem, coluna_data_destino, ano=2025, linha_cabecalho=0):
+def copiar_linhas_ano(arquivo_origem, arquivo_destino, coluna_data_origem, coluna_data_destino, ano=2026, linha_cabecalho=0):
     try:
         # Suprimir avisos do openpyxl
         warnings.simplefilter(action='ignore', category=UserWarning)
@@ -216,6 +216,24 @@ def preencher_colunas_SIMEC(copia_ted_para_finalizar, copia_arquivo_valores, col
         # Corrigir possíveis espaços e caracteres indesejados nas chaves
         df_valores[chave_coluna] = df_valores[chave_coluna].astype(str).str.strip()
         df_ted['SIAFI'] = df_ted['SIAFI'].astype(str).str.strip()
+        
+       # Normalizar a coluna de valores (SEM alterar floats corretos)
+        df_valores[coluna_valores] = df_valores[coluna_valores].apply(
+            lambda x: (
+                str(x)
+                .replace('R$', '')
+                .replace('\u00a0', '')
+                .replace(' ', '')
+                .replace('.', '')      # remove milhar
+                .replace(',', '.')     # decimal
+                if isinstance(x, str) else x
+            )
+        )
+
+        df_valores[coluna_valores] = pd.to_numeric(
+            df_valores[coluna_valores],
+            errors='coerce'
+        ).round(2)
         
         # Criar dicionário de lookup para chave_coluna e valores
         lookup_dict = df_valores.groupby(chave_coluna)[coluna_valores].sum().to_dict()
@@ -433,14 +451,14 @@ def main():
         arquivo_destino = copia_ncs_siafi,
         coluna_data_origem = 'Emissão - Dia',
         coluna_data_destino = 'Emissão - Dia',
-        linha_cabecalho=0
+        linha_cabecalho=5
         )
     
     copiar_linhas_ano(
         arquivo_origem = pfTG,
         arquivo_destino = copia_pfs_siafi,
         coluna_data_origem = 'Emissão - Dia',
-        coluna_data_destino = 'Emissão dia',
+        coluna_data_destino = 'Emissão - Dia',
         linha_cabecalho = 5)
     
     copiar_linhas_ano(
@@ -488,9 +506,9 @@ def main():
     preencher_colunas_SIMEC(
         copia_ted_para_finalizar=copia_ted_para_finalizar,
         copia_arquivo_valores=copia_pfs_siafi,
-        coluna_valores='Repassado Absoluto',
+        coluna_valores='PF - Valor Linha',
         coluna_destino='VALOR PF SIAFI',
-        chave_coluna='Inscrição (6digitos)'
+        chave_coluna='PF - Inscrição'
     )
 
     # VALORES FIRMADOS - TED CONTAS CADASTRO E CONTROLE
@@ -534,8 +552,6 @@ def main():
         chave_coluna='SIAFI'                           
     )
     
-    copia_ted_para_finalizar = r'W:\B - TED\7 - AUTOMAÇÃO\Teds para finalizar\COPIA TEDS para Finalizar.xlsx'
-    
     # Chamar a função subtrair_e_preencher
     subtrair_e_preencher(
         arquivo_origem=copia_ted_para_finalizar,
@@ -571,7 +587,9 @@ def main():
     
     comparar(copia_ted_para_finalizar, comparacoes)
     formatar_valores_monetarios(os.path.join(destino, 'COPIA TEDS para Finalizar.xlsx'), colunas_monetarias)
-    formatar_colunas_resultado(copia_ted_para_finalizar, colunas_resultado)   
+    formatar_colunas_resultado(copia_ted_para_finalizar, colunas_resultado)
+    
+    print("Processo Totalmente Finalizado!")   
     
 if __name__ == "__main__":
     main()
