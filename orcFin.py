@@ -6,6 +6,7 @@ import os
 import pandas as pd
 import numpy as np
 from datetime import datetime
+import gc, time
 
 def copiar_arquivos(arquivo_origem, destino):
     origens = [
@@ -206,55 +207,27 @@ def apagar_segunda_e_ultima_linha(arquivo_excel):
     except Exception as e:
         print(f"Ocorreu um erro ao apagar as linhas: {e}")
 
-def copiar_e_apagar_linhas(arquivo_origem, arquivo_destino, linhas_a_apagar=11):
-    try:
-        # Copiar o arquivo para o destino
-        shutil.copyfile(arquivo_origem, arquivo_destino)
+def copiar_e_apagar_linhas(arquivo_origem, arquivo_destino): 
+    try: 
+        # Copiar o arquivo para o destino 
+        shutil.copyfile(arquivo_origem, arquivo_destino) 
         
-        # Abrir o arquivo copiado
-        wb = openpyxl.load_workbook(arquivo_destino)
-        sheet = wb.active
-
-        # Apagar as linhas especificadas
-        for _ in range(linhas_a_apagar):
-            sheet.delete_rows(1)
-
-        # Salvar as alterações
-        wb.save(arquivo_destino)
-        wb.close()
-
-        print(f"{linhas_a_apagar} primeiras linhas apagadas com sucesso em {arquivo_destino}...")
-
-    except Exception as e:
-        print(f"Ocorreu um erro ao copiar e apagar linhas: {e}") 
-
-def copiar_e_apagar_linhas(arquivo_origem, arquivo_destino):
-    try:
-        # Copiar o arquivo para o destino
-        shutil.copyfile(arquivo_origem, arquivo_destino)
+        # Carregar o arquivo copiado com o pandas 
+        df = pd.read_excel(arquivo_destino) 
         
-        # Carregar o arquivo copiado com o pandas, ignorando as 12 primeiras linhas
-        df = pd.read_excel(arquivo_destino, skiprows=12)
-
-        # Renomear as colunas
-        novo_cabecalho = [
-            "Resultado EOF", "Descrição EOF", "NE CCor - Ano Emissão", "Órgão UGE", "Descrição UGE",
-            "UG Executora", "Descrição UG", "UGE - UG Setorial Financeira", "Descrição Setorial",
-            "Ação Governo", "Descrição Ação", "Função PO", "SubFunção PO", "Programa PO", "Cod PO",
-            "Descrição PO", "PTRES", "PI", "NE CCor", "Grupo Despesa", "Natureza Despesa Detalhada",
-            "Descrição Natureza", "Elemento Despesa", "Descrição Elemento", "Fonte Recursos Detalhada",
-            "DESTAQUE RECEBIDO", "CREDITO DISPONIVEL", "DESPESAS EMPENHADAS (CONTROLE EMPENHO)",
-            "DESPESAS PAGAs (CONTROLE EMPENHO)", "Total"
-        ]
-        df.columns = novo_cabecalho
-
-        # Salvar o DataFrame de volta no arquivo Excel
-        df.to_excel(arquivo_destino, index=False)
-
-        print("Primeiras 12 linhas apagadas e cabeçalho renomeado com sucesso...")
-
-    except Exception as e:
-        print(f"Ocorreu um erro ao copiar e apagar linhas: {e}")
+        # 🔥 CORTA para 30 colunas
+        df = df.iloc[:, :30]
+        
+        # Renomear as colunas 
+        novo_cabecalho = [ "Resultado EOF", "Descrição EOF", "NE CCor - Ano Emissão", "Órgão UGE", "Descrição UGE", "UG Executora", "Descrição UG", "UGE - UG Setorial Financeira", "Descrição Setorial", "Ação Governo", "Descrição Ação", "Função PO", "SubFunção PO", "Programa PO", "Cod PO", "Descrição PO", "PTRES", "PI", "NE CCor", "Grupo Despesa", "Natureza Despesa Detalhada", "Descrição Natureza", "Elemento Despesa", "Descrição Elemento", "Fonte Recursos Detalhada", "DESTAQUE RECEBIDO", "CREDITO DISPONIVEL", "DESPESAS EMPENHADAS (CONTROLE EMPENHO)", "DESPESAS PAGAs (CONTROLE EMPENHO)", "Total" ] 
+        
+        df.columns = novo_cabecalho 
+        
+        # Salvar o DataFrame de volta no arquivo Excel 
+        df.to_excel(arquivo_destino, index=False) 
+        
+        print("cabeçalho renomeado com sucesso...") 
+    except Exception as e: print(f"Ocorreu um erro ao copiar e apagar linhas: {e}")
         
 def atualizar_arquivo_copia(origem, destino):
     try:
@@ -432,6 +405,63 @@ def renomear_cabecalho_painel_execucao(arquivo_origem, arquivo_destino):
 
     except Exception as e:
         print(f"Ocorreu um erro ao copiar e apagar linhas: {e}")        
+
+gc.collect()
+time.sleep(2)
+
+def atualizar_credito_disponivel_por_linha_fixa(
+    arquivo_2026,
+    arquivo_destino,
+    linha_base_fixa=85152
+):
+    try:
+        # 🔹 Lê o arquivo de 2026 a partir da linha 14
+        df_2026 = pd.read_excel(
+            arquivo_2026,
+            skiprows=13
+        )
+
+        # 🔥 Garante no máximo 30 colunas
+        df_2026 = df_2026.iloc[:, :30]
+
+        novo_cabecalho = [
+            "Resultado EOF", "Descrição EOF", "NE CCor - Ano Emissão",
+            "Órgão UGE", "Descrição UGE", "UG Executora", "Descrição UG",
+            "UGE - UG Setorial Financeira", "Descrição Setorial",
+            "Ação Governo", "Descrição Ação", "Função PO", "SubFunção PO",
+            "Programa PO", "Cod PO", "Descrição PO", "PTRES", "PI",
+            "NE CCor", "Grupo Despesa", "Natureza Despesa Detalhada",
+            "Descrição Natureza", "Elemento Despesa",
+            "Descrição Elemento", "Fonte Recursos Detalhada",
+            "DESTAQUE RECEBIDO", "CREDITO DISPONIVEL",
+            "DESPESAS EMPENHADAS (CONTROLE EMPENHO)",
+            "DESPESAS PAGAs (CONTROLE EMPENHO)", "Total"
+        ]
+
+        df_2026.columns = novo_cabecalho
+
+        # 🔹 Abre o arquivo destino com openpyxl
+        wb = load_workbook(arquivo_destino)
+        ws = wb.active
+
+        # 🔥 Apaga tudo abaixo da linha fixa
+        max_linha = ws.max_row
+        if max_linha > linha_base_fixa:
+            ws.delete_rows(linha_base_fixa + 1, max_linha - linha_base_fixa)
+
+        # 🔹 Descobre a próxima linha vazia
+        start_row = ws.max_row + 1
+
+        # 🔹 Adiciona as linhas NOVAS (verticalmente!)
+        for _, row in df_2026.iterrows():
+            ws.append(row.tolist())
+
+        wb.save(arquivo_destino)
+
+        print("✔ Dados de 2026 atualizados com sucesso.")
+
+    except Exception as e:
+        print(f"❌ Erro ao atualizar crédito disponível: {e}")
                                      
 def main():
     
@@ -448,6 +478,7 @@ def main():
     arquivo_copia_pfs_simec = r'W:\B - TED\7 - AUTOMAÇÃO\Relatório Orçamentário e Financeiro\COPIA Pfs desde 2013.xlsx'
     arquivo_pfs_final = r'W:\B - TED\7 - AUTOMAÇÃO\Orçamentário e Financeiro desde 2013\Pfs desde 2013.xlsx'
     arquivo_credito_disponivel = r'W:\B - TED\7 - AUTOMAÇÃO\Relatório Orçamentário e Financeiro\Crédito Disponivel Geral.xlsx'
+    arquivo_credito_disponivel_2026 =r'W:\B - TED\7 - AUTOMAÇÃO\Relatório Orçamentário e Financeiro\Crédito Disponivel Geral 2026.xlsx'
     arquivo_credito_disponivel_copia = r'W:\B - TED\7 - AUTOMAÇÃO\Relatório Orçamentário e Financeiro\COPIA Crédito Disponivel Geral.xlsx'
     arquivo_credito_disponivel_final = r'W:\B - TED\7 - AUTOMAÇÃO\Orçamentário e Financeiro desde 2013\Crédito Disponivel Geral.xlsx'
     arquivo_painel_execução = r'W:\B - TED\7 - AUTOMAÇÃO\Relatório Orçamentário e Financeiro\Painel Execução.xlsx'
@@ -462,6 +493,7 @@ def main():
     
     print("Iniciando processamento aguarde...")
     
+    
     atualizar_arquivo_copia(arquivo_credito_disponivel, arquivo_credito_disponivel_copia)
     criar_tabela_dinamica(arquivo_origem_ted, arquivo_destino_ted)
     limpar_planilhaTEDS_e_filtrar_siafi(arquivo_destino_ted)
@@ -475,6 +507,9 @@ def main():
     apagar_segunda_e_ultima_linha(arquivo_ncs_simec_final)
     apagar_segunda_e_ultima_linha(arquivo_pfs_final)
     copiar_e_apagar_linhas(arquivo_credito_disponivel, arquivo_credito_disponivel_copia)
+    gc.collect()
+    time.sleep(2)
+    atualizar_credito_disponivel_por_linha_fixa(arquivo_credito_disponivel_2026, arquivo_credito_disponivel_copia)
     adicionar_coluna_tipo_resultado(arquivo_credito_disponivel_copia)
     adicionar_coluna_tipo_resultado_resumido(arquivo_credito_disponivel_copia)
     renomear_cabecalho_painel_execucao(arquivo_painel_execução, arquivo_painel_execução_copia)

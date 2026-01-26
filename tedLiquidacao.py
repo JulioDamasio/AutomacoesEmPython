@@ -1451,4 +1451,44 @@ def copiar_arquivo_liquidação2():
 # Chame a função para copiar o arquivo
 copiar_arquivo_liquidação2()
 
+def copiar_arquivo_liquidação3():
+    origem = r'W:\B - TED\7 - AUTOMAÇÃO\Liquidação\LIQUIDAÇÃO A REPASSAR.xlsx'
+    destino_base = r'W:\B - TED\7 - AUTOMAÇÃO\Liquidação' # Pasta base de destino
+
+    try:
+        # Obtém a data atual
+        data_atual = datetime.now()
+        
+        # Mapeia o número do mês para o nome do mês
+        meses = {
+            1: "01-Janeiro", 2: "02-Fevereiro", 3: "03-Março", 4: "04-Abril",
+            5: "05-Maio", 6: "06-Junho", 7: "07-Julho", 8: "08-Agosto",
+            9: "09-Setembro", 10: "10-Outubro", 11: "11-Novembro", 12: "12-Dezembro"
+        }
+        
+        # Obtém o número e o nome do mês atual
+        mes_atual_numero = data_atual.month
+        mes_atual_nome = meses[mes_atual_numero]
+
+        # Cria o caminho da pasta do mês
+        pasta_mes = os.path.join(destino_base, mes_atual_nome)
+
+        # Se a pasta do mês não existir, cria ela
+        if not os.path.exists(pasta_mes):
+            os.makedirs(pasta_mes)
+            print(f"Pasta do mês criada: {pasta_mes}")
+
+        # Define o nome do arquivo no formato "LIQUIDAÇÃO A REPASSAR DD-MM-AA.xlsx"
+        nome_arquivo = f"LIQUIDAÇÃO A REPASSAR {data_atual.strftime('%d-%m-%y')}.xlsx"
+        destino_final = os.path.join(pasta_mes, nome_arquivo)
+
+        # Copia o arquivo para o destino final
+        shutil.copy(origem, destino_final)
+        print(f'Arquivo copiado com sucesso para {destino_final}')
+    except Exception as e:
+        print(f'Ocorreu um erro ao copiar o arquivo: {e}')
+
+# Chame a função para copiar o arquivo
+copiar_arquivo_liquidação3()
+
 print('Processo Totalmente Finalizado. O seu arquivo final se encontra em "W:\B - TED\7 - AUTOMAÇÃO\Liquidação\LIQUIDAÇÃO A REPASSAR.xlsx"')

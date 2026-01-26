@@ -85,7 +85,7 @@ def integrar_rp_ted():
 
     # Se não existir o modelo, salva apenas o resultado normal
     data_hoje = datetime.now().strftime("%d-%m-%Y")
-    nome_final = f"TEDs_integradas_{data_hoje}.xlsx"
+    nome_final = f"TEDs na UG Intermediária {data_hoje}.xlsx"
     caminho_final = os.path.join(pasta_base, nome_final)
 
     if not os.path.exists(caminho_modelo):
