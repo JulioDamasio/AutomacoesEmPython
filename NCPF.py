@@ -16,7 +16,7 @@ def extract_ted_number(observation):
     return None
 
 def process_nc_report(selected_dates, output_path):
-    input_file_path = r"W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026 Devoluções.xlsx"
+    input_file_path = r"W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx"
     teds_file_path = r"W:\B - TED\7 - AUTOMAÇÃO\NC e PF\Teds da Administração Direta.xlsx"
     
     if not os.path.exists(input_file_path) or not os.path.exists(teds_file_path):
@@ -50,6 +50,12 @@ def process_nc_report(selected_dates, output_path):
         df_selecionado.update(df_sem_ted)
     
     df_dia_anterior_selecionado = df_selecionado.copy()
+
+    df_dia_anterior_selecionado = df_dia_anterior_selecionado[
+    ~df_dia_anterior_selecionado['RO - Evento']
+        .astype(str)
+        .str.contains(r'\b301206\b', regex=True, na=False)
+]
     
     df_dia_anterior_selecionado['TED'] = df_dia_anterior_selecionado.apply(
         lambda row: row['Doc - Observação'] if pd.isnull(row['TED']) else row['TED'],
@@ -61,6 +67,7 @@ def process_nc_report(selected_dates, output_path):
         'NC - PTRES', 'NC', 'NC - Plano Interno', 'NC - Natureza Despesa',
         'NC - Transferência', 'NC - Valor Linha', 'TED'
     ]
+    
     df_dia_anterior_selecionado = df_dia_anterior_selecionado[colunas_selecionadas]
     
     df_dia_anterior_selecionado['Emissão - Dia'] = df_dia_anterior_selecionado['Emissão - Dia'].dt.strftime('%d/%m/%Y')

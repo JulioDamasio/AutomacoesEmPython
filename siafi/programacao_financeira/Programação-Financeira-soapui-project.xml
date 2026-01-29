@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="9e332e02-a165-457f-a254-762b48cdacca" activeEnvironment="Default" name="Programação Financeira" resourceRoot="" soapui-version="5.9.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="94db82bf-eb50-4162-9283-7d3fcde0526d" wsaVersion="NONE" name="ManterProgramacaoFinanceiraServiceSoapBinding" type="wsdl" bindingName="{http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira}ManterProgramacaoFinanceiraServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?wsdl"><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ManterProgramacaoFinanceiraService" targetNamespace="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:pf="http://www.tesouro.gov.br/siafi/xsd/pf" xmlns:ns1="http://schemas.xmlsoap.org/wsdl/soap/http">
+<con:soapui-project id="9e332e02-a165-457f-a254-762b48cdacca" activeEnvironment="Default" name="Programação Financeira" resourceRoot="" soapui-version="5.9.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="94db82bf-eb50-4162-9283-7d3fcde0526d" wsaVersion="NONE" name="ManterProgramacaoFinanceiraServiceSoapBinding" type="wsdl" bindingName="{http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira}ManterProgramacaoFinanceiraServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?wsdl"><con:part><con:url>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ManterProgramacaoFinanceiraService" targetNamespace="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:pf="http://www.tesouro.gov.br/siafi/xsd/pf" xmlns:ns1="http://schemas.xmlsoap.org/wsdl/soap/http">
   <wsdl:types>
     <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bil="http://www.tesouro.gov.br/bilhetador/xsd/bilhetador">
       <xsd:import namespace="http://www.tesouro.gov.br/siafi/xsd/pf" schemaLocation="https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira?xsd=../programacaoFinanceira/NovoSIAFI-PF-ProgramacaoFinanceira.xsd"/>
@@ -1145,46 +1145,38 @@
          </programacaoFinanceira>\r
       </man:pfCancelarLiberacaoTransferenciaRecursoFinanceiro>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfCLT"/></con:call></con:operation><con:operation id="04b5435d-2e99-47e0-abb0-dd3d544af2bc" isOneWay="false" action="" name="pfConsultarProgramacaoFinanceira" bindingOperationName="pfConsultarProgramacaoFinanceira" type="Request-Response" outputName="pfConsultarPFResponse" inputName="pfConsultarPF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="78a2bf5b-865a-40fa-bd27-c0e93eaef192" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfCLT"/></con:call></con:operation><con:operation id="04b5435d-2e99-47e0-abb0-dd3d544af2bc" isOneWay="false" action="" name="pfConsultarProgramacaoFinanceira" bindingOperationName="pfConsultarProgramacaoFinanceira" type="Request-Response" outputName="pfConsultarPFResponse" inputName="pfConsultarPF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="78a2bf5b-865a-40fa-bd27-c0e93eaef192" name="Request 1" wssPasswordType="PasswordText"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://servicos-siafi.tesouro.gov.br/siafi2026/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
    <soapenv:Header>\r
       <man:cabecalhoSIAFI>\r
          <!--Optional:-->\r
-         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <nomeSistemaSIAFI>SIAFI2026</nomeSistemaSIAFI>\r
          <!--Optional:-->\r
-         <ug>?</ug>\r
+         <ug>152734</ug>\r
          <!--Optional:-->\r
          <bilhetador>\r
             <!--Optional:-->\r
-            <nonce>?</nonce>\r
+            <nonce>1</nonce>\r
          </bilhetador>\r
       </man:cabecalhoSIAFI>\r
    </soapenv:Header>\r
    <soapenv:Body>\r
       <man:pfConsultarProgramacaoFinanceira>\r
          <pfConsultarProgramacaoFinanceiraEntrada>\r
-            <acao>?</acao>\r
-            <dataEmissaoDe>?</dataEmissaoDe>\r
-            <dataEmissaoAte>?</dataEmissaoAte>\r
+            <acao>TRANSFERENCIA</acao>\r
+            <dataEmissaoDe>2026-01-20</dataEmissaoDe>\r
+            <dataEmissaoAte>2026-01-27</dataEmissaoAte>\r
             <!--Optional:-->\r
-            <mesProgramacao>?</mesProgramacao>\r
+            <mesProgramacao>JAN</mesProgramacao>\r
             <!--Zero or more repetitions:-->\r
-            <codUgEmit>?</codUgEmit>\r
-            <!--Zero or more repetitions:-->\r
-            <codUgFavorecida>?</codUgFavorecida>\r
+            <codUgEmit>152734</codUgEmit>\r
+           
+            <codFontRecur>1000A0008U</codFontRecur>\r
             <!--Optional:-->\r
-            <indrLimiteSaque>?</indrLimiteSaque>\r
-            <!--Optional:-->\r
-            <codSit>?</codSit>\r
-            <!--0 to 3 repetitions:-->\r
-            <codCtgoGasto>?</codCtgoGasto>\r
-            <!--Optional:-->\r
-            <codFontRecur>?</codFontRecur>\r
-            <!--Optional:-->\r
-            <codVinc>?</codVinc>\r
+            <codVinc>400</codVinc>\r
          </pfConsultarProgramacaoFinanceiraEntrada>\r
       </man:pfConsultarProgramacaoFinanceira>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfConsultarPF"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f8b67f15-825e-4497-9460-c963c6bd6b90" isOneWay="false" action="" name="pfDetalharProgramacaoFinanceira" bindingOperationName="pfDetalharProgramacaoFinanceira" type="Request-Response" outputName="pfDetalharPFResponse" inputName="pfDetalharPF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="23549b2a-7010-419d-9f35-e2ffc9fe6eea" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>10628518625</con:username><con:password>Bordpm$01</con:password><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfConsultarPF"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f8b67f15-825e-4497-9460-c963c6bd6b90" isOneWay="false" action="" name="pfDetalharProgramacaoFinanceira" bindingOperationName="pfDetalharProgramacaoFinanceira" type="Request-Response" outputName="pfDetalharPFResponse" inputName="pfDetalharPF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="23549b2a-7010-419d-9f35-e2ffc9fe6eea" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
    <soapenv:Header>\r
       <man:cabecalhoSIAFI>\r
          <!--Optional:-->\r
@@ -1205,7 +1197,7 @@
          <numeroDocumento>?</numeroDocumento>\r
       </man:pfDetalharProgramacaoFinanceira>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfDetalharPF"/></con:call></con:operation><con:operation id="9ecc6c95-c987-45d7-8e4d-1dd4ab05b8f3" isOneWay="false" action="" name="pfDevolverRecursoFinanceiro" bindingOperationName="pfDevolverRecursoFinanceiro" type="Request-Response" outputName="pfDRFResposta" inputName="pfDRF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c7226971-49a7-4970-958a-96d71df6d499" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira/IManterProgramacaoFinanceiraService/pfDetalharPF"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9ecc6c95-c987-45d7-8e4d-1dd4ab05b8f3" isOneWay="false" action="" name="pfDevolverRecursoFinanceiro" bindingOperationName="pfDevolverRecursoFinanceiro" type="Request-Response" outputName="pfDRFResposta" inputName="pfDRF" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c7226971-49a7-4970-958a-96d71df6d499" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/pf/manterProgramacaoFinanceira</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/pf/manterProgramacaoFinanceira">\r
    <soapenv:Header>\r
       <man:cabecalhoSIAFI>\r
          <!--Optional:-->\r

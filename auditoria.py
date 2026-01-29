@@ -636,6 +636,6 @@ def main():
 )
     
     copiar_dados_sem_cabecalho_para_sintese()
-    print("Processo finalizado com sucesso")
+    print("Processo finalizado com sucesso!")
 if __name__ == "__main__":
     main()        
