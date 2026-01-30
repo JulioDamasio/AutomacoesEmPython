@@ -509,6 +509,8 @@ def main():
     gc.collect()
     time.sleep(2)
     atualizar_credito_disponivel_por_linha_fixa(arquivo_credito_disponivel_2026, arquivo_credito_disponivel_copia)
+    gc.collect()
+    time.sleep(2)
     adicionar_coluna_tipo_resultado(arquivo_credito_disponivel_copia)
     adicionar_coluna_tipo_resultado_resumido(arquivo_credito_disponivel_copia)
     renomear_cabecalho_painel_execucao(arquivo_painel_execução, arquivo_painel_execução_copia)

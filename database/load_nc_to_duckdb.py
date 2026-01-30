@@ -2,6 +2,7 @@ import pandas as pd
 from pathlib import Path
 from connection import get_connection
 import string
+from datetime import date, timedelta
 
 
 def get_date_columns(con, table_name: str):
@@ -22,6 +23,20 @@ def get_decimal_columns(con, table_name: str):
           AND data_type LIKE 'DECIMAL%'
     """
     return [row[0] for row in con.execute(query).fetchall()]
+
+
+def datas_validas_para_carga():
+    hoje = date.today()
+    weekday = hoje.weekday()  # segunda=0, domingo=6
+
+    if weekday == 0:  # segunda-feira
+        return [
+            hoje - timedelta(days=1),  # domingo
+            hoje - timedelta(days=2),  # sábado
+            hoje - timedelta(days=3),  # sexta
+        ]
+    else:
+        return [hoje - timedelta(days=1)]
 
 
 def excel_to_table(
@@ -47,15 +62,15 @@ def excel_to_table(
     df.columns = list(column_map.values())
     df = df.dropna(how="all")
 
-    print(f"📊 Linhas válidas: {len(df)}")
+    print(f"📊 Linhas lidas: {len(df)}")
 
     con = get_connection()
 
-    # 🔎 Descobrir tipos da tabela
+    # 🔎 Tipos da tabela
     date_columns = get_date_columns(con, table_name)
     decimal_columns = get_decimal_columns(con, table_name)
 
-    # 📅 Converter colunas DATE
+    # 📅 Converter DATE
     for col in date_columns:
         if col in df.columns:
             df[col] = pd.to_datetime(
@@ -64,25 +79,38 @@ def excel_to_table(
                 errors="coerce"
             ).dt.date
 
-    # 💰 Converter colunas DECIMAL (pt-BR → SQL)
+    # 💰 Converter DECIMAL (pt-BR)
     for col in decimal_columns:
         if col in df.columns:
             df[col] = (
                 df[col]
                 .astype(str)
-                .str.replace(".", "", regex=False)   # remove milhar
-                .str.replace(",", ".", regex=False)  # decimal
-                .astype(float)
+                .str.replace(".", "", regex=False)
+                .str.replace(",", ".", regex=False)
             )
-    
-    # 🔄 Ajuste de sinal conforme RO - Evento
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    # 🔄 Ajuste de sinal por RO - Evento
     if "ro_evento" in df.columns and "valor_absoluto" in df.columns:
         df["valor_absoluto"] = df.apply(
             lambda row: abs(row["valor_absoluto"])
             if str(row["ro_evento"]) == "301206"
             else -abs(row["valor_absoluto"]),
             axis=1
-        )        
+        )
+
+    # 📆 Filtro por datas válidas
+    if "emissao_dia" in df.columns:
+        datas_validas = datas_validas_para_carga()
+        df = df[df["emissao_dia"].isin(datas_validas)]
+
+        print(f"📅 Datas válidas para carga: {datas_validas}")
+        print(f"📊 Linhas após filtro de data: {len(df)}")
+
+    if df.empty:
+        print("⚠️ Nenhuma linha válida para inserir. Encerrando.")
+        con.close()
+        return
 
     con.register("df_temp", df)
 

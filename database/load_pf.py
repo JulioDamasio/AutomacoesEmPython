@@ -7,7 +7,7 @@ excel_to_table(
         r"W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx"
     ),
     table_name="notas_de_financeiro",
-    data_start_row=2,
+    data_start_row=7,
     column_map={
         "A": "emissao_dia",
         "B": "pf_numero",
