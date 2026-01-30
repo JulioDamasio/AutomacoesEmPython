@@ -1,8 +1,11 @@
 from pathlib import Path
-from load_excel_to_duckdb import excel_to_table
+from load_pf_to_duckdb import excel_to_table
+
 
 excel_to_table(
-    excel_path=Path(r"W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PFs desde 2013 TG.xlsx"),
+    excel_path=Path(
+        r"W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx"
+    ),
     table_name="notas_de_financeiro",
     data_start_row=2,
     column_map={
@@ -14,7 +17,7 @@ excel_to_table(
         "F": "gestao_descricao",
         "G": "favorecido_doc",
         "H": "favorecido_doc_descricao",
-        "i": "pf_evento",
+        "I": "pf_evento",
         "J": "pf_evento_descricao",
         "K": "pf_categoria_gasto",
         "M": "fonte_recurso",

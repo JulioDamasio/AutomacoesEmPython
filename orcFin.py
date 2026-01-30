@@ -493,7 +493,6 @@ def main():
     
     print("Iniciando processamento aguarde...")
     
-    
     atualizar_arquivo_copia(arquivo_credito_disponivel, arquivo_credito_disponivel_copia)
     criar_tabela_dinamica(arquivo_origem_ted, arquivo_destino_ted)
     limpar_planilhaTEDS_e_filtrar_siafi(arquivo_destino_ted)
