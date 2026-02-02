@@ -5,7 +5,8 @@ import tkinter as tk
 from tkcalendar import Calendar
 from tkinter import filedialog
 from tkinter import messagebox
-from NCPF import process_nc_report, process_pf_legado_report
+from database.reports.nc_report import generate_nc_report
+from database.reports.pf_report import generate_pf_legado_report
 
 # Lista para armazenar as datas selecionadas
 selected_dates = []
@@ -43,8 +44,8 @@ def generate_reports():
         return
 
     for selected_date in selected_dates:
-        process_nc_report([selected_date], output_path)
-        process_pf_legado_report([selected_date], output_path)
+        generate_nc_report([selected_date], output_path)
+        generate_pf_legado_report([selected_date], output_path)
     
     messagebox.showinfo("Relatórios Gerados", "Relatórios gerados com sucesso!")
 

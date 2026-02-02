@@ -125,7 +125,7 @@ def process_nc_report(selected_dates, output_path):
 
     return df_dia_anterior_selecionado  # Retornar o DataFrame para uso na função de PF
 
-def process_pf_legado_report(selected_dates, output_path):
+def process_pf_legado_report2(selected_dates, output_path):
     input_file_path_pf = r"W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - EXERCÍCIO 2026.xlsx"
     
     if not os.path.exists(input_file_path_pf):
