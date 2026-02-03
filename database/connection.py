@@ -7,4 +7,5 @@ DB_PATH = BASE_DIR / "cgsodb.duckdb"
 
 def get_connection():
     return duckdb.connect(str(DB_PATH))
-            
+
+print("Conexão executada com sucesso!")            
