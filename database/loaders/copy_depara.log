@@ -1,0 +1,74 @@
+2026-02-03 16:51:47,904 [ERROR] Erro geral: 'NoneType' object has no attribute 'strip'
+2026-02-03 16:56:37,610 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-03 16:56:38,141 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-03 16:56:38,152 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-03 16:56:38,235 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-03 16:56:38,245 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-03 16:56:38,386 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-03 16:56:38,396 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx'
+2026-02-03 16:56:38,546 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx'
+2026-02-03 16:56:38,588 [INFO] Concluído.
+2026-02-04 09:26:12,103 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-04 09:26:16,841 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-04 09:26:18,990 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx' (sem mudanças)
+2026-02-04 09:26:19,343 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-04 09:26:20,734 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-04 09:26:20,772 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx' (sem mudanças)
+2026-02-04 09:26:20,783 [INFO] Concluído.
+2026-02-04 09:30:03,545 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-04 09:30:04,329 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-04 09:30:04,388 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-04 09:30:05,052 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-04 09:30:05,192 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-04 09:30:06,219 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-04 09:30:06,458 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx'
+2026-02-04 09:30:07,371 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx'
+2026-02-04 09:30:07,387 [INFO] Concluído.
+2026-02-05 08:22:13,237 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx' (sem mudanças)
+2026-02-05 08:22:13,278 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx' (sem mudanças)
+2026-02-05 08:22:13,292 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx' (sem mudanças)
+2026-02-05 08:22:13,311 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx' (sem mudanças)
+2026-02-05 08:22:13,315 [INFO] Concluído.
+2026-02-05 08:27:12,923 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-05 08:27:13,039 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-05 08:27:13,056 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-05 08:27:13,139 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-05 08:27:13,189 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-05 08:27:13,372 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-05 08:27:13,407 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx'
+2026-02-05 08:27:13,556 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx'
+2026-02-05 08:27:13,573 [INFO] Concluído.
+2026-02-06 07:40:18,598 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 07:40:18,721 [WARNING] Falha ao copiar 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx' (tentativa 1/3): [Errno 13] Permission denied: 'W:\\B - TED\\7 - AUTOMAÇÃO\\NC e PF\\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 07:40:23,772 [WARNING] Falha ao copiar 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx' (tentativa 2/3): [Errno 13] Permission denied: 'W:\\B - TED\\7 - AUTOMAÇÃO\\NC e PF\\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 07:40:28,803 [WARNING] Falha ao copiar 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx' (tentativa 3/3): [Errno 13] Permission denied: 'W:\\B - TED\\7 - AUTOMAÇÃO\\NC e PF\\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 07:40:28,803 [ERROR] ERRO FINAL: não foi possível copiar 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx' após 3 tentativas.
+2026-02-06 07:40:28,816 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 07:40:28,888 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 07:40:28,888 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-06 07:40:28,967 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-06 07:40:28,967 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx'
+2026-02-06 07:40:29,039 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx'
+2026-02-06 07:40:29,039 [INFO] Concluído.
+2026-02-06 08:07:18,839 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 08:07:18,926 [WARNING] Falha ao copiar 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx' (tentativa 1/3): [Errno 13] Permission denied: 'W:\\B - TED\\7 - AUTOMAÇÃO\\NC e PF\\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 08:07:24,014 [WARNING] Falha ao copiar 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx' (tentativa 2/3): [Errno 13] Permission denied: 'W:\\B - TED\\7 - AUTOMAÇÃO\\NC e PF\\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 08:07:29,068 [WARNING] Falha ao copiar 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx' (tentativa 3/3): [Errno 13] Permission denied: 'W:\\B - TED\\7 - AUTOMAÇÃO\\NC e PF\\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-06 08:07:29,070 [ERROR] ERRO FINAL: não foi possível copiar 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx' após 3 tentativas.
+2026-02-06 08:07:29,079 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx' (sem mudanças)
+2026-02-06 08:07:29,093 [INFO] Alterado/diferente: copiando 'PF Legado - Exercício 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-06 08:07:29,245 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\PF Legado - Exercício 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
+2026-02-06 08:07:29,257 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx' (sem mudanças)
+2026-02-06 08:07:29,261 [INFO] Concluído.
+2026-02-09 08:31:19,014 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-09 08:31:19,258 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-09 08:31:19,278 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx' (sem mudanças)
+2026-02-09 08:31:19,292 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx' (sem mudanças)
+2026-02-09 08:31:19,310 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx' (sem mudanças)
+2026-02-09 08:31:19,318 [INFO] Concluído.
+2026-02-09 08:31:48,426 [INFO] Alterado/diferente: copiando 'NC funcionando - EXERCÍCIO 2026.xlsx' para 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-09 08:31:48,659 [INFO] OK: Copiado 'C:\Users\juliodamasio\OneDrive - MEC-Ministério da Educação\Banco de Dados MEC\NC funcionando - EXERCÍCIO 2026.xlsx' → 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx'
+2026-02-09 08:31:48,714 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Orçamentário\NC funcionando - EXERCÍCIO 2026.xlsx' (sem mudanças)
+2026-02-09 08:31:48,758 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx' (sem mudanças)
+2026-02-09 08:31:48,821 [INFO] Igual: pulando 'W:\B - TED\7 - AUTOMAÇÃO\Banco de Dados\Financeiro\PF Legado - Exercício 2026.xlsx' (sem mudanças)
+2026-02-09 08:31:48,825 [INFO] Concluído.

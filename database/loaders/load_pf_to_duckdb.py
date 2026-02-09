@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-from connection import get_connection
+from database.connection import get_connection
 import string
 from datetime import date, timedelta
 

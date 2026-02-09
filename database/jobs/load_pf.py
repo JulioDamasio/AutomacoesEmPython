@@ -1,5 +1,5 @@
 from pathlib import Path
-from load_pf_to_duckdb import excel_to_table
+from database.loaders.load_pf_to_duckdb import excel_to_table
 
 
 excel_to_table(
