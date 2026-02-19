@@ -64,7 +64,7 @@ def copy_with_retry(src: Path, dst: Path, retries: int, delay: int):
         try:
             dst.parent.mkdir(parents=True, exist_ok=True)
             # copy2 preserva timestamps; Force overwrite
-            shutil.copy2(src, dst)
+            shutil.copy(src, dst)
             logging.info(f"OK: Copiado '{src}' → '{dst}'")
             return True
         except Exception as e:

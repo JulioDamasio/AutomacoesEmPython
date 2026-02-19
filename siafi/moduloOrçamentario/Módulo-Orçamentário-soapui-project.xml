@@ -2225,7 +2225,7 @@
          </orcNCAnulacaoDescentralizacaoDados>\r
       </man:orcIncluirNCAnulacaoDescentralizacao>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCAnulacaoDescentralizacao"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9c400f47-a231-46c3-afaf-7bd479644fc1" isOneWay="false" action="" name="orcIncluirNCDescentralizacao" bindingOperationName="orcIncluirNCDescentralizacao" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCDescentralizacao" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="70538262-350e-43c4-9849-66c723ff47e6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCAnulacaoDescentralizacao"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9c400f47-a231-46c3-afaf-7bd479644fc1" isOneWay="false" action="" name="orcIncluirNCDescentralizacao" bindingOperationName="orcIncluirNCDescentralizacao" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCDescentralizacao" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="70538262-350e-43c4-9849-66c723ff47e6" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
    <soapenv:Header>\r
       <man:cabecalhoSIAFI>\r
          <!--Optional:-->\r
@@ -2311,25 +2311,25 @@
          </orcNCDescentralizacaoDados>\r
       </man:orcIncluirNCDescentralizacao>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCDescentralizacao"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1410f87d-c415-4d68-9a05-ba43ed611adc" isOneWay="false" action="" name="orcIncluirNCDetalhamento" bindingOperationName="orcIncluirNCDetalhamento" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCDetalhamento" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6c1c00f7-c819-4762-8f10-31ad5066a4fe" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCDescentralizacao"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1410f87d-c415-4d68-9a05-ba43ed611adc" isOneWay="false" action="" name="orcIncluirNCDetalhamento" bindingOperationName="orcIncluirNCDetalhamento" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCDetalhamento" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6c1c00f7-c819-4762-8f10-31ad5066a4fe" name="Request 1" wssPasswordType="PasswordText"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2026he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
    <soapenv:Header>\r
       <man:cabecalhoSIAFI>\r
          <!--Optional:-->\r
-         <nomeSistemaSIAFI>?</nomeSistemaSIAFI>\r
+         <nomeSistemaSIAFI>SIAFI2026HE</nomeSistemaSIAFI>\r
          <!--Optional:-->\r
-         <ug>?</ug>\r
+         <ug>152734</ug>\r
          <!--Optional:-->\r
          <bilhetador>\r
             <!--Optional:-->\r
-            <nonce>?</nonce>\r
+            <nonce>1234</nonce>\r
          </bilhetador>\r
       </man:cabecalhoSIAFI>\r
    </soapenv:Header>\r
    <soapenv:Body>\r
       <man:orcIncluirNCDetalhamento>\r
          <orcNCDetalhamentoDados>\r
-            <ugEmitente>?</ugEmitente>\r
-            <anoNotaCredito>?</anoNotaCredito>\r
+            <ugEmitente>152734</ugEmitente>\r
+            <anoNotaCredito>2026</anoNotaCredito>\r
             <!--Optional:-->\r
             <numNotaCredito>?</numNotaCredito>\r
             <dtEmis>?</dtEmis>\r
@@ -2392,7 +2392,7 @@
          </orcNCDetalhamentoDados>\r
       </man:orcIncluirNCDetalhamento>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCDetalhamento"/></con:call></con:operation><con:operation id="fa22ca85-3c10-4a5a-9cc4-8409ccea4a26" isOneWay="false" action="" name="orcIncluirNCDevolucaoDescentralizacao" bindingOperationName="orcIncluirNCDevolucaoDescentralizacao" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCDevolucaoDescentralizacao" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="edf73a1a-3480-4577-83f4-2c97c5b193d3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>10628518625</con:username><con:password>Bordpm$01</con:password><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario/IManterOrcamentarioService/orcIncluirNCDetalhamento"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="fa22ca85-3c10-4a5a-9cc4-8409ccea4a26" isOneWay="false" action="" name="orcIncluirNCDevolucaoDescentralizacao" bindingOperationName="orcIncluirNCDevolucaoDescentralizacao" type="Request-Response" outputName="orcIncluirNotaCreditoResponse" inputName="orcIncluirNCDevolucaoDescentralizacao" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="edf73a1a-3480-4577-83f4-2c97c5b193d3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://homextservicos-siafi.tesouro.gov.br/siafi2025he/services/orcamentario/manterOrcamentario</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://www.tesouro.gov.br/siafi/services/orcamentario/manterOrcamentario">\r
    <soapenv:Header>\r
       <man:cabecalhoSIAFI>\r
          <!--Optional:-->\r
