@@ -12,7 +12,7 @@ def install_libraries():
         messagebox.showerror("Erro na Instalação", f"Erro: {str(e)}")
 
 def generate_nc_pf_reports(): subprocess.Popen(["python", "calendarNCPF.py"])
-def generate_liquidação_report(): subprocess.Popen(["python", "tedLiquidacao.py"])
+def generate_liquidação_report(): subprocess.Popen(["python", "tedLiquidacao2.py"])
 def generate_painel_reports(): subprocess.Popen(["python", "painel.py"])
 def generate_XML(): subprocess.Popen(["python", "formXML.py"])
 def generate_macro(): subprocess.Popen(["python", "macroNL.py"])

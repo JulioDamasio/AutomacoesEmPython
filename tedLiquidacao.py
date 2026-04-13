@@ -45,13 +45,24 @@ def formatar_contabil(value):
     return None
 
 def formatar_data(data):
-    if pd.notnull(data):
-        # Verifique se a data não é '-' antes de tentar formatá-la
-        if data != '-':
-            # Converte a data para o formato desejado (DD/MM/AAAA)
-            data_formatada = datetime.strptime(str(data), '%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y')
-            return data_formatada
-    return None
+    if pd.isnull(data):
+        return None
+
+    data = str(data).strip()
+
+    # ignora valor vazio ou hífen
+    if data == '-' or data == '':
+        return None
+
+    # tenta os formatos possíveis
+    for formato in ('%Y-%m-%d %H:%M:%S', '%d/%m/%Y'):
+        try:
+            return datetime.strptime(data, formato).strftime('%d/%m/%Y')
+        except ValueError:
+            continue
+
+    # se não conseguir converter, retorna o valor original ou None
+    return data
 
 def substituir_valores_grupo_despesa(value):
     if pd.notnull(value):
@@ -1029,52 +1040,47 @@ preencherCondicional(arquivo_principal)
 print('buscando os dados da planilha NCPF...')
 
 def processar_e_copiar_ncpf(file_path):
-    # Crie um novo arquivo "COPIA NCPF.xlsx" no caminho desejado
     copia_ncpf_path = r'W:\B - TED\7 - AUTOMAÇÃO\Liquidação\COPIA NCPF.xlsx'
+
     wb_copia = openpyxl.Workbook()
     sheet_copia = wb_copia.active
 
-    # Copie os dados da planilha original para a nova planilha
     wb_ncpf = openpyxl.load_workbook(file_path, data_only=True)
     sheet_ncpf = wb_ncpf.active
 
+    # Copiar os dados
     for row in sheet_ncpf.iter_rows(values_only=True):
         sheet_copia.append(row)
 
-    # Encontre as células mescladas e as desmescla
-    for merged_cell in sheet_copia.merged_cells.ranges:
-        for row in merged_cell:
-            sheet_copia.unmerge_cells(merged_cell.coord)
+    # Desmesclar células, se houver
+    merged_ranges = list(sheet_copia.merged_cells.ranges)
+    for merged_cell in merged_ranges:
+        sheet_copia.unmerge_cells(str(merged_cell))
 
-    # Quebra de Texto (somente se o valor for uma string)
+    # Tratar quebras de texto sem transformar em lista
     for row in sheet_copia.iter_rows(min_row=2, max_row=sheet_copia.max_row):
         for cell in row:
             if isinstance(cell.value, str):
-                cell.value = cell.value.split('\n')
+                cell.value = cell.value.replace('\n', ' ').strip()
 
-    # Deleta a segunda linha
-    sheet_copia.delete_rows(2)
+    # Cabeçalho da nova coluna
+    sheet_copia['D1'] = 'NC-PF'
 
-    # Adicionar cabeçalho NC-PF
-    header_row = sheet_copia[1]
-    header_cell = 'D1'
-    sheet_copia[header_cell] = "NC-PF"
-
-    # Faz o cálculo das colunas Valor descentralizado - Valor Repassado e preenche a coluna NC-PF
+    # Calcular NC-PF
     for row in sheet_copia.iter_rows(min_row=2, max_row=sheet_copia.max_row):
-        total_descentralizado = row[1].value
-        total_repassado = row[2].value
+        total_descentralizado = row[1].value  # coluna B
+        total_repassado = row[2].value        # coluna C
 
         if total_descentralizado is not None and total_repassado is not None:
-            nc_pf = total_descentralizado - total_repassado
-            cell_nc_pf = 'D' + str(row[0].row)
-            sheet_copia[cell_nc_pf] = nc_pf
-        
-    # Salve as alterações no arquivo copiado no caminho desejado
+            try:
+                nc_pf = float(total_descentralizado) - float(total_repassado)
+                sheet_copia[f'D{row[0].row}'] = nc_pf
+            except (ValueError, TypeError):
+                sheet_copia[f'D{row[0].row}'] = None
+
     wb_copia.save(copia_ncpf_path)
     wb_copia.close()
-
-    # Agora você tem uma cópia do arquivo "NCPF.xlsx" processado e pronto para uso.
+    wb_ncpf.close()
 
 # Caminho do arquivo principal
 arquivo_ncpf = r'W:\B - TED\7 - AUTOMAÇÃO\Liquidação\NCPF.xlsx'

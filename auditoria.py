@@ -34,7 +34,7 @@ def remover_linhas_indesejadas(caminho_arquivo):
         df = df[df['Estado Atual'].astype(str).str.strip().str.lower() != 'arquivado']
 
         # Remover linhas onde "SIAFI" está vazio, "-", ou é NaN
-        df = df[~(df['SIAFI'].isna() | df['SIAFI'].astype(str).str.strip().isin(['', '-']))]
+        df = df[~(df['SIAFI'].isna() | df['SIAFI'].astype(str).str.strip().isin(['', '-',"'-"]))]
 
         # Salvar o arquivo sobrescrevendo o original
         df.to_excel(caminho_arquivo, index=False)
@@ -127,7 +127,7 @@ def preencher_coluna_ano(caminho_arquivo, coluna_data='Data da última tramitaç
             raise ValueError(f"A coluna '{coluna_data}' não foi encontrada no arquivo.")
         
         # Garantir que a coluna está em formato datetime
-        df[coluna_data] = pd.to_datetime(df[coluna_data], errors='coerce')
+        df[coluna_data] = pd.to_datetime(df[coluna_data], errors='coerce', dayfirst=True)
 
         # Criar nova coluna com o ano
         df[coluna_ano] = df[coluna_data].dt.year
@@ -139,9 +139,6 @@ def preencher_coluna_ano(caminho_arquivo, coluna_data='Data da última tramitaç
     
     except Exception as e:
         print(f"Erro ao preencher a coluna '{coluna_ano}': {e}")        
-
-import pandas as pd
-from datetime import datetime
 
 def preencher_situacao_rco(caminho_arquivo,
                            coluna_fim_vigencia='Fim da Vigência',
@@ -157,7 +154,7 @@ def preencher_situacao_rco(caminho_arquivo,
                 raise ValueError(f"A coluna '{col}' não foi encontrada no arquivo.")
 
         # Converter coluna de data
-        df[coluna_fim_vigencia] = pd.to_datetime(df[coluna_fim_vigencia], errors='coerce')
+        df[coluna_fim_vigencia] = pd.to_datetime(df[coluna_fim_vigencia], errors='coerce', dayfirst=True)
 
         # Criar coluna Situação RCO se não existir
         if coluna_situacao not in df.columns:
@@ -210,7 +207,7 @@ def preencher_situacao_300_dias(caminho_arquivo):
         df = pd.read_excel(caminho_arquivo)
 
         # Garante que as datas estejam em datetime
-        df['Fim da Vigência'] = pd.to_datetime(df['Fim da Vigência'], errors='coerce')
+        df['Fim da Vigência'] = pd.to_datetime(df['Fim da Vigência'], errors='coerce', dayfirst=True)
 
         # Cria a nova coluna inicialmente vazia
         df['Situação 300 dias'] = ''
@@ -323,29 +320,29 @@ def preencher_coluna_auditoria(arquivo_excel, nome_coluna_resultado='Auditoria')
     except Exception as e:
         print(f"❌ Erro ao preencher a coluna '{nome_coluna_resultado}': {e}")
         
-# def preencher_vencidos_ate_fev_2024(arquivo_excel, nome_coluna_data='Fim da Vigência', nome_coluna_resultado='Vencidos até Fev/2024'):
-    #try:
-        # Carregar o DataFrame
-        #df = pd.read_excel(arquivo_excel)
+def preencher_vencidos_ate_fev_2024(arquivo_excel, nome_coluna_data='Fim da Vigência', nome_coluna_resultado='Vencidos até Fev/2024'):
+    try:
+        #Carregar o DataFrame
+        df = pd.read_excel(arquivo_excel)
 
-        # Converter a coluna de datas para datetime
-        #df[nome_coluna_data] = pd.to_datetime(df[nome_coluna_data], errors='coerce')
+        #Converter a coluna de datas para datetime
+        df[nome_coluna_data] = pd.to_datetime(df[nome_coluna_data], errors='coerce')
 
-        # Definir a data limite (sem horário)
-        #data_limite = pd.to_datetime('2024-02-29').date()
+         #Definir a data limite (sem horário)
+        data_limite = pd.to_datetime('2024-02-29').date()
 
-        # Aplicar apenas a data (ignorar hora)
-        #df[nome_coluna_resultado] = df[nome_coluna_data].dt.date.apply(
-            #lambda x: 'Sim' if pd.notnull(x) and x <= data_limite else 'Não'
-        #)
+         #Aplicar apenas a data (ignorar hora)
+        df[nome_coluna_resultado] = df[nome_coluna_data].dt.date.apply(
+            lambda x: 'Sim' if pd.notnull(x) and x <= data_limite else 'Não'
+        )
 
-        # Salvar de volta no mesmo arquivo
-        #with pd.ExcelWriter(arquivo_excel, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
-            #df.to_excel(writer, index=False)
+         #Salvar de volta no mesmo arquivo
+        with pd.ExcelWriter(arquivo_excel, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
+            df.to_excel(writer, index=False)
 
-        #print(f"✅ Coluna '{nome_coluna_resultado}' preenchida corretamente.")
-    #except Exception as e:
-        #print(f"❌ Ocorreu um erro ao preencher a coluna '{nome_coluna_resultado}': {e}")
+        print(f"✅ Coluna '{nome_coluna_resultado}' preenchida corretamente.")
+    except Exception as e:
+        print(f"❌ Ocorreu um erro ao preencher a coluna '{nome_coluna_resultado}': {e}")
 
 
 def substituir_codigos_concedente(arquivo_excel, nome_coluna='Descentralizadora', nome_aba=0):

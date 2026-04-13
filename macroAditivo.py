@@ -124,14 +124,8 @@ def formatar_valores_arquivo(caminho_arquivo):
         # Converte a coluna 'Valor Orçamentário (R$)' para float antes de formatar
         df['Valor Orçamentário (R$)'] = df['Valor Orçamentário (R$)'].replace('[,.]', '', regex=True).astype(float)
         
-         # Converte a coluna 'Valor Autorizado (R$)' para float antes de formatar
-        df['Valor Autorizado (R$)'] = df['Valor Autorizado (R$)'].replace('[,.]', '', regex=True).astype(float)
-        
         # Formata os valores da coluna 'Valor Orçamentário (R$)' para exibir duas casas decimais
         df['Valor Orçamentário (R$)'] = df['Valor Orçamentário (R$)'].map('{:,.2f}'.format)
-        
-        # Formata os valores da coluna 'Valor Autorizado (R$)' para exibir duas casas decimais
-        df['Valor Autorizado (R$)'] = df['Valor Autorizado (R$)'].map('{:,.2f}'.format)
         
         # Salva as modificações de volta no arquivo
         df.to_excel(caminho_arquivo, index=False)
@@ -148,9 +142,6 @@ def remover_pontos_virgulas(caminho_arquivo):
         
         # Remove pontos e vírgulas da coluna 'Valor Orçamentário (R$)'
         df['Valor Orçamentário (R$)'] = df['Valor Orçamentário (R$)'].replace('[,.]', '', regex=True)
-        
-        # Remove pontos e vírgulas da coluna 'Valor Autorizado (R$)'
-        df['Valor Autorizado (R$)'] = df['Valor Autorizado (R$)'].replace('[,.]', '', regex=True)
         
         # Salva as modificações de volta no arquivo
         df.to_excel(caminho_arquivo, index=False)

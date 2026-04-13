@@ -25,9 +25,9 @@ def generate_nc_report(selected_dates, output_path: Path):
             natureza_despeza,
             siafi,
             ABS(valor_absoluto) AS valor_absoluto,
-            regexp_extract(
+                regexp_extract(
                 upper(observacao),
-                'TED[: ]+([0-9]{{4,6}})',
+                'TED\\s*(?:[:\\-]|N\\s*[º°O]|N[º°]|NO)?\\s*([0-9]{{4,6}})',
                 1
             ) AS ted
         FROM notas_credito
@@ -60,6 +60,7 @@ def generate_nc_report(selected_dates, output_path: Path):
         'valor_absoluto': 'NC - Valor Linha',
         'ted': 'TED'
     }, inplace=True)
+    df['TED'] = df['TED'].astype('string').str.replace(r'\.0$', '', regex=True)
 
     colunas_finais = [
         'Emissão - Dia',

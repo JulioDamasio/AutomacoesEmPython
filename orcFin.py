@@ -10,8 +10,8 @@ import gc, time
 
 def copiar_arquivos(arquivo_origem, destino):
     origens = [
-        r'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2024.xlsx',
-        r'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2024.xlsx'
+        r'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\NC funcionando - EXERCÍCIO 2026.xlsx',
+        r'W:\B - TED\7 - AUTOMAÇÃO\NC e PF\PF Legado - Exercício 2026.xlsx'
     ]
     for origem in origens:
         caminho, nome_arquivo = os.path.split(origem)
@@ -154,7 +154,7 @@ def copiar_e_sobrescrever_arquivo(arquivo_destino_ted, arquivo_ted_final):
     except Exception as e:
         print(f"Ocorreu um erro: {e}")
 
-def inserir_sinal_negativo(arquivo_origem, arquivo_destino):
+def inserir_sinal_negativo(arquivo_origem,arquivo_destino):
     # Ler o arquivo Excel
     df = pd.read_excel(arquivo_origem)
 
@@ -162,8 +162,17 @@ def inserir_sinal_negativo(arquivo_origem, arquivo_destino):
     linhas_filtradas = df[df['Operação'] == '( - )']
 
     # Colocar um sinal de negativo "-" na frente do valor na coluna "Valor Total NC"
-    linhas_filtradas['Valor Total NC'] = -linhas_filtradas['Valor Total NC']
-
+    # Converter para número antes
+    df['Valor Total NC'] = pd.to_numeric(
+    df['Valor Total NC']
+    .astype(str)
+    .str.replace('R$', '', regex=False)
+    .str.replace('.', '', regex=False)
+    .str.replace(',', '.', regex=False),
+    errors='coerce'
+)
+# Aplicar o negativo
+    df.loc[df['Operação'] == '( - )', 'Valor Total NC'] *= -1
     # Substituir as linhas filtradas no DataFrame original
     df.loc[df['Operação'] == '( - )', 'Valor Total NC'] = linhas_filtradas['Valor Total NC']
 
@@ -178,7 +187,15 @@ def inserir_sinal_negativo_pf(arquivo_origem, arquivo_destino):
     linhas_filtradas = df[df['Operação'] == '(-)']
 
     # Colocar um sinal de negativo "-" na frente do valor na coluna "Valor Total NC"
-    linhas_filtradas['Valor Doc. PF (R$)'] = -linhas_filtradas['Valor Doc. PF (R$)']
+    df['Valor Doc. PF (R$)'] = pd.to_numeric(
+    df['Valor Doc. PF (R$)']
+    .astype(str)
+    .str.replace('R$', '', regex=False)
+    .str.replace('.', '', regex=False)
+    .str.replace(',', '.', regex=False),
+    errors='coerce'
+)
+    df.loc[df['Operação'] == '(-)', 'Valor Doc. PF (R$)'] *= -1
 
     # Substituir as linhas filtradas no DataFrame original
     df.loc[df['Operação'] == '(-)', 'Valor Doc. PF (R$)'] = linhas_filtradas['Valor Doc. PF (R$)']

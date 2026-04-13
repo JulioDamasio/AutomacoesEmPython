@@ -261,7 +261,14 @@ def processar_arquivo(nome_arquivo):
         print('Excluindo as ações indesejadas...')
         
         # Aplicar formatação numérica à coluna "Total Repassado" (formato brasileiro)
-        df['Total Repassado'] = df['Total Repassado'].apply(lambda x:'{:,.2f}'.format(float(x)).replace(",", "_").replace(".", ",").replace("_", "."))
+        df['Total Repassado'] = (
+    df['Total Repassado']
+    .astype(str)
+    .str.replace('.', '', regex=False)   # remove milhar
+    .str.replace(',', '.', regex=False)  # troca vírgula por ponto
+)
+
+        df['Total Repassado'] = pd.to_numeric(df['Total Repassado'], errors='coerce')
 
         # Salvar o DataFrame de volta no arquivo Excel
         df.to_excel(nome_arquivo, index=False)
@@ -395,38 +402,43 @@ def processarBaseCota():
     termos_a_excluir = ["Comprovado no SIAFI.", "Arquivados", "Termo Finalizado"]
     df_base_cota = df_base_cota[~df_base_cota["Estado Atual"].str.lower().isin(termos_a_excluir)]
 
-    # Criar a coluna "DATA HOJE" no DataFrame e preenchê-la com a data atual no formato DD/MM/AAAA
+    # Criar coluna DATA HOJE
     df_base_cota["DATA HOJE"] = datetime.now().strftime("%d/%m/%Y")
 
-    # Formatar a coluna "Fim da Vigência" para o formato de data brasileiro (DD/MM/AAAA)
-    df_base_cota["Fim da Vigência"] = pd.to_datetime(df_base_cota["Fim da Vigência"], errors="coerce", format="%Y-%m-%d").dt.strftime("%d/%m/%Y")
-    
-    # Carregar a segunda aba (Relatório Entrega RCO)
-    df_relatorio_rco = pd.read_excel(r'W:\B - TED\7 - AUTOMAÇÃO\Painel\Relatório de Entrega do RCO.xlsx')
+    # Converter data
+    df_base_cota["Fim da Vigência"] = pd.to_datetime(
+    df_base_cota["Fim da Vigência"],
+    format="%d/%m/%Y",
+    errors="coerce"
+)
+    # Calcular colunas
+    df_base_cota[["Situação Vigência", "DIAS VENCIDOS"]] = df_base_cota.apply(
+        calcular_situacao_vigencia, axis=1, result_type="expand"
+    )
 
-    # Calcular a coluna "Situação Vigência" e "DIAS VENCIDOS" com base nos dias vencidos
-    df_base_cota[["Situação Vigência", "DIAS VENCIDOS"]] = df_base_cota.apply(calcular_situacao_vigencia, axis=1, result_type="expand")
-    
-    # Converter a coluna "DIAS VENCIDOS" para string
     df_base_cota["DIAS VENCIDOS"] = df_base_cota["DIAS VENCIDOS"].astype(str)
-    
-    # Aplicar a função ao DataFrame e criar a coluna "EQUIVALÊNCIA < 120 DIAS"
-    df_base_cota["EQUIVALÊNCIA < 120 DIAS"] = df_base_cota.apply(calcular_equivalencia_menos_120_dias, axis=1)
-    
-    # Copiar os dados da primeira planilha para a nova aba
+
+    df_base_cota["EQUIVALÊNCIA < 120 DIAS"] = df_base_cota.apply(
+        calcular_equivalencia_menos_120_dias, axis=1
+    )
+
+    # Criar Excel novo
+    wb = Workbook()
+    ws = wb.active
+
+    # Copiar dados (LOOP CORRETO)
     for r_idx, row in enumerate(dataframe_to_rows(df_base_cota, index=False, header=True), start=1):
         for c_idx, value in enumerate(row, start=1):
             ws.cell(row=r_idx, column=c_idx, value=value)
 
-    # Chamar a função para adicionar o Relatório de Entrega do RCO como uma nova aba
+    # 👇 AGORA FORA DO LOOP
     copiar_dados_relatorio_entrega_rco(wb)
-    
-    # Chamar a função para adicionar as colunas e fazer as alterações
     adicionar_colunas_relatorio_entrega_rco(wb)
-    
-    # Salvar o novo arquivo Excel com as novas abas
+
+    # Salvar UMA VEZ só
     wb.save(new_file_path)
 
+    print("Base Cota processada com sucesso!")
 # Chame a função para executar o código
 processarBaseCota()
 
@@ -689,7 +701,6 @@ def criar_colunas_personalizadas(file_path):
 caminho_arquivo_copia = r'W:\B - TED\7 - AUTOMAÇÃO\Painel\COPIA Base Cota.xlsx'
 criar_colunas_personalizadas(caminho_arquivo_copia)
 
-
 def formatar_coluna_ptres(file_path):
     # Abra o arquivo Excel
     wb = openpyxl.load_workbook(file_path)
@@ -899,7 +910,6 @@ print('Preenchendo Ação...')
 # Chame a função para preencher a coluna "AÇÃO - Código + Nome Reduzido"
 preencher_acao_nome_reduzido(caminho_arquivo_cota)
 
-
 def apagar_linhas(base_cota_file):
     # Abra o arquivo Excel
     wb = openpyxl.load_workbook(base_cota_file)
@@ -936,7 +946,6 @@ caminho_arquivo_cota = r'W:\B - TED\7 - AUTOMAÇÃO\Painel\COPIA Base Cota.xlsx'
 apagar_linhas(caminho_arquivo_cota)
 
 print('Criando tabela dinamica...')
-
 
 def criar_tabela_dinamica(base_cota_file):
     # Ler o arquivo Excel
@@ -979,7 +988,6 @@ caminho_arquivo_cota = r'W:\B - TED\7 - AUTOMAÇÃO\Painel\COPIA Base Cota.xlsx'
 criar_tabela_dinamica(caminho_arquivo_cota)
 
 print('Gerando os arquivos finais...')
-
 
 def copiar_arquivo_base_cota():
     origem = r'W:\B - TED\7 - AUTOMAÇÃO\Painel\COPIA Base Cota.xlsx'

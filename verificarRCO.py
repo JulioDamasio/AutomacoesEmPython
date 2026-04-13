@@ -56,7 +56,7 @@ def apagar_linhas_siafi_vazio(arquivo):
     df = pd.read_excel(arquivo)
 
     # Filtrar as linhas onde a coluna "SIAFI" não é "-" e não está vazia
-    df_filtrado = df[~df['SIAFI'].isin(['-', ''])]
+    df_filtrado = df[~df['SIAFI'].isin(["'-",'-', ''])]
 
     # Salvar o arquivo atualizado
     df_filtrado.to_excel(arquivo, index=False)          
